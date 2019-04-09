@@ -3,4 +3,7 @@
 ---
 fixtures:
   forge_modules:
-#     stdlib: "puppetlabs/stdlib"
+    registry: "puppetlabs/registry"
+    local_security_policy: "ayohrling/local_security_policy"
+    noop: "trlinkin/noop"
+    #    stdlib: "puppetlabs/stdlib"

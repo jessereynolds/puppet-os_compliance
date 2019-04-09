@@ -5,6 +5,9 @@ require 'spec_helper_local' if File.file?(File.join(File.dirname(__FILE__), 'spe
 
 include RspecPuppetFacts
 
+Puppet::Util::Log.level = :debug
+Puppet::Util::Log.newdestination(:console)
+
 default_facts = {
   puppetversion: Puppet.version,
   facterversion: Facter.version,

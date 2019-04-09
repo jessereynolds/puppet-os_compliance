@@ -1,1 +1,23 @@
 ---
+os_compliance::apply::rulesets:
+  - 'cis-l1-ms-windows-2012r2-2_3_0'
+
+os_compliance::ruleset::cis-l1-ms-windows-2012r2-2_3_0:
+  cis_1_1_1: enforce
+  cis_1_1_2: monitor
+  cis_1_1_3: enforce
+
+
+os_compliance::ruleset::cis-l1-ms-windows-2008r2-3.1.0:
+  cis_1_1_1: monitor
+  cis_1_1_2: monitor
+  cis_1_1_3: monitor
+
+os_compliance::rule_alias::cis_1_1_1: account_policies::password_policies::password_history
+os_compliance::rule_alias::cis_1_1_2: account_policies::password_policies::maximum_password_age
+os_compliance::rule_alias::cis_1_1_3: account_policies::password_policies::minimum_password_age
+
+os_compliance::rules::account_policies::password_policies::password_history::policy_value: 24
+os_compliance::rules::account_policies::password_policies::password_history::options:
+  foo: bar
+
