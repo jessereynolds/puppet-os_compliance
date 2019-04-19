@@ -79,7 +79,7 @@
     One'"
   type: ensure_policy_value
   policy: Access Credential Manager as a trusted caller
-  comparitor: 
+  comparitor: No One
   operator: "=="
   and_not_zero: false
   comparitor_loose: No One
@@ -95,7 +95,7 @@
   title: "(L1) Ensure 'Act as part of the operating system' is set to 'No One'"
   type: ensure_policy_value
   policy: Act as part of the operating system
-  comparitor: 
+  comparitor: No One
   operator: "=="
   and_not_zero: false
   comparitor_loose: No One
@@ -104,7 +104,7 @@
     LOCAL SERVICE, NETWORK SERVICE'"
   type: ensure_policy_value
   policy: Adjust memory quotas for a process
-  comparitor: 
+  comparitor: Administrators, LOCAL SERVICE, NETWORK SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE
@@ -136,7 +136,7 @@
   title: "(L1) Ensure 'Change the system time' is set to 'Administrators, LOCAL SERVICE'"
   type: ensure_policy_value
   policy: Change the system time
-  comparitor: 
+  comparitor: Administrators, LOCAL SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE
@@ -144,7 +144,7 @@
   title: "(L1) Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE'"
   type: ensure_policy_value
   policy: Change the time zone
-  comparitor: 
+  comparitor: Administrators, LOCAL SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE
@@ -160,7 +160,7 @@
   title: "(L1) Ensure 'Create a token object' is set to 'No One'"
   type: ensure_policy_value
   policy: Create a token object
-  comparitor: 
+  comparitor: No One
   operator: "=="
   and_not_zero: false
   comparitor_loose: No One
@@ -169,7 +169,7 @@
     NETWORK SERVICE, SERVICE'"
   type: ensure_policy_value
   policy: Create global objects
-  comparitor: 
+  comparitor: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
@@ -177,7 +177,7 @@
   title: "(L1) Ensure 'Create permanent shared objects' is set to 'No One'"
   type: ensure_policy_value
   policy: Create permanent shared objects
-  comparitor: 
+  comparitor: No One
   operator: "=="
   and_not_zero: false
   comparitor_loose: No One
@@ -258,7 +258,7 @@
     SERVICE'"
   type: ensure_policy_value
   policy: Generate security audits
-  comparitor: 
+  comparitor: LOCAL SERVICE, NETWORK SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: LOCAL SERVICE, NETWORK SERVICE
@@ -290,7 +290,7 @@
   title: "(L1) Ensure 'Lock pages in memory' is set to 'No One'"
   type: ensure_policy_value
   policy: Lock pages in memory
-  comparitor: 
+  comparitor: No One
   operator: "=="
   and_not_zero: false
   comparitor_loose: No One
@@ -306,7 +306,7 @@
   title: "(L1) Ensure 'Modify an object label' is set to 'No One'"
   type: ensure_policy_value
   policy: Modify an object label
-  comparitor: 
+  comparitor: No One
   operator: "=="
   and_not_zero: false
   comparitor_loose: No One
@@ -338,7 +338,7 @@
   title: "(L1) Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\\WdiServiceHost'"
   type: ensure_policy_value
   policy: Profile system performance
-  comparitor: 
+  comparitor: Administrators, NT SERVICE\WdiServiceHost
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, NT SERVICE\WdiServiceHost
@@ -347,7 +347,7 @@
     SERVICE'"
   type: ensure_policy_value
   policy: Replace a process level token
-  comparitor: 
+  comparitor: LOCAL SERVICE, NETWORK SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: LOCAL SERVICE, NETWORK SERVICE
@@ -389,7 +389,7 @@
     add or log on with Microsoft accounts'"
   type: ensure_policy_value
   policy: 'Accounts: Block Microsoft accounts'
-  comparitor: 
+  comparitor: Users can't add or log on with Microsoft accounts
   operator: "=="
   and_not_zero: false
   comparitor_loose: Users can't add or log on with Microsoft accounts
@@ -566,7 +566,7 @@
     is set to 'between 5 and 14 days'"
   type: ensure_policy_value
   policy: 'Interactive logon: Prompt user to change password before expiration'
-  comparitor: 
+  comparitor: between 5 and 14 days
   operator: "=="
   and_not_zero: false
   comparitor_loose: between 5 and 14 days
@@ -584,7 +584,7 @@
     Workstation' or higher"
   type: ensure_policy_value
   policy: 'Interactive logon: Smart card removal behavior'
-  comparitor: 
+  comparitor: Lock Workstation
   operator: "=="
   and_not_zero: false
   comparitor_loose: Lock Workstation
@@ -658,7 +658,7 @@
     level' is set to 'Accept if provided by client' or higher (MS only)"
   type: ensure_policy_value
   policy: 'Microsoft network server: Server SPN target name validation level'
-  comparitor: 
+  comparitor: Accept if provided by client
   operator: "=="
   and_not_zero: false
   comparitor_loose: Accept if provided by client
@@ -737,7 +737,7 @@
     set to 'None'"
   type: ensure_policy_value
   policy: 'Network access: Shares that can be accessed anonymously'
-  comparitor: 
+  comparitor: None
   operator: "=="
   and_not_zero: false
   comparitor_loose: None
@@ -746,7 +746,7 @@
     is set to 'Classic - local users authenticate as themselves'"
   type: ensure_policy_value
   policy: 'Network access: Sharing and security model for local accounts'
-  comparitor: 
+  comparitor: Classic - local users authenticate as themselves
   operator: "=="
   and_not_zero: false
   comparitor_loose: Classic - local users authenticate as themselves
@@ -783,7 +783,7 @@
     is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types'"
   type: ensure_policy_value
   policy: 'Network security: Configure encryption types allowed for Kerberos'
-  comparitor: 
+  comparitor: AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types
   operator: "=="
   and_not_zero: false
   comparitor_loose: AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types
@@ -811,7 +811,7 @@
     to 'Send NTLMv2 response only. Refuse LM & NTLM'"
   type: ensure_policy_value
   policy: 'Network security: LAN Manager authentication level'
-  comparitor: 
+  comparitor: Send NTLMv2 response only. Refuse LM & NTLM
   operator: "=="
   and_not_zero: false
   comparitor_loose: Send NTLMv2 response only. Refuse LM & NTLM
@@ -820,7 +820,7 @@
     to 'Negotiate signing' or higher"
   type: ensure_policy_value
   policy: 'Network security: LDAP client signing requirements'
-  comparitor: 
+  comparitor: Negotiate signing
   operator: "=="
   and_not_zero: false
   comparitor_loose: Negotiate signing
@@ -831,7 +831,7 @@
   type: ensure_policy_value
   policy: 'Network security: Minimum session security for NTLM SSP based (including
     secure RPC) clients'
-  comparitor: 
+  comparitor: Require NTLMv2 session security, Require 128-bit encryption
   operator: "=="
   and_not_zero: false
   comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
@@ -842,7 +842,7 @@
   type: ensure_policy_value
   policy: 'Network security: Minimum session security for NTLM SSP based (including
     secure RPC) servers'
-  comparitor: 
+  comparitor: Require NTLMv2 session security, Require 128-bit encryption
   operator: "=="
   and_not_zero: false
   comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
@@ -901,7 +901,7 @@
   type: ensure_policy_value
   policy: 'User Account Control: Behavior of the elevation prompt for administrators
     in Admin Approval Mode'
-  comparitor: 
+  comparitor: Prompt for consent on the secure desktop
   operator: "=="
   and_not_zero: false
   comparitor_loose: Prompt for consent on the secure desktop
@@ -910,7 +910,7 @@
     standard users' is set to 'Automatically deny elevation requests'"
   type: ensure_policy_value
   policy: 'User Account Control: Behavior of the elevation prompt for standard users'
-  comparitor: 
+  comparitor: Automatically deny elevation requests
   operator: "=="
   and_not_zero: false
   comparitor_loose: Automatically deny elevation requests
@@ -965,7 +965,7 @@
   title: "(L1) Ensure 'Windows Firewall: Domain: Firewall state' is set to 'On (recommended)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Firewall state'
-  comparitor: 
+  comparitor: On (recommended)
   operator: "=="
   and_not_zero: false
   comparitor_loose: On (recommended)
@@ -974,7 +974,7 @@
     (default)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Inbound connections'
-  comparitor: 
+  comparitor: Block (default)
   operator: "=="
   and_not_zero: false
   comparitor_loose: Block (default)
@@ -983,7 +983,7 @@
     (default)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Outbound connections'
-  comparitor: 
+  comparitor: Allow (default)
   operator: "=="
   and_not_zero: false
   comparitor_loose: Allow (default)
@@ -992,7 +992,7 @@
     is set to 'No'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Settings: Display a notification'
-  comparitor: 
+  comparitor: 'No'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'No'
@@ -1000,7 +1000,7 @@
   title: "(L1) Ensure 'Windows Firewall: Domain: Logging: Name' is set to '%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Logging: Name'
-  comparitor: 
+  comparitor: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log"
   operator: "=="
   and_not_zero: false
   comparitor_loose: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log"
@@ -1009,7 +1009,7 @@
     to '16,384 KB or greater'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Logging: Size limit (KB)'
-  comparitor: 
+  comparitor: 16,384 KB or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 16,384 KB or greater
@@ -1018,7 +1018,7 @@
     set to 'Yes'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Logging: Log dropped packets'
-  comparitor: 
+  comparitor: 'Yes'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Yes'
@@ -1027,7 +1027,7 @@
     is set to 'Yes'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Logging: Log successful connections'
-  comparitor: 
+  comparitor: 'Yes'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Yes'
@@ -1035,7 +1035,7 @@
   title: "(L1) Ensure 'Windows Firewall: Private: Firewall state' is set to 'On (recommended)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Firewall state'
-  comparitor: 
+  comparitor: On (recommended)
   operator: "=="
   and_not_zero: false
   comparitor_loose: On (recommended)
@@ -1044,7 +1044,7 @@
     (default)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Inbound connections'
-  comparitor: 
+  comparitor: Block (default)
   operator: "=="
   and_not_zero: false
   comparitor_loose: Block (default)
@@ -1053,7 +1053,7 @@
     'Allow (default)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Outbound connections'
-  comparitor: 
+  comparitor: Allow (default)
   operator: "=="
   and_not_zero: false
   comparitor_loose: Allow (default)
@@ -1062,7 +1062,7 @@
     is set to 'No'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Settings: Display a notification'
-  comparitor: 
+  comparitor: 'No'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'No'
@@ -1070,7 +1070,7 @@
   title: "(L1) Ensure 'Windows Firewall: Private: Logging: Name' is set to '%SYSTEMROOT%\\System32\\logfiles\\firewall\\privatefw.log'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Logging: Name'
-  comparitor: 
+  comparitor: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\privatefw.log"
   operator: "=="
   and_not_zero: false
   comparitor_loose: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\privatefw.log"
@@ -1079,7 +1079,7 @@
     to '16,384 KB or greater'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Logging: Size limit (KB)'
-  comparitor: 
+  comparitor: 16,384 KB or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 16,384 KB or greater
@@ -1088,7 +1088,7 @@
     set to 'Yes'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Logging: Log dropped packets'
-  comparitor: 
+  comparitor: 'Yes'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Yes'
@@ -1097,7 +1097,7 @@
     is set to 'Yes'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Logging: Log successful connections'
-  comparitor: 
+  comparitor: 'Yes'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Yes'
@@ -1105,7 +1105,7 @@
   title: "(L1) Ensure 'Windows Firewall: Public: Firewall state' is set to 'On (recommended)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Firewall state'
-  comparitor: 
+  comparitor: On (recommended)
   operator: "=="
   and_not_zero: false
   comparitor_loose: On (recommended)
@@ -1114,7 +1114,7 @@
     (default)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Inbound connections'
-  comparitor: 
+  comparitor: Block (default)
   operator: "=="
   and_not_zero: false
   comparitor_loose: Block (default)
@@ -1123,7 +1123,7 @@
     (default)'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Outbound connections'
-  comparitor: 
+  comparitor: Allow (default)
   operator: "=="
   and_not_zero: false
   comparitor_loose: Allow (default)
@@ -1132,7 +1132,7 @@
     is set to 'No'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Settings: Display a notification'
-  comparitor: 
+  comparitor: 'No'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'No'
@@ -1141,7 +1141,7 @@
     is set to 'No'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Settings: Apply local firewall rules'
-  comparitor: 
+  comparitor: 'No'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'No'
@@ -1150,7 +1150,7 @@
     security rules' is set to 'No'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Settings: Apply local connection security rules'
-  comparitor: 
+  comparitor: 'No'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'No'
@@ -1158,7 +1158,7 @@
   title: "(L1) Ensure 'Windows Firewall: Public: Logging: Name' is set to '%SYSTEMROOT%\\System32\\logfiles\\firewall\\publicfw.log'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Logging: Name'
-  comparitor: 
+  comparitor: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\publicfw.log"
   operator: "=="
   and_not_zero: false
   comparitor_loose: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\publicfw.log"
@@ -1167,7 +1167,7 @@
     to '16,384 KB or greater'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Logging: Size limit (KB)'
-  comparitor: 
+  comparitor: 16,384 KB or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 16,384 KB or greater
@@ -1176,7 +1176,7 @@
     set to 'Yes'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Logging: Log dropped packets'
-  comparitor: 
+  comparitor: 'Yes'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Yes'
@@ -1185,7 +1185,7 @@
     is set to 'Yes'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Logging: Log successful connections'
-  comparitor: 
+  comparitor: 'Yes'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Yes'
@@ -1193,7 +1193,7 @@
   title: "(L1) Ensure 'Audit Credential Validation' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Credential Validation
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1202,7 +1202,7 @@
     Failure'"
   type: ensure_policy_value
   policy: Audit Application Group Management
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1210,7 +1210,7 @@
   title: "(L1) Ensure 'Audit Computer Account Management' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Computer Account Management
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1219,7 +1219,7 @@
     Failure'"
   type: ensure_policy_value
   policy: Audit Other Account Management Events
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1227,7 +1227,7 @@
   title: "(L1) Ensure 'Audit Security Group Management' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Security Group Management
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1235,7 +1235,7 @@
   title: "(L1) Ensure 'Audit User Account Management' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit User Account Management
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1243,7 +1243,7 @@
   title: "(L1) Ensure 'Audit Process Creation' is set to 'Success'"
   type: ensure_policy_value
   policy: Audit Process Creation
-  comparitor: 
+  comparitor: Success
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success
@@ -1251,7 +1251,7 @@
   title: "(L1) Ensure 'Audit Account Lockout' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Account Lockout
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1259,7 +1259,7 @@
   title: "(L1) Ensure 'Audit Logoff' is set to 'Success'"
   type: ensure_policy_value
   policy: Audit Logoff
-  comparitor: 
+  comparitor: Success
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success
@@ -1267,7 +1267,7 @@
   title: "(L1) Ensure 'Audit Logon' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Logon
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1275,7 +1275,7 @@
   title: "(L1) Ensure 'Audit Other Logon/Logoff Events' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Other Logon/Logoff Events
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1283,7 +1283,7 @@
   title: "(L1) Ensure 'Audit Special Logon' is set to 'Success'"
   type: ensure_policy_value
   policy: Audit Special Logon
-  comparitor: 
+  comparitor: Success
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success
@@ -1291,7 +1291,7 @@
   title: "(L1) Ensure 'Audit Other Object Access Events' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Other Object Access Events
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1299,7 +1299,7 @@
   title: "(L1) Ensure 'Audit Removable Storage' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Removable Storage
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1307,7 +1307,7 @@
   title: "(L1) Ensure 'Audit Audit Policy Change' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Audit Policy Change
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1315,7 +1315,7 @@
   title: "(L1) Ensure 'Audit Authentication Policy Change' is set to 'Success'"
   type: ensure_policy_value
   policy: Audit Authentication Policy Change
-  comparitor: 
+  comparitor: Success
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success
@@ -1323,7 +1323,7 @@
   title: "(L1) Ensure 'Audit Authorization Policy Change' is set to 'Success'"
   type: ensure_policy_value
   policy: Audit Authorization Policy Change
-  comparitor: 
+  comparitor: Success
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success
@@ -1331,7 +1331,7 @@
   title: "(L1) Ensure 'Audit Sensitive Privilege Use' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Sensitive Privilege Use
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1339,7 +1339,7 @@
   title: "(L1) Ensure 'Audit IPsec Driver' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit IPsec Driver
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1347,7 +1347,7 @@
   title: "(L1) Ensure 'Audit Other System Events' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Other System Events
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1355,7 +1355,7 @@
   title: "(L1) Ensure 'Audit Security State Change' is set to 'Success'"
   type: ensure_policy_value
   policy: Audit Security State Change
-  comparitor: 
+  comparitor: Success
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success
@@ -1363,7 +1363,7 @@
   title: "(L1) Ensure 'Audit Security System Extension' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit Security System Extension
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1371,7 +1371,7 @@
   title: "(L1) Ensure 'Audit System Integrity' is set to 'Success and Failure'"
   type: ensure_policy_value
   policy: Audit System Integrity
-  comparitor: 
+  comparitor: Success and Failure
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
@@ -1422,7 +1422,7 @@
     Large letters + small letters + numbers + special characters' (MS only)"
   type: ensure_policy_value
   policy: 'Password Settings: Password Complexity'
-  comparitor: 
+  comparitor: 'Enabled: Large letters + small letters + numbers + special characters'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Large letters + small letters + numbers + special characters'
@@ -1431,7 +1431,7 @@
     or more' (MS only)"
   type: ensure_policy_value
   policy: 'Password Settings: Password Length'
-  comparitor: 
+  comparitor: 'Enabled: 15 or more'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 15 or more'
@@ -1440,7 +1440,7 @@
     30 or fewer' (MS only)"
   type: ensure_policy_value
   policy: 'Password Settings: Password Age (Days)'
-  comparitor: 
+  comparitor: 'Enabled: 30 or fewer'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 30 or fewer'
@@ -1458,7 +1458,7 @@
     driver'"
   type: ensure_policy_value
   policy: Configure SMB v1 client driver
-  comparitor: 
+  comparitor: 'Enabled: Disable driver'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Disable driver'
@@ -1503,7 +1503,7 @@
   type: ensure_policy_value
   policy: 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection level (protects
     against packet spoofing)'
-  comparitor: 
+  comparitor: 'Enabled: Highest protection, source routing is completely disabled'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Highest protection, source routing is completely disabled'
@@ -1514,7 +1514,7 @@
   type: ensure_policy_value
   policy: 'MSS: (DisableIPSourceRouting) IP source routing protection level (protects
     against packet spoofing)'
-  comparitor: 
+  comparitor: 'Enabled: Highest protection, source routing is completely disabled'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Highest protection, source routing is completely disabled'
@@ -1554,7 +1554,7 @@
   type: ensure_policy_value
   policy: 'MSS: (ScreenSaverGracePeriod) The time in seconds before the screen saver
     grace period expires (0 recommended)'
-  comparitor: 
+  comparitor: 'Enabled: 5 or fewer seconds'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 5 or fewer seconds'
@@ -1564,7 +1564,7 @@
   type: ensure_policy_value
   policy: 'MSS: (WarningLevel) Percentage threshold for the security event log at
     which the system will generate a warning'
-  comparitor: 
+  comparitor: 'Enabled: 90% or less'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 90% or less'
@@ -1610,7 +1610,8 @@
     Authentication" and "Require Integrity" set for all NETLOGON and SYSVOL shares'
   type: ensure_policy_value
   policy: Hardened UNC Paths
-  comparitor: 
+  comparitor: Enabled, with "Require Mutual Authentication" and "Require Integrity"
+    set for all NETLOGON and SYSVOL shares
   operator: "=="
   and_not_zero: false
   comparitor_loose: Enabled, with "Require Mutual Authentication" and "Require Integrity"
@@ -1648,7 +1649,7 @@
     Good, unknown and bad but critical'"
   type: ensure_policy_value
   policy: Boot-Start Driver Initialization Policy
-  comparitor: 
+  comparitor: 'Enabled: Good, unknown and bad but critical'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Good, unknown and bad but critical'
@@ -1658,7 +1659,7 @@
   type: ensure_policy_value
   policy: 'Configure registry policy processing: Do not apply during periodic background
     processing'
-  comparitor: 
+  comparitor: 'Enabled: FALSE'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: FALSE'
@@ -1668,7 +1669,7 @@
   type: ensure_policy_value
   policy: 'Configure registry policy processing: Process even if the Group Policy
     objects have not changed'
-  comparitor: 
+  comparitor: 'Enabled: TRUE'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: TRUE'
@@ -1820,7 +1821,7 @@
     not execute any autorun commands'"
   type: ensure_policy_value
   policy: Set the default behavior for AutoRun
-  comparitor: 
+  comparitor: 'Enabled: Do not execute any autorun commands'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Do not execute any autorun commands'
@@ -1828,7 +1829,7 @@
   title: "(L1) Ensure 'Turn off Autoplay' is set to 'Enabled: All drives'"
   type: ensure_policy_value
   policy: Turn off Autoplay
-  comparitor: 
+  comparitor: 'Enabled: All drives'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: All drives'
@@ -1893,7 +1894,7 @@
   title: "(L1) Ensure 'System ASLR' is set to 'Enabled: Application Opt-In'"
   type: ensure_policy_value
   policy: System ASLR
-  comparitor: 
+  comparitor: 'Enabled: Application Opt-In'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Application Opt-In'
@@ -1901,7 +1902,7 @@
   title: "(L1) Ensure 'System DEP' is set to 'Enabled: Application Opt-Out'"
   type: ensure_policy_value
   policy: System DEP
-  comparitor: 
+  comparitor: 'Enabled: Application Opt-Out'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Application Opt-Out'
@@ -1909,7 +1910,7 @@
   title: "(L1) Ensure 'System SEHOP' is set to 'Enabled: Application Opt-Out'"
   type: ensure_policy_value
   policy: System SEHOP
-  comparitor: 
+  comparitor: 'Enabled: Application Opt-Out'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Application Opt-Out'
@@ -1928,7 +1929,7 @@
     to 'Enabled: 32,768 or greater'"
   type: ensure_policy_value
   policy: 'Application: Specify the maximum log file size (KB)'
-  comparitor: 
+  comparitor: 'Enabled: 32,768 or greater'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 32,768 or greater'
@@ -1947,7 +1948,7 @@
     'Enabled: 196,608 or greater'"
   type: ensure_policy_value
   policy: 'Security: Specify the maximum log file size (KB)'
-  comparitor: 
+  comparitor: 'Enabled: 196,608 or greater'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 196,608 or greater'
@@ -1966,7 +1967,7 @@
     32,768 or greater'"
   type: ensure_policy_value
   policy: 'Setup: Specify the maximum log file size (KB)'
-  comparitor: 
+  comparitor: 'Enabled: 32,768 or greater'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 32,768 or greater'
@@ -1985,7 +1986,7 @@
     32,768 or greater'"
   type: ensure_policy_value
   policy: 'System: Specify the maximum log file size (KB)'
-  comparitor: 
+  comparitor: 'Enabled: 32,768 or greater'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 32,768 or greater'
@@ -2068,7 +2069,7 @@
     High Level'"
   type: ensure_policy_value
   policy: Set client connection encryption level
-  comparitor: 
+  comparitor: 'Enabled: High Level'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: High Level'
@@ -2150,7 +2151,7 @@
     Warn and prevent bypass'"
   type: ensure_policy_value
   policy: Configure Windows Defender SmartScreen
-  comparitor: 
+  comparitor: 'Enabled: Warn and prevent bypass'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Warn and prevent bypass'
@@ -2168,7 +2169,7 @@
     sending data'"
   type: ensure_policy_value
   policy: Configure Default consent
-  comparitor: 
+  comparitor: 'Enabled: Always ask before sending data'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Always ask before sending data'
@@ -2274,7 +2275,7 @@
     to '0 - Every day'"
   type: ensure_policy_value
   policy: 'Configure Automatic Updates: Scheduled install day'
-  comparitor: 
+  comparitor: 0 - Every day
   operator: "=="
   and_not_zero: false
   comparitor_loose: 0 - Every day
@@ -2300,7 +2301,7 @@
     is set to 'Enabled: scrnsave.scr'"
   type: ensure_policy_value
   policy: 'Force specific screen saver: Screen saver executable name'
-  comparitor: 
+  comparitor: 'Enabled: scrnsave.scr'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: scrnsave.scr'
@@ -2317,7 +2318,7 @@
     but not 0'"
   type: ensure_policy_value
   policy: Screen saver timeout
-  comparitor: 
+  comparitor: 'Enabled: 900 seconds or fewer, but not 0'
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 900 seconds or fewer, but not 0'
