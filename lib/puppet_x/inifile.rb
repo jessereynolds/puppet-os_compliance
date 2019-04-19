@@ -4,7 +4,7 @@
 # and write INI files.
 
 # Grabbed from ayohrling/local_security_policy Puppet module - thank you
-# Reproducing rather than requiring the inifile gem to reduce dependencies
+# Reproducing rather than requiring the Inifile gem to reduce dependencies
 
 module PuppetX
   class Inifile
@@ -24,13 +24,13 @@ module PuppetX
     #
     # Examples
     #
-    #   IniFile.load('file.ini')
-    #   #=> IniFile instance
+    #   Inifile.load('file.ini')
+    #   #=> Inifile instance
     #
-    #   IniFile.load('does/not/exist.ini')
+    #   Inifile.load('does/not/exist.ini')
     #   #=> nil
     #
-    # Returns an IniFile instance or nil if the file could not be opened.
+    # Returns an Inifile instance or nil if the file could not be opened.
     def self.load( filename, opts = {} )
       return unless File.file? filename
       new(opts.merge(:filename => filename))
@@ -58,17 +58,17 @@ module PuppetX
     #
     # Examples
     #
-    #   IniFile.new
-    #   #=> an empty IniFile instance
+    #   Inifile.new
+    #   #=> an empty Inifile instance
     #
-    #   IniFile.new( :content => "[global]\nfoo=bar" )
-    #   #=> an IniFile instance
+    #   Inifile.new( :content => "[global]\nfoo=bar" )
+    #   #=> an Inifile instance
     #
-    #   IniFile.new( :filename => 'file.ini', :encoding => 'UTF-8' )
-    #   #=> an IniFile instance
+    #   Inifile.new( :filename => 'file.ini', :encoding => 'UTF-8' )
+    #   #=> an Inifile instance
     #
-    #   IniFile.new( :content => "[global]\nfoo=bar", :comment => '#' )
-    #   #=> an IniFile instance
+    #   Inifile.new( :content => "[global]\nfoo=bar", :comment => '#' )
+    #   #=> an Inifile instance
     #
     def initialize( opts = {} )
       @comment  = opts.fetch(:comment, ';#')
@@ -86,7 +86,7 @@ module PuppetX
       end
     end
   
-    # Public: Write the contents of this IniFile to the file system. If left
+    # Public: Write the contents of this Inifile to the file system. If left
     # unspecified, the currently configured filename and encoding will be used.
     # Otherwise the filename and encoding can be specified in the options hash.
     #
@@ -94,7 +94,7 @@ module PuppetX
     #        :filename - The filename as a String
     #        :encoding - The encoding as a String
     #
-    # Returns this IniFile instance.
+    # Returns this Inifile instance.
     def write( opts = {} )
       filename = opts.fetch(:filename, @filename)
       encoding = opts.fetch(:encoding, @encoding)
@@ -113,7 +113,7 @@ module PuppetX
     alias :save :write
   
     # Public: Read the contents of the INI file from the file system and replace
-    # and set the state of this IniFile instance. If left unspecified the
+    # and set the state of this Inifile instance. If left unspecified the
     # currently configured filename and encoding will be used when reading from
     # the file system. Otherwise the filename and encoding can be specified in
     # the options hash.
@@ -122,7 +122,7 @@ module PuppetX
     #        :filename - The filename as a String
     #        :encoding - The encoding as a String
     #
-    # Returns this IniFile instance if the read was successful; nil is returned
+    # Returns this Inifile instance if the read was successful; nil is returned
     # if the file could not be read.
     def read( opts = {} )
       filename = opts.fetch(:filename, @filename)
@@ -135,7 +135,7 @@ module PuppetX
     end
     alias :restore :read
   
-    # Returns this IniFile converted to a String.
+    # Returns this Inifile converted to a String.
     def to_s
       s = []
       @ini.each do |section,hash|
@@ -146,34 +146,34 @@ module PuppetX
       s.join("\n")
     end
   
-    # Returns this IniFile converted to a Hash.
+    # Returns this Inifile converted to a Hash.
     def to_h
       @ini.dup
     end
   
-    # Public: Creates a copy of this inifile with the entries from the
+    # Public: Creates a copy of this Inifile with the entries from the
     # other_inifile merged into the copy.
     #
-    # other - The other IniFile.
+    # other - The other Inifile.
     #
-    # Returns a new IniFile.
+    # Returns a new Inifile.
     def merge( other )
       self.dup.merge!(other)
     end
   
-    # Public: Merges other_inifile into this inifile, overwriting existing
-    # entries. Useful for having a system inifile with user overridable settings
+    # Public: Merges other_inifile into this Inifile, overwriting existing
+    # entries. Useful for having a system Inifile with user overridable settings
     # elsewhere.
     #
-    # other - The other IniFile.
+    # other - The other Inifile.
     #
-    # Returns this IniFile.
+    # Returns this Inifile.
     def merge!( other )
       return self if other.nil?
   
       my_keys = @ini.keys
       other_keys = case other
-        when IniFile
+        when Inifile
           other.instance_variable_get(:@ini).keys
         when Hash
           other.keys
@@ -214,11 +214,11 @@ module PuppetX
     #
     # Examples
     #
-    #   inifile.each do |section, parameter, value|
+    #   Inifile.each do |section, parameter, value|
     #     puts "#{parameter} = #{value} [in section - #{section}]"
     #   end
     #
-    # Returns this IniFile.
+    # Returns this Inifile.
     def each
       return unless block_given?
       @ini.each do |section,hash|
@@ -236,18 +236,18 @@ module PuppetX
     #
     # Examples
     #
-    #   inifile.each_section do |section|
+    #   Inifile.each_section do |section|
     #     puts section.inspect
     #   end
     #
-    # Returns this IniFile.
+    # Returns this Inifile.
     def each_section
       return unless block_given?
       @ini.each_key {|section| yield section}
       self
     end
   
-    # Public: Remove a section identified by name from the IniFile.
+    # Public: Remove a section identified by name from the Inifile.
     #
     # section - The section name as a String.
     #
@@ -263,7 +263,7 @@ module PuppetX
     #
     # Examples
     #
-    #   inifile['global']
+    #   Inifile['global']
     #   #=> global section Hash
     #
     # Returns the Hash of parameter/value pairs for this section.
@@ -279,7 +279,7 @@ module PuppetX
     #
     # Examples
     #
-    #   inifile['tenderloin'] = { 'gritty' => 'yes' }
+    #   Inifile['tenderloin'] = { 'gritty' => 'yes' }
     #   #=> { 'gritty' => 'yes' }
     #
     # Returns the value Hash.
@@ -294,7 +294,7 @@ module PuppetX
     #
     # Examples
     #
-    #   inifile.match(/^tree_/)
+    #   Inifile.match(/^tree_/)
     #   #=> Hash of matching sections
     #
     # Return a Hash containing only those sections that match the given regular
@@ -303,24 +303,24 @@ module PuppetX
       @ini.dup.delete_if { |section, _| section !~ regex }
     end
   
-    # Public: Check to see if the IniFile contains the section.
+    # Public: Check to see if the Inifile contains the section.
     #
     # section - The section name as a String.
     #
-    # Returns true if the section exists in the IniFile.
+    # Returns true if the section exists in the Inifile.
     def has_section?( section )
       @ini.has_key? section.to_s
     end
   
-    # Returns an Array of section names contained in this IniFile.
+    # Returns an Array of section names contained in this Inifile.
     def sections
       @ini.keys
     end
   
-    # Public: Freeze the state of this IniFile object. Any attempts to change
+    # Public: Freeze the state of this Inifile object. Any attempts to change
     # the object will raise an error.
     #
-    # Returns this IniFile.
+    # Returns this Inifile.
     def freeze
       super
       @ini.each_value {|h| h.freeze}
@@ -328,10 +328,10 @@ module PuppetX
       self
     end
   
-    # Public: Mark this IniFile as tainted -- this will traverse each section
+    # Public: Mark this Inifile as tainted -- this will traverse each section
     # marking each as tainted.
     #
-    # Returns this IniFile.
+    # Returns this Inifile.
     def taint
       super
       @ini.each_value {|h| h.taint}
@@ -339,11 +339,11 @@ module PuppetX
       self
     end
   
-    # Public: Produces a duplicate of this IniFile. The duplicate is independent
+    # Public: Produces a duplicate of this Inifile. The duplicate is independent
     # of the original -- i.e. the duplicate can be modified without changing the
     # original. The tainted state of the original is copied to the duplicate.
     #
-    # Returns a new IniFile.
+    # Returns a new Inifile.
     def dup
       other = super
       other.instance_variable_set(:@ini, Hash.new {|h,k| h[k] = Hash.new})
@@ -352,23 +352,23 @@ module PuppetX
       other
     end
   
-    # Public: Produces a duplicate of this IniFile. The duplicate is independent
+    # Public: Produces a duplicate of this Inifile. The duplicate is independent
     # of the original -- i.e. the duplicate can be modified without changing the
     # original. The tainted state and the frozen state of the original is copied
     # to the duplicate.
     #
-    # Returns a new IniFile.
+    # Returns a new Inifile.
     def clone
       other = dup
       other.freeze if self.frozen?
       other
     end
   
-    # Public: Compare this IniFile to some other IniFile. For two INI files to
+    # Public: Compare this Inifile to some other Inifile. For two INI files to
     # be equivalent, they must have the same sections with the same parameter /
     # value pairs in each section.
     #
-    # other - The other IniFile.
+    # other - The other Inifile.
     #
     # Returns true if the INI files are equivalent and false if they differ.
     def eql?( other )
@@ -393,20 +393,20 @@ module PuppetX
       value
     end
   
-    # Parse the given content and store the information in this IniFile
+    # Parse the given content and store the information in this Inifile
     # instance. All data will be cleared out and replaced with the information
     # read from the content.
     #
     # content - A String or a file descriptor (must respond to `each_line`)
     #
-    # Returns this IniFile.
+    # Returns this Inifile.
     def parse( content )
       parser = Parser.new(@ini, @param, @comment, @default)
       parser.parse(content)
       self
     end
   
-    # The IniFile::Parser has the responsibility of reading the contents of an
+    # The Inifile::Parser has the responsibility of reading the contents of an
     # .ini file and storing that information into a ruby Hash. The object being
     # parsed must respond to `each_line` - this includes Strings and any IO
     # object.
@@ -416,7 +416,7 @@ module PuppetX
       attr_accessor :property
       attr_accessor :value
   
-      # Create a new IniFile::Parser that can be used to parse the contents of
+      # Create a new Inifile::Parser that can be used to parse the contents of
       # an .ini file.
       #
       # hash    - The Hash where parsed information will be stored
@@ -578,7 +578,7 @@ module PuppetX
       #
       # msg - The message String to use.
       #
-      # Raises IniFile::Error
+      # Raises Inifile::Error
       def error( msg = 'Could not parse line' )
         raise Error, "#{msg}: #{@line.inspect}"
       end
@@ -629,6 +629,6 @@ module PuppetX
       end
     end
   
-  end # IniFile
+  end # Inifile
   end
   

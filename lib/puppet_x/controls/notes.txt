@@ -1,0 +1,42 @@
+# Progress
+
+## 2019-04-19 11:38
+
+```
+{
+  cis_level_1 => {
+    version => "cis_windows_2012r2_member_server_2.3.0",
+    percent_compliant => 13.1868,
+    percent_implemented => 27.1062,
+    number_compliant => 36,
+    number_noncompliant => 36,
+    number_unknown => 0,
+    number_unimplemented => 199,
+    number_exceptions => 2,
+    number_controls => 273,
+    controls => {
+      compliant => {
+        1_1_1 => {
+
+# first unimplemented:          
+
+        2_2_5 => {
+          compliancy => "unimplemented",
+          state => "*S-1-5-19,*S-1-5-20,*S-1-5-32-544",
+          title => "(L1) Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK S
+ERVICE'",
+          message => "No comparitor supplied",
+          debug_data => {
+            params => {
+              title => "(L1) Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWO
+RK SERVICE'",
+              type => "ensure_policy_value",
+              policy => "Adjust memory quotas for a process",
+              comparitor => ,
+              operator => "==",
+              and_not_zero => false,
+              comparitor_loose => "Administrators, LOCAL SERVICE, NETWORK SERVICE"
+            }
+          }
+        },
+```
