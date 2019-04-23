@@ -1,22 +1,7 @@
-require_relative '../lsp/security_policy.rb'
+# Determins whether a compliance control of type `ensure_policy_value` is 
+# compliant given a set of all policy settings passed to it. 
 
-# 1.1.1:
-#   title: "(L1) Ensure 'Enforce password history' is set to '24 or more password(s)'"
-#   type: ensure_policy_value
-#   policy: Enforce password history
-#   comparitor_loose: 24 or more password(s)
-#   comparitor: 24
-#   operator: ">="
-#   and_not_zero: false
-# 1.1.2:
-#   title: "(L1) Ensure 'Maximum password age' is set to '60 or fewer days, but not
-#     0'"
-#   type: ensure_policy_value
-#   policy: Maximum password age
-#   comparitor_loose: 60 or fewer days, but not 0
-#   comparitor: 60
-#   operator: "<="
-#   and_not_zero: true
+require_relative '../lsp/security_policy.rb'
 
 module PuppetX
   module Os_compliance

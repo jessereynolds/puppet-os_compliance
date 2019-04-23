@@ -1,3 +1,28 @@
+# This is a Puppet custom fact which evaluates the machine for compliance against the relevant CIS benchmark.
+# Initially this is being developed to support Windows 2012 R2 and following on from that other Windows server OSes.
+# It works by calling secedit to export all the current security policy values and then comparing 
+# that with the recommendations in the CIS L1 Member Server benchmark.
+#
+# Each CIS benchmark is expressed in a YAML file of a format like the following example: 
+#
+# 1.1.1:
+#   title: "(L1) Ensure 'Enforce password history' is set to '24 or more password(s)'"
+#   type: ensure_policy_value
+#   policy: Enforce password history
+#   comparitor_loose: 24 or more password(s)
+#   comparitor: 24
+#   operator: ">="
+#   and_not_zero: false
+# 1.1.2:
+#   title: "(L1) Ensure 'Maximum password age' is set to '60 or fewer days, but not
+#     0'"
+#   type: ensure_policy_value
+#   policy: Maximum password age
+#   comparitor_loose: 60 or fewer days, but not 0
+#   comparitor: 60
+#   operator: "<="
+#   and_not_zero: true
+
 require 'tempfile'
 require 'fileutils'
 require_relative "../puppet_x/inifile"
@@ -5,25 +30,11 @@ require_relative "../puppet_x/secedit"
 require_relative "../puppet_x/controls/ensure_policy_value"
 require 'yaml'
 
-  # export and then read the policy settings from a file into a inifile object
-  # caches the IniFile object during the puppet run
-  # def self.read_policy_settings(inffile=nil)
-  #   inffile ||= temp_file
-  #   unless @file_object
-  #     export_policy_settings(inffile)
-  #     File.open inffile, 'r:IBM437' do |file|
-  #       # remove /r/n and remove the BOM
-  #       inffile_content = file.read.force_encoding('utf-16le').encode('utf-8', :universal_newline => true).gsub("\xEF\xBB\xBF", '')
-  #       @file_object ||= PuppetX::IniFile.new(:content => inffile_content)
-  #     end
-  #   end
-  #   @file_object
-  # end
-
+# export and then read the policy settings from a file into a inifile object
+ 
 mydir = File.expand_path(File.dirname(__FILE__))
 
 Facter.add('os_compliance') do
-  # TODO: work out how to use structured facts here
   confine :osfamily                  => 'Windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
@@ -69,36 +80,3 @@ Facter.add('os_compliance') do
     the_fact
   end
 end
-
-
-# module Os_compliance
-#   class Control 
-#     attr_reader()
-#     attr_accessor(
-#       :name,
-#       :description,
-#       :standards,
-#     )
-
-#   end
-
-#   class Standard
-#     attr_accessor(
-#       :name,
-#       :description,
-#       :organisation,
-#       :version,
-#       :os_name,
-#       :os_version,
-#     )
-#   end
-
-#   class Standard::Cis
-#   super Os_compliance::Standard
-#   attr_accessor(
-#     :
-#   )
-
-#   end
-# end
-

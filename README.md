@@ -1,14 +1,15 @@
 
 # os_compliance
 
-This module does some magic.
+This module implements CIS benchmarks as a Puppet custom fact for reporting, and as Puppet classes for enforcement.
 
+Props to Paul Cannon, Adam Yohrling and Brett Gray for their respective work on:
 
-## Notes about specific controls
+- https://forge.puppet.com/ayohrling/local_security_policy
+- https://forge.puppet.com/cannonps/local_security_policy
+- https://github.com/beergeek/cis
 
-#### CIS 1.1.5 (L1) Ensure 'Password must meet complexity requirements' is set to 'Enabled'
-
-In `secedit`'s eyes this is set to the string `0` for Disabled or `1` for Enabled. Strings containing single digits.
+And others who've made various inroads on CIS benchmark implementations with Puppet. 
 
 ## Limitations
 

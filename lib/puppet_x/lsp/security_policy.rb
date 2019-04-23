@@ -1,6 +1,11 @@
 #encoding: UTF-8
 #require 'puppet/provider'
 
+# Props to Paul Cannon, Adam Yohrling and Brett Gray for their respective work on:
+# - https://forge.puppet.com/ayohrling/local_security_policy
+# - https://forge.puppet.com/cannonps/local_security_policy
+# - https://github.com/beergeek/cis
+#
 class SecurityPolicy
     attr_reader :wmic_cmd
     EVENT_TYPES = ["Success,Failure", "Success", "Failure", "No auditing", 0, 1, 2, 3]
