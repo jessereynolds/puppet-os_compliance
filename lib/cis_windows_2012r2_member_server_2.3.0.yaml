@@ -104,7 +104,10 @@
     LOCAL SERVICE, NETWORK SERVICE'"
   type: ensure_policy_value
   policy: Adjust memory quotas for a process
-  comparitor: Administrators, LOCAL SERVICE, NETWORK SERVICE
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  - NETWORK SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE
@@ -136,7 +139,9 @@
   title: "(L1) Ensure 'Change the system time' is set to 'Administrators, LOCAL SERVICE'"
   type: ensure_policy_value
   policy: Change the system time
-  comparitor: Administrators, LOCAL SERVICE
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE
@@ -144,7 +149,9 @@
   title: "(L1) Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE'"
   type: ensure_policy_value
   policy: Change the time zone
-  comparitor: Administrators, LOCAL SERVICE
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE
@@ -169,7 +176,11 @@
     NETWORK SERVICE, SERVICE'"
   type: ensure_policy_value
   policy: Create global objects
-  comparitor: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  - NETWORK SERVICE
+  - SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
@@ -258,7 +269,9 @@
     SERVICE'"
   type: ensure_policy_value
   policy: Generate security audits
-  comparitor: LOCAL SERVICE, NETWORK SERVICE
+  comparitor:
+  - LOCAL SERVICE
+  - NETWORK SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: LOCAL SERVICE, NETWORK SERVICE
@@ -338,7 +351,9 @@
   title: "(L1) Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\\WdiServiceHost'"
   type: ensure_policy_value
   policy: Profile system performance
-  comparitor: Administrators, NT SERVICE\WdiServiceHost
+  comparitor:
+  - Administrators
+  - NT SERVICE\WdiServiceHost
   operator: "=="
   and_not_zero: false
   comparitor_loose: Administrators, NT SERVICE\WdiServiceHost
@@ -347,7 +362,9 @@
     SERVICE'"
   type: ensure_policy_value
   policy: Replace a process level token
-  comparitor: LOCAL SERVICE, NETWORK SERVICE
+  comparitor:
+  - LOCAL SERVICE
+  - NETWORK SERVICE
   operator: "=="
   and_not_zero: false
   comparitor_loose: LOCAL SERVICE, NETWORK SERVICE
@@ -783,7 +800,10 @@
     is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types'"
   type: ensure_policy_value
   policy: 'Network security: Configure encryption types allowed for Kerberos'
-  comparitor: AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types
+  comparitor:
+  - AES128_HMAC_SHA1
+  - AES256_HMAC_SHA1
+  - Future encryption types
   operator: "=="
   and_not_zero: false
   comparitor_loose: AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types
@@ -831,7 +851,9 @@
   type: ensure_policy_value
   policy: 'Network security: Minimum session security for NTLM SSP based (including
     secure RPC) clients'
-  comparitor: Require NTLMv2 session security, Require 128-bit encryption
+  comparitor:
+  - Require NTLMv2 session security
+  - Require 128-bit encryption
   operator: "=="
   and_not_zero: false
   comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
@@ -842,7 +864,9 @@
   type: ensure_policy_value
   policy: 'Network security: Minimum session security for NTLM SSP based (including
     secure RPC) servers'
-  comparitor: Require NTLMv2 session security, Require 128-bit encryption
+  comparitor:
+  - Require NTLMv2 session security
+  - Require 128-bit encryption
   operator: "=="
   and_not_zero: false
   comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
@@ -1009,7 +1033,9 @@
     to '16,384 KB or greater'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Domain: Logging: Size limit (KB)'
-  comparitor: 16,384 KB or greater
+  comparitor:
+  - '16'
+  - 384 KB or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 16,384 KB or greater
@@ -1079,7 +1105,9 @@
     to '16,384 KB or greater'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Private: Logging: Size limit (KB)'
-  comparitor: 16,384 KB or greater
+  comparitor:
+  - '16'
+  - 384 KB or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 16,384 KB or greater
@@ -1167,7 +1195,9 @@
     to '16,384 KB or greater'"
   type: ensure_policy_value
   policy: 'Windows Firewall: Public: Logging: Size limit (KB)'
-  comparitor: 16,384 KB or greater
+  comparitor:
+  - '16'
+  - 384 KB or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 16,384 KB or greater
@@ -1503,7 +1533,9 @@
   type: ensure_policy_value
   policy: 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection level (protects
     against packet spoofing)'
-  comparitor: 'Enabled: Highest protection, source routing is completely disabled'
+  comparitor:
+  - 'Enabled: Highest protection'
+  - source routing is completely disabled
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Highest protection, source routing is completely disabled'
@@ -1514,7 +1546,9 @@
   type: ensure_policy_value
   policy: 'MSS: (DisableIPSourceRouting) IP source routing protection level (protects
     against packet spoofing)'
-  comparitor: 'Enabled: Highest protection, source routing is completely disabled'
+  comparitor:
+  - 'Enabled: Highest protection'
+  - source routing is completely disabled
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Highest protection, source routing is completely disabled'
@@ -1610,8 +1644,10 @@
     Authentication" and "Require Integrity" set for all NETLOGON and SYSVOL shares'
   type: ensure_policy_value
   policy: Hardened UNC Paths
-  comparitor: Enabled, with "Require Mutual Authentication" and "Require Integrity"
-    set for all NETLOGON and SYSVOL shares
+  comparitor:
+  - Enabled
+  - with "Require Mutual Authentication" and "Require Integrity" set for all NETLOGON
+    and SYSVOL shares
   operator: "=="
   and_not_zero: false
   comparitor_loose: Enabled, with "Require Mutual Authentication" and "Require Integrity"
@@ -1649,7 +1685,9 @@
     Good, unknown and bad but critical'"
   type: ensure_policy_value
   policy: Boot-Start Driver Initialization Policy
-  comparitor: 'Enabled: Good, unknown and bad but critical'
+  comparitor:
+  - 'Enabled: Good'
+  - unknown and bad but critical
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: Good, unknown and bad but critical'
@@ -1929,7 +1967,9 @@
     to 'Enabled: 32,768 or greater'"
   type: ensure_policy_value
   policy: 'Application: Specify the maximum log file size (KB)'
-  comparitor: 'Enabled: 32,768 or greater'
+  comparitor:
+  - 'Enabled: 32'
+  - 768 or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 32,768 or greater'
@@ -1948,7 +1988,9 @@
     'Enabled: 196,608 or greater'"
   type: ensure_policy_value
   policy: 'Security: Specify the maximum log file size (KB)'
-  comparitor: 'Enabled: 196,608 or greater'
+  comparitor:
+  - 'Enabled: 196'
+  - 608 or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 196,608 or greater'
@@ -1967,7 +2009,9 @@
     32,768 or greater'"
   type: ensure_policy_value
   policy: 'Setup: Specify the maximum log file size (KB)'
-  comparitor: 'Enabled: 32,768 or greater'
+  comparitor:
+  - 'Enabled: 32'
+  - 768 or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 32,768 or greater'
@@ -1986,7 +2030,9 @@
     32,768 or greater'"
   type: ensure_policy_value
   policy: 'System: Specify the maximum log file size (KB)'
-  comparitor: 'Enabled: 32,768 or greater'
+  comparitor:
+  - 'Enabled: 32'
+  - 768 or greater
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 32,768 or greater'
@@ -2318,7 +2364,9 @@
     but not 0'"
   type: ensure_policy_value
   policy: Screen saver timeout
-  comparitor: 'Enabled: 900 seconds or fewer, but not 0'
+  comparitor:
+  - 'Enabled: 900 seconds or fewer'
+  - but not 0
   operator: "=="
   and_not_zero: false
   comparitor_loose: 'Enabled: 900 seconds or fewer, but not 0'

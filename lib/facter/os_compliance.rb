@@ -25,7 +25,7 @@ mydir = File.expand_path(File.dirname(__FILE__))
 Facter.add('os_compliance') do
   # TODO: work out how to use structured facts here
   confine :osfamily                  => 'Windows'
-  confine :operatingsystemmajrelease => '2012 R2'
+  #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
     the_fact = {}
 

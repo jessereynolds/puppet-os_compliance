@@ -73,6 +73,14 @@ structure.each_pair do |key, attrs|
         comparitor = $1.to_i
         operator = ($2 == 'more') ? '>=' : '<='
         and_not_zero = ($3 =~ /but not 0/) ? true : false
+      when /\w.*,.*\w/ # words separated by commas
+        splits = comparitor_loose.split(',').map {|comp| 
+          comp.gsub!(/^\s*/, '')
+          comp.gsub!(/\s*$/, '')
+        }
+        splits.select! {|c| c and c =~ /\w+/ }
+        comparitor = splits.length > 1 ? splits : splits.first
+        operator = '=='
       else
         comparitor = comparitor_loose
         operator = '=='

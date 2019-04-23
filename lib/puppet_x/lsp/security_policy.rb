@@ -336,8 +336,9 @@ class SecurityPolicy
                 :name => 'EnableAdminAccount',
                 :policy_type => 'System Access'
             },
-            "EnableGuestAccount"=>{
-                :name=>"EnableGuestAccount",
+            # https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/accounts-guest-account-status
+            "Accounts: Guest account status" => {
+                :name => "EnableGuestAccount",
                 :policy_type => 'System Access'
             },
             # Audit Policy Mappings
@@ -730,7 +731,7 @@ class SecurityPolicy
                 :reg_type => '4',
                 :policy_type => 'Registry Values',
             },
-            'Network security: All Local System to use computer identity for NTLM' => {
+            'Network security: Allow Local System to use computer identity for NTLM' => {
                 :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\UseMachineId',
                 :reg_type => '4',
                 :policy_type => 'Registry Values',

@@ -29,7 +29,7 @@ module PuppetX
         and_not_zero     = params['and_not_zero']
         comparitor_loose = params['comparitor_loose']
 
-        debug = true
+        debug = false
         
         # determine the actual policy value by looking it up in the supplied policies hash
 
@@ -94,6 +94,12 @@ module PuppetX
           splits = actual_policy_value.split(',').map {|sid| 
             # Ref: https://support.microsoft.com/en-us/help/243330/well-known-security-identifiers-in-windows-operating-systems
             case sid
+            when '*S-1-5-6'
+              'Service'
+            when '*S-1-5-19'
+              'Local Service'
+            when '*S-1-5-20'
+              'Network Service'
             when '*S-1-5-32-544'
               'Administrators'
             else
@@ -101,20 +107,15 @@ module PuppetX
             end
           }
           splits.length > 1 ? splits : splits.first
-        when '4,0'
-          0
-        when '4,1'
-          1
+        when /4,(\d+)/
+          $1.to_i
         else
-          actual_policy_value_typed = actual_policy_value
+          actual_policy_value
         end
 
         if debug
-          debug_data['debug_data']['comparitor']       = comparitor
-          debug_data['debug_data']['comparitor_typed'] = comparitor_typed
-        end
-
-        if debug
+          debug_data['debug_data']['comparitor']                = comparitor
+          debug_data['debug_data']['comparitor_typed']          = comparitor_typed
           debug_data['debug_data']['actual_policy_value']       = actual_policy_value
           debug_data['debug_data']['actual_policy_value_typed'] = actual_policy_value_typed
         end
@@ -122,8 +123,21 @@ module PuppetX
         begin
           case operator
           when '=='
-            unless actual_policy_value_typed == comparitor_typed
-              return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 'title' => title,}.merge(debug_data)
+            case comparitor_typed
+            when String
+              if ! actual_policy_value_typed.is_a?(String) or
+                actual_policy_value_typed.downcase == comparitor_typed.downcase
+                return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 'title' => title,}.merge(debug_data)
+              end
+            when Array
+              if ! actual_policy_value_typed.is_a?(Array) or 
+                actual_policy_value_typed.map {|a| a.is_a?(String) ? a.downcase : a }.sort ==
+                comparitor_typed.sort
+              end
+            else
+              unless actual_policy_value_typed == comparitor_typed
+                return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 'title' => title,}.merge(debug_data)
+              end
             end
           when '>='
             unless actual_policy_value_typed >= comparitor_typed

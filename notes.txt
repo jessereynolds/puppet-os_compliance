@@ -40,3 +40,331 @@ RK SERVICE'",
           }
         },
 ```
+
+be less restrictive about comparitors - basically try allowing everything through. Now I need to split up the comparitor so the arrays of users can be compared for equality...
+
+```
+        2_2_5 => {
+          compliancy => "noncompliant",
+          state => "*S-1-5-19,*S-1-5-20,*S-1-5-32-544",
+          title => "(L1) Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK S
+ERVICE'",
+          debug_data => {
+            params => {
+              title => "(L1) Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWO
+RK SERVICE'",
+              type => "ensure_policy_value",
+              policy => "Adjust memory quotas for a process",
+              comparitor => "Administrators, LOCAL SERVICE, NETWORK SERVICE",
+              operator => "==",
+              and_not_zero => false,
+              comparitor_loose => "Administrators, LOCAL SERVICE, NETWORK SERVICE"
+            },
+            comparitor => "Administrators, LOCAL SERVICE, NETWORK SERVICE",
+            comparitor_typed => "Administrators, LOCAL SERVICE, NETWORK SERVICE",
+            actual_policy_value => "*S-1-5-19,*S-1-5-20,*S-1-5-32-544",
+            actual_policy_value_typed => [
+              "*S-1-5-19",
+              "*S-1-5-20",
+              "Administrators"
+            ]
+          }
+        },
+```
+
+also eg: 
+
+```
+        2_2_13 => {
+          compliancy => "noncompliant",
+          state => "*S-1-5-19,*S-1-5-20,*S-1-5-32-544,*S-1-5-6",
+          title => "(L1) Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVI
+CE'",
+          debug_data => {
+            params => {
+              title => "(L1) Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, S
+ERVICE'",
+              type => "ensure_policy_value",
+              policy => "Create global objects",
+              comparitor => "Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE",
+              operator => "==",
+              and_not_zero => false,
+              comparitor_loose => "Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE"
+            },
+            comparitor => "Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE",
+            comparitor_typed => "Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE",
+            actual_policy_value => "*S-1-5-19,*S-1-5-20,*S-1-5-32-544,*S-1-5-6",
+            actual_policy_value_typed => [
+              "*S-1-5-19",
+              "*S-1-5-20",
+              "Administrators",
+              "*S-1-5-6"
+            ]
+          }
+        },
+```
+
+15:45 now we have the current status and first couple of unimplemented:
+
+```
+{
+  cis_level_1 => {
+    version => "cis_windows_2012r2_member_server_2.3.0",
+    percent_compliant => 17.2161,
+    percent_implemented => 32.6007,
+    number_compliant => 47,
+    number_noncompliant => 32,
+    number_unknown => 0,
+    number_unimplemented => 184,
+    number_exceptions => 10,
+    number_controls => 273,
+    controls => {
+      compliant => {
+```
+
+```
+      unimplemented => {
+        2_2_2 => {
+          compliancy => "unimplemented",
+          state => ,
+          title => "(L1) Configure 'Access this computer from the network'",
+          message => "I only know how to evaluate controls with specific values. Type found: 'ensure_some_configuration"
+,
+          debug_data => {
+            params => {
+              title => "(L1) Configure 'Access this computer from the network'",
+              type => "ensure_some_configuration",
+              policy => "Access this computer from the network",
+              comparitor => ,
+              operator => ,
+              and_not_zero => false,
+              comparitor_loose =>
+            }
+          }
+        },
+        2_2_7 => {
+          compliancy => "unimplemented",
+          state => ,
+          title => "(L1) Configure 'Allow log on through Remote Desktop Services'",
+          message => "I only know how to evaluate controls with specific values. Type found: 'ensure_some_configuration"
+,
+          debug_data => {
+            params => {
+              title => "(L1) Configure 'Allow log on through Remote Desktop Services'",
+              type => "ensure_some_configuration",
+              policy => "Allow log on through Remote Desktop Services",
+              comparitor => ,
+              operator => ,
+              and_not_zero => false,
+              comparitor_loose =>
+            }
+          }
+```
+
+Oh, so here the automatic parsing falls down as the value to set to differs between member server and domain controller:
+
+```
+2.2.2:
+  'section #': '2.2'
+  'recommendation #': 2.2.2
+  title: "(L1) Configure 'Access this computer from the network'"
+  status: accepted
+  scoring status: full
+  description: |-
+    This policy setting allows other users on the network to connect to the computer and is required by various network protocols that include Server Message Block (SMB)-based protocols, NetBIOS, Common Internet File System (CIFS), and Component Object Model Plus (COM+).
+
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: `Administrators, Authenticated Users, ENTERPRISE DOMAIN CONTROLLERS`.
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators, Authenticated Users`.
+```
+
+and
+
+```
+2.2.7:
+  'section #': '2.2'
+  'recommendation #': 2.2.7
+  title: "(L1) Configure 'Allow log on through Remote Desktop Services'"
+  status: accepted
+  scoring status: full
+  description: |-
+    This policy setting determines which users or groups have the right to log on as a Remote Desktop Services client. If your organization uses Remote Assistance as part of its help desk strategy, create a group and assign it this user right through Group Policy. If the help desk in your organization does not use Remote Assistance, assign this user right only to the `Administrators` group or use the Restricted Groups feature to ensure that no user accounts are part of the `Remote Desktop Users` group.
+
+    Restrict this user right to the `Administrators` group, and possibly the `Remote Desktop Users` group, to prevent unwanted users from gaining access to computers on your network by means of the Remote Assistance feature.
+
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: `Administrators`.
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators, Remote Desktop Users`.
+```
+
+So, how to deal with this? Need to override the definition that the csv injestion script generates for this control to include the actual specifics for the specific benchmark. Urgh.
+
+```
+
+To summarise all the controls that need to be treated in this manner: 
+
+- 2.2.2 - see above
+- 2.2.7 - see above
+- 2.2.15 - "(L1) Configure 'Create symbolic links'"
+```
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: `Administrators`.
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators` and (when the _Hyper-V_ Role is installed) `NT VIRTUAL MACHINE\Virtual Machines`.
+- 2.2.17 - "(L1) Configure 'Deny access to this computer from the network'"
+```
+    - **Level 1 - Domain Controller.** The recommended state for this setting is to include: `Guests`.
+    - **Level 1 - Member Server.** The recommended state for this setting is to include: `Guests, Local account and member of Administrators group`.
+```
+- 2.2.21 - "(L1) Configure 'Deny log on through Remote Desktop Services'"
+```
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: `Guests`.
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Guests, Local account`.
+```
+- 2.2.22 - "(L1) Configure 'Enable computer and user accounts to be trusted for delegation'"
+```
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: `Administrators`.
+
+    - **Level 1 - Member Server.** The recommended state for this setting is: `No One`.
+```
+- 2.2.25 - "(L1) Configure 'Impersonate a client after authentication'"
+```
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: ``Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE``.
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE` and (when the _Web Server (IIS)_ Role with _Web Services_ Role Service is installed) `IIS_IUSRS`.
+```
+- 2.2.30 - "(L1) Configure 'Manage auditing and security log'"
+```
+    - **Level 1 - Domain Controller.** The recommended state for this setting is: `Administrators` and (when Exchange is running in the environment) `Exchange Servers`.
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators`.
+```
+
+## Perhaps not a security policy?
+
+Next problem is this kind of thing:
+
+```
+        2_3_1_3 => {
+          compliancy => "unimplemented",
+          state => ,
+          title => "(L1) Ensure 'Accounts: Guest account status' is set to 'Disabled' (MS only)",
+          message => "No policy named 'Accounts: Guest account status' in SecurityPolicy - perhaps not a security policy
+?",
+          debug_data => {
+            params => {
+              title => "(L1) Ensure 'Accounts: Guest account status' is set to 'Disabled' (MS only)",
+              type => "ensure_policy_value",
+              policy => "Accounts: Guest account status",
+              comparitor => "Disabled",
+              operator => "==",
+              and_not_zero => false,
+              comparitor_loose => "Disabled"
+            }
+          }
+        },
+```
+But it's in the lookup in SecurityPolicy as 'EnableGuestAccount'
+
+https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/accounts-guest-account-status
+
+- FIXED by correcting the mapping in security_policy.rb
+
+
+```
+        2_3_1_5 => {
+          compliancy => "unimplemented",
+          state => ,
+          title => "(L1) Configure 'Accounts: Rename administrator account'",
+          message => "I only know how to evaluate controls with specific values. Type found: 'ensure_some_configuration"
+,
+          debug_data => {
+            params => {
+              title => "(L1) Configure 'Accounts: Rename administrator account'",
+              type => "ensure_some_configuration",
+              policy => "Accounts: Rename administrator account",
+              comparitor => ,
+              operator => ,
+              and_not_zero => false,
+              comparitor_loose =>
+            }
+          }
+        },
+```
+
+How does one know what the policy key names as spat out by secedit corresopnd to as group policy paths / names? Eg the above is NewGuestName according to SecurityPolicy but where does one look that up? 
+
+Anyhow, this one needs the key NewGuestName to be checked that exists and is set to something other than 'Administrator'. Where to configure this rule? Similar issue to the 8 above. Maybe it's enough just to check that this policy has been set to anything? Then this could be automated and generalised. 
+
+Similarly: 
+- 2.3.1.6 - (L1) Configure 'Accounts: Rename guest account'
+- 2.3.7.4 - (L1) Configure 'Interactive logon: Message text for users attempting to log on'
+- 2.3.7.5 - (L1) Configure 'Interactive logon: Message title for users attempting to log on'
+- 2.3.10.6 - (L1) Configure 'Network access: Named Pipes that can be accessed anonymously'
+- 2.3.10.7 - (L1) Configure 'Network access: Remotely accessible registry paths'
+- 2.3.10.8 - (L1) Configure 'Network access: Remotely accessible registry paths and sub-paths'
+
+
+Here's another policy not recognised: 'Network security: Allow Local System to use computer identity for NTLM' 
+
+```
+        2_3_11_1 => {
+          compliancy => "unimplemented",
+          state => ,
+          title => "(L1) Ensure 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enab
+led'",
+          message => "No policy named 'Network security: Allow Local System to use computer identity for NTLM' in Securi
+tyPolicy - perhaps not a security policy?",
+          debug_data => {
+```
+
+Actually that one turned out to be a typo in SecurityPolicy lookup table, s/All/Allow/
+
+But the next one seems to be just completely missing from the lookup table in SecurityPolicy.
+
+```
+        2_3_11_2 => {
+          compliancy => "unimplemented",
+          state => ,
+          title => "(L1) Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'",
+          message => "No policy named 'Network security: Allow LocalSystem NULL session fallback' in SecurityPolicy - p
+rhaps not a security policy?",
+          debug_data => {
+            params => {
+              title => "(L1) Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'",
+              type => "ensure_policy_value",
+              policy => "Network security: Allow LocalSystem NULL session fallback",
+              comparitor => "Disabled",
+              operator => "==",
+              and_not_zero => false,
+              comparitor_loose => "Disabled"
+            }
+          }
+        },
+```
+
+Checking on accuracy this one looks suspect as the NT SERVICE\WdiServiceHost SID is not being translated in the code (yet).
+
+```
+        2_2_35 => {
+          compliancy => "compliant",
+          state => [
+            "Administrators",
+            "*S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420"
+          ],
+          title => "(L1) Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\WdiServiceHost'"
+        },
+```
+
+Attemping to run the fact on Windows 2016 datacentre, by relaxing the constraint in the fact, I get this error: 
+
+```
+PS E:\> facter --custom-dir .\modules\os_compliance\lib\facter os_compliance --no-color --trace
+2019-04-23 17:33:25.521835 ERROR puppetlabs.facter - error while resolving custom fact "os_compliance": SeDelegateSessionUserImpersonatePrivilege is not a valid policy
+backtrace:
+E:/modules/os_compliance/lib/puppet_x/lsp/security_policy.rb:222:in `find_mapping_from_policy_name'
+E:/modules/os_compliance/lib/puppet_x/secedit.rb:48:in `block in get_policies'
+E:/modules/os_compliance/lib/puppet_x/inifile.rb:226:in `block (2 levels) in each'
+E:/modules/os_compliance/lib/puppet_x/inifile.rb:225:in `each'
+E:/modules/os_compliance/lib/puppet_x/inifile.rb:225:in `block in each'
+E:/modules/os_compliance/lib/puppet_x/inifile.rb:224:in `each'
+E:/modules/os_compliance/lib/puppet_x/inifile.rb:224:in `each'
+E:/modules/os_compliance/lib/puppet_x/secedit.rb:41:in `get_policies'
+E:/modules/os_compliance/lib/facter/os_compliance.rb:32:in `block (2 levels) in <top (required)>'
+```
+
+Looks like this is a new policy in 2016, need to research it so it can be added, or perhaps it does not feature in CIS L1 for 2016, not sure. For now I will skip this policy. 

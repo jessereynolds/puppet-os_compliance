@@ -29,8 +29,6 @@ module PuppetX
         raise "secedit export file does not exist at #{inffile_winpath}"
       end
 
-      #puts File.read(tempfile).inspect
-        
       @inifile = nil
       File.open tempfile, 'r:IBM437' do |file|
         content_ibm437 = file.read
@@ -47,6 +45,9 @@ module PuppetX
         next if section == 'Version'
         begin
           ensure_value = parameter_value.nil? ? :absent : :present
+          next if [
+            'SeDelegateSessionUserImpersonatePrivilege',
+          ].include?(parameter_name)
           policy_desc, policy_values = SecurityPolicy.find_mapping_from_policy_name(parameter_name)
           policy_hash = {
               :ensure => ensure_value,
