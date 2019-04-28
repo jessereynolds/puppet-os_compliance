@@ -44,31 +44,39 @@ structure = CSV.new(ARGF.file).inject({}) do |memo, row|
 end
 
 summary = {}
-last_section = ''
 structure.each_pair do |key, attrs|
   is_section = attrs['recommendation #'] ? false : true
-  section = attrs['section #']
-  title = attrs['title'].gsub(/\s/, ' ')
-  if is_section
-    last_section = title
-  end
-  title = title.gsub(/\s/, ' ')
   unless is_section
+    section = attrs['section #']
+    title = attrs['title'].gsub(/\s/, ' ')
+    title = title.gsub(/\s/, ' ')
     type = nil
     policy = nil
     comparitor_loose = nil
     comparitor = nil
     operator = nil
     and_not_zero = false
+    deep_operator = nil
+    deep_comparitor = nil
+
+    if attrs['description'] =~ /\*\*Level 1 - Member Server\.\*\* The recommended state for this setting (is|is to include): (.*)\./
+      deep_operator = $1
+      deep_comparitor = $2
+    end
+
+    # There are nine 'Configure ...' in 2012 R2 L1 Member Server which have the following details embedded in the description. They are of the following types, syntactically: 
+    #
+    # - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators, Authenticated Users`.
+    # - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators` and (when the _Hyper-V_ Role is installed) `NT VIRTUAL MACHINE\Virtual Machines`.
+    # - **Level 1 - Member Server.** The recommended state for this setting is to include: `Guests, Local account and member of Administrators group`.
+    # - **Level 1 - Member Server.** The recommended state for this setting is: `` (i.e. None), or (when the legacy _Computer Browser_ service is enabled) `BROWSER`.
+
     case title
     when /Ensure '(.*)' is set to '(.*)'/
       type = 'ensure_policy_value'
       policy = $1
       comparitor_loose = $2
       case comparitor_loose
-      #when /^(Enabled|Disabled|Administrators)$/
-      #  comparitor = comparitor_loose
-      #  operator   = '=='
       when /^(\d+).*or (more|fewer)(.*)$/
         comparitor = $1.to_i
         operator = ($2 == 'more') ? '>=' : '<='
@@ -91,8 +99,24 @@ structure.each_pair do |key, attrs|
       comparitor_loose = $2
       operator = 'member'
     when /Configure \'(.*)\'/
-      type = 'ensure_some_configuration'
       policy = $1
+      case deep_operator
+      when 'is'
+        type = 'ensure_policy_value'
+        operator = '=='
+        comparitor_loose = deep_comparitor
+      when 'is to include'
+        type = 'ensure_policy_value_to_include'
+        operator = 'member'
+        comparitor_loose = deep_comparitor
+      else
+        type = 'ensure_some_configuration'
+      end
+      if deep_comparitor and deep_comparitor.count('`') == 2
+        # remove quotes if we have just single pair of quotes (backticks)
+        comparitor = /`(.*)`/.match(deep_comparitor)[1]
+      end
+
     else
       type = 'snowflake'
     end
@@ -105,6 +129,8 @@ structure.each_pair do |key, attrs|
       'operator'         => operator,
       'and_not_zero'     => and_not_zero,
       'comparitor_loose' => comparitor_loose,
+      'deep_operator'    => deep_operator,
+      'deep_comparitor'  => deep_comparitor,
     }
   end
 end

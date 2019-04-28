@@ -13,8 +13,10 @@ module PuppetX
         operator         = params['operator']
         and_not_zero     = params['and_not_zero']
         comparitor_loose = params['comparitor_loose']
+        deep_operator    = params['deep_operator']
+        deep_comparitor  = params['deep_comparitor']
 
-        debug = false
+        debug = true
         
         # determine the actual policy value by looking it up in the supplied policies hash
 
@@ -25,6 +27,7 @@ module PuppetX
 
         unless ['ensure_policy_value', 'ensure_policy_value_to_include'].include?(params['type'])
           return { 'compliancy' => 'unimplemented', 'state' => nil, 'title' => title, 
+            'unimplemented_reason' => "unhandled_type:#{params['type']}",
             'message' => "I only know how to evaluate controls with specific values. Type found: '#{params['type']}", }.merge(debug_data)
         end
 
@@ -41,6 +44,7 @@ module PuppetX
 
         unless valid_policy
           return { 'compliancy' => 'unimplemented', 'state' => nil, 'title' => title, 
+            'unimplemented_reason' => "invalid_policy:#{policy}",
             'message' => "No policy named '#{policy}' in SecurityPolicy - perhaps not a security policy?", }.merge(debug_data)
         end
 
@@ -49,15 +53,11 @@ module PuppetX
             'message' => "The security policy '#{policy}' has no value.", }.merge(debug_data)
         end
 
-        unless policies[policy] and policies[policy][:policy_value]
-          return { 'compliancy' => 'unimplemented', 'state' => nil, 'title' => title, 
-            'message' => "No existing policy found named '#{policy}''", }.merge(debug_data)
-        end
-
         actual_policy_value = policies[policy][:policy_value]
 
         unless comparitor
           return { 'compliancy' => 'unimplemented', 'state' => actual_policy_value, 'title' => title,
+            'unimplemented_reason' => "no_comparitor_supplied",
             'message' => "No comparitor supplied", }.merge(debug_data)
         end
 
@@ -103,6 +103,8 @@ module PuppetX
           debug_data['debug_data']['comparitor_typed']          = comparitor_typed
           debug_data['debug_data']['actual_policy_value']       = actual_policy_value
           debug_data['debug_data']['actual_policy_value_typed'] = actual_policy_value_typed
+          debug_data['debug_data']['deep_operator']             = deep_operator   if deep_operator
+          debug_data['debug_data']['deep_comparitor']           = deep_comparitor if deep_comparitor
         end
 
         begin
@@ -111,17 +113,22 @@ module PuppetX
             case comparitor_typed
             when String
               if ! actual_policy_value_typed.is_a?(String) or
-                actual_policy_value_typed.downcase == comparitor_typed.downcase
-                return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 'title' => title,}.merge(debug_data)
+                actual_policy_value_typed.downcase != comparitor_typed.downcase
+                return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 
+                  'message' => "comparitor is a String but actual value is not (it's a #{actual_policy_value_typed.class}), or the downcased strings do not match", 
+                  'title' => title,}.merge(debug_data)
               end
             when Array
+              # TODO: seems like this is missing something.
               if ! actual_policy_value_typed.is_a?(Array) or 
                 actual_policy_value_typed.map {|a| a.is_a?(String) ? a.downcase : a }.sort ==
                 comparitor_typed.sort
               end
             else
               unless actual_policy_value_typed == comparitor_typed
-                return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 'title' => title,}.merge(debug_data)
+                return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 
+                  'message' => 'Comparitor is not a String or Array and is not equal to the actual policy value',
+                  'title' => title,}.merge(debug_data)
               end
             end
           when '>='
@@ -134,9 +141,11 @@ module PuppetX
             end
           when 'member'
             return { 'compliancy' => 'unimplemented', 'state' => actual_policy_value, 'title' => title,
+              'unimplemented_reason' => 'membership_controls_unimplemented',
               'message' => 'membership type controls are not yet implemented', }.merge(debug_data)
           else
             return { 'compliancy' => 'unimplemented', 'state' => actual_policy_value, 'title' => title, 
+              'unimplemented_reason' => 'controls_with_no_operator_unimplemented',
               'message' => 'controls with no operator are not yet implemented', }.merge(debug_data)
           end
         rescue StandardError => e

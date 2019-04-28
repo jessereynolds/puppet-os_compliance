@@ -197,6 +197,13 @@ and
 
 So, how to deal with this? Need to override the definition that the csv injestion script generates for this control to include the actual specifics for the specific benchmark. Urgh.
 
+Could do this automatically, eg search for lines matching `**Level 1 - Member Server.** The recommended state for this setting is: ` in the description: 
+
+```
+**Level 1 - Member Server.** The recommended state for this setting is: `Administrators, Authenticated Users`.
+```
+
+
 ```
 
 To summarise all the controls that need to be treated in this manner: 
@@ -368,3 +375,131 @@ E:/modules/os_compliance/lib/facter/os_compliance.rb:32:in `block (2 levels) in 
 ```
 
 Looks like this is a new policy in 2016, need to research it so it can be added, or perhaps it does not feature in CIS L1 for 2016, not sure. For now I will skip this policy. 
+
+## Windows 2012 unimplemented analysis: 
+
+15 - "unhandled_type:ensure_some_configuration"
+3 - 'unhandled_type:snowflake'
+164 - invalid_policy
+
+Breaking down invalid_policy a bit:
+
+26 - invalid_policy:Windows Firewall*
+23 - invalid_policy:Audit *
+
+## Settings that depend on whether services are enabled: 
+
+Use a separate fact to report on the relevant services? (All services?)
+
+I think there's only the one of these:
+
+```
+2.3.10.6:
+  'section #': 2.3.10
+  'recommendation #': 2.3.10.6
+  title: "(L1) Configure 'Network access: Named Pipes that can be accessed anonymously'"
+  ...
+      - **Level 1 - Member Server.** The recommended state for this setting is: `` (i.e. None), or (when the legacy _Computer Browser_ service is enabled) `BROWSER`
+```
+
+## Settings that depend on whether a role is installed:
+
+```
+2.2.15:
+  'section #': '2.2'
+  'recommendation #': 2.2.15
+  title: "(L1) Configure 'Create symbolic links'"
+  ...
+    # - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators` and (when the _Hyper-V_ Role is installed) `NT VIRTUAL MACHINE\Virtual Machines`.
+```
+
+## Settings that depend on a role and role service being installed 
+
+```
+2.2.25:
+  'section #': '2.2'
+  'recommendation #': 2.2.25
+  title: "(L1) Configure 'Impersonate a client after authentication'"
+  ...
+    - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE` and (when the _Web Server (IIS)_ Role with _Web Services_ Role Service is installed) `IIS_IUSRS`.
+```
+
+After doing the deep operator and comparitor detection we have 35% implemented, with 176 unimplemented. Previously there was 33.3% implemented, with 182 unimplemented. 
+
+## 2019-04-28 19:17
+
+```yaml
+    os_compliance:
+      cis_level_1:
+        version: cis_windows_2012r2_member_server_2.3.0
+        percent_compliant: 14.65201465201465
+        percent_implemented: 35.53113553113553
+        number_compliant: 40
+        number_noncompliant: 57
+        number_unknown: 0
+        number_unimplemented: 176
+        number_exceptions: 0
+        number_controls: 273
+```
+
+however some of the newly implemented ones are incorrect eg: 
+
+```yaml
+            2_2_30:
+              compliancy: noncompliant
+              state: "*S-1-5-32-544"
+              title: (L1) Configure 'Manage auditing and security log'
+              debug_data:
+                params:
+                  title: (L1) Configure 'Manage auditing and security log'
+                  type: ensure_policy_value
+                  policy: Manage auditing and security log
+                  comparitor: Administrators
+                  operator: ==
+                  and_not_zero: false
+                  comparitor_loose: "`Administrators`"
+                  deep_operator: is
+                  deep_comparitor: "`Administrators`"
+                comparitor: Administrators
+                comparitor_typed: Administrators
+                actual_policy_value: "*S-1-5-32-544"
+                actual_policy_value_typed: Administrators
+                deep_operator: is
+                deep_comparitor: "`Administrators`"
+```
+
+OK fixed a logic problem with string equality, now we have:
+
+```
+        percent_compliant: 17.94871794871795
+        percent_implemented: 35.53113553113553
+        number_compliant: 49
+        number_noncompliant: 48
+        number_unknown: 0
+        number_unimplemented: 176
+        number_exceptions: 0
+        number_controls: 273
+```
+
+Next issue: 'No one' comes up as an empty policy setting so needs to be allowed, eg this one is actually compliant: 
+
+```
+            2_2_1:
+              compliancy: noncompliant
+              state: ~
+              title: (L1) Ensure 'Access Credential Manager as a trusted caller' is set to 'No One'
+              message: The security policy 'Access Credential Manager as a trusted caller' has no value.
+              debug_data:
+                params:
+                  title: (L1) Ensure 'Access Credential Manager as a trusted caller' is set to 'No One'
+                  type: ensure_policy_value
+                  policy: Access Credential Manager as a trusted caller
+                  comparitor: No One
+                  operator: ==
+                  and_not_zero: false
+                  comparitor_loose: No One
+                  deep_operator: ~
+                  deep_comparitor: ~
+```
+
+
