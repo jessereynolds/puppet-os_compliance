@@ -48,12 +48,13 @@ module PuppetX
             'message' => "No policy named '#{policy}' in SecurityPolicy - perhaps not a security policy?", }.merge(debug_data)
         end
 
-        unless policies[policy] and policies[policy][:policy_value]
-          return { 'compliancy' => 'noncompliant', 'state' => nil, 'title' => title, 
-            'message' => "The security policy '#{policy}' has no value.", }.merge(debug_data)
-        end
+        # FIXME: Actually this is valid for policies needing to be set to 'No One' and maybe other values
+        # unless policies[policy] and policies[policy][:policy_value]
+        #   return { 'compliancy' => 'noncompliant', 'state' => nil, 'title' => title, 
+        #     'message' => "The security policy '#{policy}' has no value.", }.merge(debug_data)
+        # end
 
-        actual_policy_value = policies[policy][:policy_value]
+        actual_policy_value = (policies[policy] and policies[policy][:policy_value]) ? policies[policy][:policy_value] : nil
 
         unless comparitor
           return { 'compliancy' => 'unimplemented', 'state' => actual_policy_value, 'title' => title,
@@ -68,6 +69,8 @@ module PuppetX
           comparitor_typed = 1
         when /^Disabled$/
           comparitor_typed = 0
+        when /^No One$/
+          comparitor_typed = nil
         else
           comparitor_typed = comparitor  
         end
