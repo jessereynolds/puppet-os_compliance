@@ -502,4 +502,53 @@ Next issue: 'No one' comes up as an empty policy setting so needs to be allowed,
                   deep_comparitor: ~
 ```
 
+seem to have introduced the following exceptions: 
+
+```
+      exception:
+        1_2_1:
+          compliancy: exception
+          state: ~
+          title: (L1) Ensure 'Account lockout duration' is set to '15 or more minute(s)'
+          message: "NoMethodError - undefined method `>=' for nil:NilClass"
+        1_2_3:
+          compliancy: exception
+          state: ~
+          title: (L1) Ensure 'Reset account lockout counter after' is set to '15 or more minute(s)'
+          message: "NoMethodError - undefined method `>=' for nil:NilClass"
+        2_3_7_3:
+          compliancy: exception
+          state: ~
+          title: "(L1) Ensure 'Interactive logon: Machine inactivity limit' is set to '900 or fewer second(s), but not 0'"
+          message: "NoMethodError - undefined method `<=' for nil:NilClass"
+```
+
+Fixed. Now we have 2.2.7 and probably others 
+
+```
+        2_2_7:
+          compliancy: noncompliant
+          state: "*S-1-5-32-544,*S-1-5-32-555"
+          message: comparitor is a String but actual value is not (it's a Array), or the downcased strings do not match
+          title: (L1) Configure 'Allow log on through Remote Desktop Services'
+          debug_data:
+            params:
+              title: (L1) Configure 'Allow log on through Remote Desktop Services'
+              type: ensure_policy_value
+              policy: Allow log on through Remote Desktop Services
+              comparitor: Administrators, Remote Desktop Users
+              operator: ==
+              and_not_zero: false
+              comparitor_loose: "`Administrators, Remote Desktop Users`"
+              deep_operator: is
+              deep_comparitor: "`Administrators, Remote Desktop Users`"
+            comparitor: Administrators, Remote Desktop Users
+            comparitor_typed: Administrators, Remote Desktop Users
+            actual_policy_value: "*S-1-5-32-544,*S-1-5-32-555"
+            actual_policy_value_typed:
+              - Administrators
+              - Remote Desktop Users
+            deep_operator: is
+            deep_comparitor: "`Administrators, Remote Desktop Users`"
+```
 

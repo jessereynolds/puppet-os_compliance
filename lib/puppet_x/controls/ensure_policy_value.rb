@@ -90,6 +90,8 @@ module PuppetX
               'Network Service'
             when '*S-1-5-32-544'
               'Administrators'
+            when '*S-1-5-32-555'
+              'Remote Desktop Users'
             else
               sid
             end
@@ -111,6 +113,12 @@ module PuppetX
         end
 
         begin
+          if ['>=', '<='].include?(operator) and
+            [actual_policy_value_typed, comparitor_typed].include?(nil)
+            return { 'compliancy' => 'noncompliant', 'state' => actual_policy_value, 
+              'message' => "actual value or comparitor is nil",
+              'title' => title,}.merge(debug_data)
+          end
           case operator
           when '=='
             case comparitor_typed
