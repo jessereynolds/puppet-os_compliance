@@ -31,8 +31,40 @@ require_relative "../puppet_x/controls/ensure_policy_value"
 require 'yaml'
 
 # export and then read the policy settings from a file into a inifile object
- 
+
 mydir = File.expand_path(File.dirname(__FILE__))
+
+module Cis_benchmark
+  attr_accessor :last_evaluation_time
+
+  def initialize
+    @last_evaluation_time = nil
+  end
+  
+  def evaluate_controls
+    start_time = Time.now
+    controls = {}
+
+    @last_collection_time = Time.now = start_time
+    controls
+  end
+end
+
+module Os_compliance
+
+  def self.add_details_fact(benchmark)
+    Facter.add('os_compliance_details') do
+      confine do
+        benchmark.enabled?
+  end
+
+  def self.add_facts
+    benchmark = Cis_benchmark.new
+    Os_compliance.add_details_fact(benchmark)
+    Os_compliance.add_summary_fact(benchmark)
+  end
+end
+Os_compliance.add_facts
 
 Facter.add('os_compliance') do
   confine :osfamily                  => 'Windows'
