@@ -16,7 +16,7 @@ module PuppetX
         deep_operator    = params['deep_operator']
         deep_comparitor  = params['deep_comparitor']
 
-        debug = true
+        debug = false
         
         # determine the actual policy value by looking it up in the supplied policies hash
 
