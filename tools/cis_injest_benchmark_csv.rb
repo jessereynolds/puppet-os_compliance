@@ -14,6 +14,11 @@
 require 'csv'
 require 'yaml'
 
+def transform_control_title (title)
+  title.gsub(/^\(L1\) /, '').gsub(/[()',.&:+\/"]/, '').gsub(/.scr/, '').gsub(/\s+/, '_').gsub(/[\\%-]/, '_').gsub(/_+/,'_').downcase
+end
+
+
 fields = []
 row_number = 0
 structure = CSV.new(ARGF.file).inject({}) do |memo, row|
@@ -44,6 +49,8 @@ structure = CSV.new(ARGF.file).inject({}) do |memo, row|
 end
 
 summary = {}
+unique_titles = []
+
 structure.each_pair do |key, attrs|
   is_section = attrs['recommendation #'] ? false : true
   unless is_section
@@ -128,8 +135,39 @@ structure.each_pair do |key, attrs|
       type = 'snowflake'
     end
 
+  simple_title = transform_control_title(title)
+  # Assumes 2018 R2 benchmark version 3.1.0 ... numbers may differ in other versions / oses
+  additional_context = case key
+                       when /^18.9.97.1.1/
+                         'winrm_client'
+                       when /^18.9.97.1.2/
+                         'winrm_client'
+                       when /^18.9.97.2.1/
+                         'winrm_service'
+                       when /^18.9.97.2.3/
+                         'winrm_service'
+                       when '18.9.85.2'
+                         'computer'
+                       when '19.7.40.1'
+                         'user'
+                       else
+                         ''
+                       end
+
+  unique_title = case additional_context
+                 when ''
+                   simple_title
+                 else
+                   "#{simple_title}_#{additional_context}"
+                 end
+    if unique_titles.include?(unique_title)
+      raise "unique title is not so unique: #{unique_title}"
+    end
+    unique_titles << unique_title
+
     summary[key] = {
       'title'            => title,
+      'unique_title'     => unique_title,
       'type'             => type,
       'policy'           => policy,
       'comparitor'       => comparitor,
