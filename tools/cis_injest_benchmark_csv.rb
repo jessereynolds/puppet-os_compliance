@@ -25,7 +25,7 @@ structure = CSV.new(ARGF.file).inject({}) do |memo, row|
       row.pop
     end
     fields = row.map do |item|
-      field = item.gsub(/^\W+/, '')
+      field = item.gsub(/^\W+/, '').downcase
       field
     end
   else
@@ -64,12 +64,19 @@ structure.each_pair do |key, attrs|
       deep_comparitor = $2
     end
 
-    # There are nine 'Configure ...' in 2012 R2 L1 Member Server which have the following details embedded in the description. They are of the following types, syntactically: 
+    # There are nine 'Configure ...' in 2012 R2 L1 Member Server which have the following details embedded in the description. They are of the following types, syntactically:
     #
     # - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators, Authenticated Users`.
     # - **Level 1 - Member Server.** The recommended state for this setting is: `Administrators` and (when the _Hyper-V_ Role is installed) `NT VIRTUAL MACHINE\Virtual Machines`.
     # - **Level 1 - Member Server.** The recommended state for this setting is to include: `Guests, Local account and member of Administrators group`.
     # - **Level 1 - Member Server.** The recommended state for this setting is: `` (i.e. None), or (when the legacy _Computer Browser_ service is enabled) `BROWSER`.
+
+    monitor = false
+    enforce = false
+    if attrs['action'].is_a?(String)
+      monitor = true if attrs['action'].downcase =~ /monitor/
+      enforce = true if attrs['action'].downcase =~ /enforce/
+    end
 
     case title
     when /Ensure '(.*)' is set to '(.*)'/
@@ -82,7 +89,7 @@ structure.each_pair do |key, attrs|
         operator = ($2 == 'more') ? '>=' : '<='
         and_not_zero = ($3 =~ /but not 0/) ? true : false
       when /\w.*,.*\w/ # words separated by commas
-        splits = comparitor_loose.split(',').map {|comp| 
+        splits = comparitor_loose.split(',').map {|comp|
           comp.gsub!(/^\s*/, '')
           comp.gsub!(/\s*$/, '')
         }
@@ -131,6 +138,8 @@ structure.each_pair do |key, attrs|
       'comparitor_loose' => comparitor_loose,
       'deep_operator'    => deep_operator,
       'deep_comparitor'  => deep_comparitor,
+      'monitor'          => monitor,
+      'enforce'          => enforce,
     }
   end
 end
