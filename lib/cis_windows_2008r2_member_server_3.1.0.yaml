@@ -596,19 +596,6 @@
   monitor: true
   enforce: true
 2.3.1.2:
-  title: "(L1) Ensure 'Accounts: Block Microsoft accounts' is set to 'Users can't
-    add or log on with Microsoft accounts'"
-  type: ensure_policy_value
-  policy: 'Accounts: Block Microsoft accounts'
-  comparitor: Users can't add or log on with Microsoft accounts
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Users can't add or log on with Microsoft accounts
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-2.3.1.3:
   title: "(L1) Ensure 'Accounts: Guest account status' is set to 'Disabled' (MS only)"
   type: ensure_policy_value
   policy: 'Accounts: Guest account status'
@@ -620,7 +607,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-2.3.1.4:
+2.3.1.3:
   title: "(L1) Ensure 'Accounts: Limit local account use of blank passwords to console
     logon only' is set to 'Enabled'"
   type: ensure_policy_value
@@ -633,7 +620,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-2.3.1.5:
+2.3.1.4:
   title: "(L1) Configure 'Accounts: Rename administrator account'"
   type: ensure_some_configuration
   policy: 'Accounts: Rename administrator account'
@@ -645,7 +632,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-2.3.1.6:
+2.3.1.5:
   title: "(L1) Configure 'Accounts: Rename guest account'"
   type: ensure_some_configuration
   policy: 'Accounts: Rename guest account'
@@ -814,19 +801,6 @@
   monitor: false
   enforce: true
 2.3.7.3:
-  title: "(L1) Ensure 'Interactive logon: Machine inactivity limit' is set to '900
-    or fewer second(s), but not 0'"
-  type: ensure_policy_value
-  policy: 'Interactive logon: Machine inactivity limit'
-  comparitor: 900
-  operator: "<="
-  and_not_zero: true
-  comparitor_loose: 900 or fewer second(s), but not 0
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-2.3.7.4:
   title: "(L1) Configure 'Interactive logon: Message text for users attempting to
     log on'"
   type: ensure_some_configuration
@@ -839,7 +813,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-2.3.7.5:
+2.3.7.4:
   title: "(L1) Configure 'Interactive logon: Message title for users attempting to
     log on'"
   type: ensure_some_configuration
@@ -852,7 +826,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-2.3.7.7:
+2.3.7.6:
   title: "(L1) Ensure 'Interactive logon: Prompt user to change password before expiration'
     is set to 'between 5 and 14 days'"
   type: ensure_policy_value
@@ -865,7 +839,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-2.3.7.8:
+2.3.7.7:
   title: "(L1) Ensure 'Interactive logon: Require Domain Controller Authentication
     to unlock workstation' is set to 'Enabled' (MS only)"
   type: ensure_policy_value
@@ -878,7 +852,7 @@
   deep_comparitor: 
   monitor: true
   enforce: true
-2.3.7.9:
+2.3.7.8:
   title: "(L1) Ensure 'Interactive logon: Smart card removal behavior' is set to 'Lock
     Workstation' or higher"
   type: ensure_policy_value
@@ -1251,7 +1225,7 @@
   comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
   deep_operator: 
   deep_comparitor: 
-  monitor: false
+  monitor: true
   enforce: false
 2.3.11.10:
   title: "(L1) Ensure 'Network security: Minimum session security for NTLM SSP based
@@ -1306,6 +1280,18 @@
   operator: "=="
   and_not_zero: false
   comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: true
+  enforce: false
+2.3.16.1:
+  title: "(L1) Ensure 'System settings: Optional subsystems' is set to 'Defined: (blank)'"
+  type: ensure_policy_value
+  policy: 'System settings: Optional subsystems'
+  comparitor: 'Defined: (blank)'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Defined: (blank)'
   deep_operator: 
   deep_comparitor: 
   monitor: true
@@ -1929,18 +1915,6 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-17.6.2:
-  title: "(L1) Ensure 'Audit Removable Storage' is set to 'Success and Failure'"
-  type: ensure_policy_value
-  policy: Audit Removable Storage
-  comparitor: Success and Failure
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Success and Failure
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
 17.7.1:
   title: "(L1) Ensure 'Audit Audit Policy Change' is set to 'Success and Failure'"
   type: ensure_policy_value
@@ -1987,7 +1961,7 @@
   comparitor_loose: Success and Failure
   deep_operator: 
   deep_comparitor: 
-  monitor: true
+  monitor: false
   enforce: false
 17.9.1:
   title: "(L1) Ensure 'Audit IPsec Driver' is set to 'Success and Failure'"
@@ -2045,30 +2019,6 @@
   operator: "=="
   and_not_zero: false
   comparitor_loose: Success and Failure
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.1.1.1:
-  title: "(L1) Ensure 'Prevent enabling lock screen camera' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Prevent enabling lock screen camera
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.1.1.2:
-  title: "(L1) Ensure 'Prevent enabling lock screen slide show' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Prevent enabling lock screen slide show
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
   deep_operator: 
   deep_comparitor: 
   monitor: true
@@ -2164,6 +2114,22 @@
   monitor: true
   enforce: false
 18.3.2:
+  title: "(L1) Ensure 'Configure SMB v1 client' is set to 'Enabled: Bowser, MRxSmb20,
+    NSI'"
+  type: ensure_policy_value
+  policy: Configure SMB v1 client
+  comparitor:
+  - 'Enabled: Bowser'
+  - MRxSmb20
+  - NSI
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Bowser, MRxSmb20, NSI'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: true
+18.3.3:
   title: "(L1) Ensure 'Configure SMB v1 client driver' is set to 'Enabled: Disable
     driver'"
   type: ensure_policy_value
@@ -2176,7 +2142,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-18.3.3:
+18.3.4:
   title: "(L1) Ensure 'Configure SMB v1 server' is set to 'Disabled'"
   type: ensure_policy_value
   policy: Configure SMB v1 server
@@ -2188,7 +2154,7 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-18.3.4:
+18.3.5:
   title: "(L1) Ensure 'Enable Structured Exception Handling Overwrite Protection (SEHOP)'
     is set to 'Enabled'"
   type: ensure_policy_value
@@ -2201,7 +2167,7 @@
   deep_comparitor: 
   monitor: true
   enforce: false
-18.3.5:
+18.3.6:
   title: "(L1) Ensure 'WDigest Authentication' is set to 'Disabled'"
   type: ensure_policy_value
   policy: WDigest Authentication
@@ -2400,20 +2366,6 @@
   deep_comparitor: 
   monitor: true
   enforce: true
-18.5.21.1:
-  title: "(L1) Ensure 'Minimize the number of simultaneous connections to the Internet
-    or a Windows Domain' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Minimize the number of simultaneous connections to the Internet or a Windows
-    Domain
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
 18.8.3.1:
   title: "(L1) Ensure 'Include command line in process creation events' is set to
     'Disabled'"
@@ -2427,34 +2379,19 @@
   deep_comparitor: 
   monitor: false
   enforce: true
-18.8.4.1:
-  title: "(L1) Ensure 'Remote host allows delegation of non-exportable credentials'
-    is set to 'Enabled'"
+18.8.7.2:
+  title: "(L1) Ensure 'Allow remote access to the Plug and Play interface' is set
+    to 'Disabled'"
   type: ensure_policy_value
-  policy: Remote host allows delegation of non-exportable credentials
-  comparitor: Enabled
+  policy: Allow remote access to the Plug and Play interface
+  comparitor: Disabled
   operator: "=="
   and_not_zero: false
-  comparitor_loose: Enabled
+  comparitor_loose: Disabled
   deep_operator: 
   deep_comparitor: 
-  monitor: true
-  enforce: false
-18.8.14.1:
-  title: "(L1) Ensure 'Boot-Start Driver Initialization Policy' is set to 'Enabled:
-    Good, unknown and bad but critical'"
-  type: ensure_policy_value
-  policy: Boot-Start Driver Initialization Policy
-  comparitor:
-  - 'Enabled: Good'
-  - unknown and bad but critical
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: 'Enabled: Good, unknown and bad but critical'
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
+  monitor: false
+  enforce: true
 18.8.21.2:
   title: "(L1) Ensure 'Configure registry policy processing: Do not apply during periodic
     background processing' is set to 'Enabled: FALSE'"
@@ -2521,7 +2458,7 @@
   deep_comparitor: 
   monitor: true
   enforce: false
-18.8.22.1.6:
+18.8.22.1.7:
   title: "(L1) Ensure 'Turn off printing over HTTP' is set to 'Enabled'"
   type: ensure_policy_value
   policy: Turn off printing over HTTP
@@ -2534,75 +2471,13 @@
   monitor: true
   enforce: false
 18.8.27.1:
-  title: "(L1) Ensure 'Do not display network selection UI' is set to 'Enabled'"
+  title: "(L1) Ensure 'Always use classic logon' is set to 'Enabled'"
   type: ensure_policy_value
-  policy: Do not display network selection UI
+  policy: Always use classic logon
   comparitor: Enabled
   operator: "=="
   and_not_zero: false
   comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.8.27.2:
-  title: "(L1) Ensure 'Do not enumerate connected users on domain-joined computers'
-    is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Do not enumerate connected users on domain-joined computers
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.8.27.3:
-  title: "(L1) Ensure 'Enumerate local users on domain-joined computers' is set to
-    'Disabled' (MS only)"
-  type: ensure_policy_value
-  policy: Enumerate local users on domain-joined computers
-  comparitor: Disabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Disabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.8.27.4:
-  title: "(L1) Ensure 'Turn off app notifications on the lock screen' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Turn off app notifications on the lock screen
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.8.27.5:
-  title: "(L1) Ensure 'Turn off picture password sign-in' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Turn off picture password sign-in
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.8.27.6:
-  title: "(L1) Ensure 'Turn on convenience PIN sign-in' is set to 'Disabled'"
-  type: ensure_policy_value
-  policy: Turn on convenience PIN sign-in
-  comparitor: Disabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Disabled
   deep_operator: 
   deep_comparitor: 
   monitor: true
@@ -2662,18 +2537,6 @@
     'Enabled' (MS only)"
   type: ensure_policy_value
   policy: Enable RPC Endpoint Mapper Client Authentication
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.6.1:
-  title: "(L1) Ensure 'Allow Microsoft accounts to be optional' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Allow Microsoft accounts to be optional
   comparitor: Enabled
   operator: "=="
   and_not_zero: false
@@ -2743,6 +2606,30 @@
   deep_comparitor: 
   monitor: true
   enforce: false
+18.9.18.1:
+  title: "(L1) Ensure 'Turn off desktop gadgets' is set to 'Enabled'"
+  type: ensure_policy_value
+  policy: Turn off desktop gadgets
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: true
+18.9.18.2:
+  title: "(L1) Ensure 'Turn Off user-installed desktop gadgets' is set to 'Enabled'"
+  type: ensure_policy_value
+  policy: Turn Off user-installed desktop gadgets
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: true
 18.9.24.1:
   title: "(L1) Ensure 'EMET 5.52' or higher is installed"
   type: snowflake
@@ -3139,81 +3026,6 @@
   deep_comparitor: 
   monitor: false
   enforce: false
-18.9.76.3.1:
-  title: "(L1) Ensure 'Configure local setting override for reporting to Microsoft
-    MAPS' is set to 'Disabled'"
-  type: ensure_policy_value
-  policy: Configure local setting override for reporting to Microsoft MAPS
-  comparitor: Disabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Disabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.76.7.1:
-  title: "(L1) Ensure 'Turn on behavior monitoring' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Turn on behavior monitoring
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.76.10.1:
-  title: "(L1) Ensure 'Scan removable drives' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Scan removable drives
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.76.10.2:
-  title: "(L1) Ensure 'Turn on e-mail scanning' is set to 'Enabled'"
-  type: ensure_policy_value
-  policy: Turn on e-mail scanning
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.80.1.1:
-  title: "(L1) Ensure 'Configure Windows Defender SmartScreen' is set to 'Enabled:
-    Warn and prevent bypass'"
-  type: ensure_policy_value
-  policy: Configure Windows Defender SmartScreen
-  comparitor: 'Enabled: Warn and prevent bypass'
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: 'Enabled: Warn and prevent bypass'
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.81.3:
-  title: "(L1) Ensure 'Automatically send memory dumps for OS-generated error reports'
-    is set to 'Disabled'"
-  type: ensure_policy_value
-  policy: Automatically send memory dumps for OS-generated error reports
-  comparitor: Disabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Disabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
 18.9.81.2.1:
   title: "(L1) Ensure 'Configure Default consent' is set to 'Enabled: Always ask before
     sending data'"
@@ -3243,19 +3055,6 @@
   title: "(L1) Ensure 'Always install with elevated privileges' is set to 'Disabled'"
   type: ensure_policy_value
   policy: Always install with elevated privileges
-  comparitor: Disabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Disabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
-  enforce: false
-18.9.86.1:
-  title: "(L1) Ensure 'Sign-in last interactive user automatically after a system-initiated
-    restart' is set to 'Disabled'"
-  type: ensure_policy_value
-  policy: Sign-in last interactive user automatically after a system-initiated restart
   comparitor: Disabled
   operator: "=="
   and_not_zero: false
@@ -3386,6 +3185,34 @@
   monitor: true
   enforce: true
 18.9.101.4:
+  title: "(L1) Ensure 'Do not adjust default option to 'Install Updates and Shut Down'
+    in Shut Down Windows dialog box' is set to 'Disabled'"
+  type: ensure_policy_value
+  policy: Do not adjust default option to 'Install Updates and Shut Down' in Shut
+    Down Windows dialog box
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: true
+  enforce: true
+18.9.101.5:
+  title: "(L1) Ensure 'Do not display 'Install Updates and Shut Down' option in Shut
+    Down Windows dialog box' is set to 'Disabled'"
+  type: ensure_policy_value
+  policy: Do not display 'Install Updates and Shut Down' option in Shut Down Windows
+    dialog box
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: true
+  enforce: true
+18.9.101.6:
   title: "(L1) Ensure 'No auto-restart with logged on users for scheduled automatic
     updates installations' is set to 'Disabled'"
   type: ensure_policy_value
@@ -3394,6 +3221,19 @@
   operator: "=="
   and_not_zero: false
   comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: true
+  enforce: true
+18.9.101.7:
+  title: "(L1) Ensure 'Reschedule Automatic Updates scheduled installations' is set
+    to 'Enabled: 1 minute'"
+  type: ensure_policy_value
+  policy: Reschedule Automatic Updates scheduled installations
+  comparitor: 'Enabled: 1 minute'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 1 minute'
   deep_operator: 
   deep_comparitor: 
   monitor: true
@@ -3449,19 +3289,6 @@
   deep_operator: 
   deep_comparitor: 
   monitor: false
-  enforce: false
-19.5.1.1:
-  title: "(L1) Ensure 'Turn off toast notifications on the lock screen' is set to
-    'Enabled'"
-  type: ensure_policy_value
-  policy: Turn off toast notifications on the lock screen
-  comparitor: Enabled
-  operator: "=="
-  and_not_zero: false
-  comparitor_loose: Enabled
-  deep_operator: 
-  deep_comparitor: 
-  monitor: true
   enforce: false
 19.7.4.1:
   title: "(L1) Ensure 'Do not preserve zone information in file attachments' is set
