@@ -15,7 +15,7 @@ require 'csv'
 require 'yaml'
 
 def transform_control_title (title)
-  title.gsub(/^\(L1\) /, '').gsub(/[()',.&:+\/"]/, '').gsub(/.scr/, '').gsub(/\s+/, '_').gsub(/[\\%-]/, '_').gsub(/_+/,'_').downcase
+  title.gsub(/^\(L1\) /, '').gsub(/[()',.&:+\/"\[\]]/, '').gsub(/.scr/, '').gsub(/\s+/, '_').gsub(/[\\%-]/, '_').gsub(/_+/,'_').downcase
 end
 
 

@@ -3148,7 +3148,7 @@
 18.9.16.1:
   title: "(L1) Ensure 'Allow Telemetry' is set to 'Enabled: 0 - Security [Enterprise
     Only]' or 'Enabled: 1 - Basic'"
-  unique_title: ensure_allow_telemetry_is_set_to_enabled_0_security_[enterprise_only]_or_enabled_1_basic
+  unique_title: ensure_allow_telemetry_is_set_to_enabled_0_security_enterprise_only_or_enabled_1_basic
   type: ensure_policy_value
   policy: Allow Telemetry
   comparitor: 'Enabled: 0 - Security [Enterprise Only]'' or ''Enabled: 1 - Basic'
