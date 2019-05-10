@@ -46,9 +46,9 @@ structure.each_pair {|control, attrs|
                        when /^18.9.97.1.2/
                          'winrm_client'
                        when /^18.9.97.2.1/
-                         'winrm_server'
+                         'winrm_service'
                        when /^18.9.97.2.3/
-                         'winrm_server'
+                         'winrm_service'
                        when '18.9.85.2'
                          'computer'
                        when '19.7.40.1'
