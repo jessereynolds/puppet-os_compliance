@@ -11,8 +11,8 @@ class os_compliance::apply (
     lookup("os_compliance::ruleset::${ruleset}").each |$rule, $mode| {
       $rule_class = lookup("os_compliance::rule_alias::${rule}", String)
       class { "os_compliance::rules::${rule_class}":
-        mode    => $mode,
-        tag     => [$rule, $ruleset],
+        mode => $mode,
+        tag  => [$rule, $ruleset],
       }
     }
   }
