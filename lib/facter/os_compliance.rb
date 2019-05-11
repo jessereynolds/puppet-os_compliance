@@ -33,26 +33,18 @@ require 'yaml'
 # export and then read the policy settings from a file into a inifile object
  
 mydir = File.expand_path(File.dirname(__FILE__))
+benchmark_dir = File.join(mydir, '..')
 
-# if true then the name and state and other details of each control will be include in the fact output
-show_details = true
 
-# if true, and the above details is true, then further debug info will be included for each control
-debug = false
+module Windows_compliance
+  def self.evaluate_benchmark(benchmark_identifier, benchmark_dir, options)
 
-Facter.add('os_compliance') do
-  confine :osfamily                  => 'Windows'
-  #confine :operatingsystemmajrelease => '2012 R2'
-  setcode do
-    the_fact = {}
-
+    cis_benchmark = YAML.load(File.read(File.join(benchmark_dir, "#{benchmark_identifier}.yaml")))
     policies = PuppetX::Secedit.get_policies
-    cis_benchmark = YAML.load(File.read(File.join(mydir, '..', 'cis_windows_2012r2_member_server_2.3.0.yaml')))
 
     controls = {} 
-
     cis_benchmark.each_pair do |key, attributes|
-      results = PuppetX::Os_compliance::Controls.ensure_policy_value(policies, attributes, :debug => debug)
+      results = PuppetX::Os_compliance::Controls.ensure_policy_value(policies, attributes, :debug => options[:debug])
       if results['compliancy']
         controls[results['compliancy']] = {} unless controls[results['compliancy']]
         controls[results['compliancy']][key.gsub('.', '_')] = results
@@ -60,15 +52,20 @@ Facter.add('os_compliance') do
         controls['errored'] = {} unless controls['errored']
         controls['errored'][key] = results
       end
-
     end
- 
-    number_controls      = cis_benchmark.length
-    number_compliant     = controls['compliant'] ? controls['compliant'].length : 0
-    number_noncompliant  = controls['noncompliant'] ? controls['noncompliant'].length : 0
-    number_unknown       = controls['unknown'] ? controls['unknown'].length : 0
-    number_unimplemented = controls['unimplemented'] ? controls['unimplemented'].length : 0
-    number_exceptions    = controls['exception'] ? controls['exception'].length : 0
+    controls
+  end
+
+  def self.present_fact(controls, benchmark_identifier, options)
+    counts_by_state = {}
+    controls.each_pair {|state, controls_by_state|
+      counts_by_state[state] = controls_by_state.length
+    }
+    #number_controls      = counts_by_state.values.inject {|memo, state| memo + state }
+    number_controls = 0
+    counts_by_state.each_pair {|state, count| number_controls += count }
+    number_compliant     = counts_by_state['compliant'] || 0
+    number_unimplemented = counts_by_state['unimplemented'] || 0
     percent_compliant    = number_controls > 0 ? (number_compliant * 100.0) / number_controls : nil
     percent_implemented  = number_controls > 0 ? ((number_controls - number_unimplemented) * 100.0) / number_controls : nil
 
@@ -76,21 +73,56 @@ Facter.add('os_compliance') do
       { status => details.keys }
     }
 
+    the_fact = {}
     the_fact['cis_level_1'] = {
-      'version'              => 'cis_windows_2012r2_member_server_2.3.0',
+      'version'              => benchmark_identifier,
       'percent_compliant'    => percent_compliant,
       'percent_implemented'  => percent_implemented,
-      'number_compliant'     => number_compliant,
-      'number_noncompliant'  => number_noncompliant,
-      'number_unknown'       => number_unknown,
-      'number_unimplemented' => number_unimplemented,
-      'number_exceptions'    => number_exceptions,
+      'counts_by_state'      => counts_by_state,
       'number_controls'      => number_controls,
-      'controls_summary'     => controls_summary,
     }
-    if show_details
+    if options[:show_details]
       the_fact['cis_level_1']['controls'] = controls
     end
+    if options[:show_summary]
+      the_fact['cis_level_1']['controls_summary'] = controls_summary
+    end
     the_fact
+  end
+end
+
+options = {
+  :show_details => false, # if true then the name and state and other details of each control will be include in the fact output
+  :show_summary => false, # if true then the name and state and other details of each control will be include in the fact output
+  :debug => false,       # if true, and the above details is true, then further debug info will be included for each control
+}
+
+Facter.add('os_compliance') do
+  confine :osfamily                  => 'Windows'
+  confine :operatingsystemmajrelease => '2016'
+  setcode do
+    benchmark_identifier = 'cis_windows_2016rtm1607_member_server_1.1.0'
+    controls = Windows_compliance.evaluate_benchmark(benchmark_identifier, benchmark_dir, options)
+    the_fact = Windows_compliance.present_fact(controls, benchmark_identifier, options)
+  end
+end
+
+Facter.add('os_compliance') do
+  confine :osfamily                  => 'Windows'
+  confine :operatingsystemmajrelease => '2012 R2'
+  setcode do
+    benchmark_identifier = 'cis_windows_2012r2_member_server_2.3.0'
+    controls = Windows_compliance.evaluate_benchmark(benchmark_identifier, benchmark_dir, options)
+    the_fact = Windows_compliance.present_fact(controls, benchmark_identifier, options)
+  end
+end
+
+Facter.add('os_compliance') do
+  confine :osfamily                  => 'Windows'
+  confine :operatingsystemmajrelease => '2008 R2'
+  setcode do
+    benchmark_identifier = 'cis_windows_2008r2_member_server_3.1.0'
+    controls = Windows_compliance.evaluate_benchmark(benchmark_identifier, benchmark_dir, options)
+    the_fact = Windows_compliance.present_fact(controls, benchmark_identifier, options)
   end
 end
