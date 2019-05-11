@@ -34,6 +34,12 @@ require 'yaml'
  
 mydir = File.expand_path(File.dirname(__FILE__))
 
+# if true then the name and state and other details of each control will be include in the fact output
+show_details = true
+
+# if true, and the above details is true, then further debug info will be included for each control
+debug = false
+
 Facter.add('os_compliance') do
   confine :osfamily                  => 'Windows'
   #confine :operatingsystemmajrelease => '2012 R2'
@@ -46,7 +52,7 @@ Facter.add('os_compliance') do
     controls = {} 
 
     cis_benchmark.each_pair do |key, attributes|
-      results = PuppetX::Os_compliance::Controls.ensure_policy_value(policies, attributes)
+      results = PuppetX::Os_compliance::Controls.ensure_policy_value(policies, attributes, :debug => debug)
       if results['compliancy']
         controls[results['compliancy']] = {} unless controls[results['compliancy']]
         controls[results['compliancy']][key.gsub('.', '_')] = results
@@ -65,6 +71,11 @@ Facter.add('os_compliance') do
     number_exceptions    = controls['exception'] ? controls['exception'].length : 0
     percent_compliant    = number_controls > 0 ? (number_compliant * 100.0) / number_controls : nil
     percent_implemented  = number_controls > 0 ? ((number_controls - number_unimplemented) * 100.0) / number_controls : nil
+
+    controls_summary = controls.map {|status, details|
+      { status => details.keys }
+    }
+
     the_fact['cis_level_1'] = {
       'version'              => 'cis_windows_2012r2_member_server_2.3.0',
       'percent_compliant'    => percent_compliant,
@@ -75,8 +86,11 @@ Facter.add('os_compliance') do
       'number_unimplemented' => number_unimplemented,
       'number_exceptions'    => number_exceptions,
       'number_controls'      => number_controls,
-      'controls'             => controls,
+      'controls_summary'     => controls_summary,
     }
+    if show_details
+      the_fact['cis_level_1']['controls'] = controls
+    end
     the_fact
   end
 end

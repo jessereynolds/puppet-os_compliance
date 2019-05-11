@@ -6,7 +6,7 @@ require_relative '../lsp/security_policy.rb'
 module PuppetX
   module Os_compliance
     module Controls
-      def self.ensure_policy_value(policies, params)
+      def self.ensure_policy_value(policies, params, options)
         title            = params['title']
         policy           = params['policy']
         comparitor       = params['comparitor']
@@ -16,7 +16,7 @@ module PuppetX
         deep_operator    = params['deep_operator']
         deep_comparitor  = params['deep_comparitor']
 
-        debug = false
+        debug = (options[:debug] == true)
         
         # determine the actual policy value by looking it up in the supplied policies hash
 
