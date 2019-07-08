@@ -9,10 +9,10 @@
 module PuppetX
   class Inifile
     include Enumerable
-  
+
     class Error < StandardError; end
     VERSION = '3.0.0'
-  
+
     # Public: Open an INI file and load the contents.
     #
     # filename - The name of the file as a String
@@ -35,13 +35,13 @@ module PuppetX
       return unless File.file? filename
       new(opts.merge(:filename => filename))
     end
-  
+
     # Get and set the filename
     attr_accessor :filename
-  
+
     # Get and set the encoding
     attr_accessor :encoding
-  
+
     # Public: Create a new INI file from the given set of options. If :content
     # is provided then it will be used to populate the INI file. If a :filename
     # is provided then the contents of the file will be parsed and stored in the
@@ -77,15 +77,15 @@ module PuppetX
       @default  = opts.fetch(:default, 'global')
       @filename = opts.fetch(:filename, nil)
       content   = opts.fetch(:content, nil)
-  
+
       @ini = Hash.new {|h,k| h[k] = Hash.new}
-  
+
       if    content.is_a?(Hash) then merge!(content)
       elsif content             then parse(content)
       elsif @filename           then read
       end
     end
-  
+
     # Public: Write the contents of this Inifile to the file system. If left
     # unspecified, the currently configured filename and encoding will be used.
     # Otherwise the filename and encoding can be specified in the options hash.
@@ -99,7 +99,7 @@ module PuppetX
       filename = opts.fetch(:filename, @filename)
       encoding = opts.fetch(:encoding, @encoding)
       mode = encoding ? "w:#{encoding}" : "w"
-  
+
       File.open(filename, mode) do |f|
         @ini.each do |section,hash|
           f.puts "[#{section}]"
@@ -107,11 +107,11 @@ module PuppetX
           f.puts
         end
       end
-  
+
       self
     end
     alias :save :write
-  
+
     # Public: Read the contents of the INI file from the file system and replace
     # and set the state of this Inifile instance. If left unspecified the
     # currently configured filename and encoding will be used when reading from
@@ -129,12 +129,12 @@ module PuppetX
       encoding = opts.fetch(:encoding, @encoding)
       return unless File.file? filename
       mode = encoding ? "r:#{encoding}" : "r"
-  
+
       File.open(filename, mode) { |fd| parse fd }
       self
     end
     alias :restore :read
-  
+
     # Returns this Inifile converted to a String.
     def to_s
       s = []
@@ -145,12 +145,12 @@ module PuppetX
       end
       s.join("\n")
     end
-  
+
     # Returns this Inifile converted to a Hash.
     def to_h
       @ini.dup
     end
-  
+
     # Public: Creates a copy of this Inifile with the entries from the
     # other_inifile merged into the copy.
     #
@@ -160,7 +160,7 @@ module PuppetX
     def merge( other )
       self.dup.merge!(other)
     end
-  
+
     # Public: Merges other_inifile into this Inifile, overwriting existing
     # entries. Useful for having a system Inifile with user overridable settings
     # elsewhere.
@@ -170,7 +170,7 @@ module PuppetX
     # Returns this Inifile.
     def merge!( other )
       return self if other.nil?
-  
+
       my_keys = @ini.keys
       other_keys = case other
         when Inifile
@@ -180,7 +180,7 @@ module PuppetX
         else
           raise Error, "cannot merge contents from '#{other.class.name}'"
         end
-  
+
       (my_keys & other_keys).each do |key|
         case other[key]
         when Hash
@@ -191,7 +191,7 @@ module PuppetX
           raise Error, "cannot merge section #{key.inspect} - unsupported type: #{other[key].class.name}"
         end
       end
-  
+
       (other_keys - my_keys).each do |key|
         @ini[key] = case other[key]
           when Hash
@@ -202,10 +202,10 @@ module PuppetX
             raise Error, "cannot merge section #{key.inspect} - unsupported type: #{other[key].class.name}"
           end
       end
-  
+
       self
     end
-  
+
     # Public: Yield each INI file section, parameter, and value in turn to the
     # given block.
     #
@@ -228,7 +228,7 @@ module PuppetX
       end
       self
     end
-  
+
     # Public: Yield each section in turn to the given block.
     #
     # block - The block that will be iterated by the each method. The block will
@@ -246,7 +246,7 @@ module PuppetX
       @ini.each_key {|section| yield section}
       self
     end
-  
+
     # Public: Remove a section identified by name from the Inifile.
     #
     # section - The section name as a String.
@@ -255,7 +255,7 @@ module PuppetX
     def delete_section( section )
       @ini.delete section.to_s
     end
-  
+
     # Public: Get the section Hash by name. If the section does not exist, then
     # it will be created.
     #
@@ -271,7 +271,7 @@ module PuppetX
       return nil if section.nil?
       @ini[section.to_s]
     end
-  
+
     # Public: Set the section to a hash of parameter/value pairs.
     #
     # section - The section name as a String.
@@ -286,7 +286,7 @@ module PuppetX
     def []=( section, value )
       @ini[section.to_s] = value
     end
-  
+
     # Public: Create a Hash containing only those INI file sections whose names
     # match the given regular expression.
     #
@@ -302,7 +302,7 @@ module PuppetX
     def match( regex )
       @ini.dup.delete_if { |section, _| section !~ regex }
     end
-  
+
     # Public: Check to see if the Inifile contains the section.
     #
     # section - The section name as a String.
@@ -311,12 +311,12 @@ module PuppetX
     def has_section?( section )
       @ini.has_key? section.to_s
     end
-  
+
     # Returns an Array of section names contained in this Inifile.
     def sections
       @ini.keys
     end
-  
+
     # Public: Freeze the state of this Inifile object. Any attempts to change
     # the object will raise an error.
     #
@@ -327,7 +327,7 @@ module PuppetX
       @ini.freeze
       self
     end
-  
+
     # Public: Mark this Inifile as tainted -- this will traverse each section
     # marking each as tainted.
     #
@@ -338,7 +338,7 @@ module PuppetX
       @ini.taint
       self
     end
-  
+
     # Public: Produces a duplicate of this Inifile. The duplicate is independent
     # of the original -- i.e. the duplicate can be modified without changing the
     # original. The tainted state of the original is copied to the duplicate.
@@ -351,7 +351,7 @@ module PuppetX
       other.taint if self.tainted?
       other
     end
-  
+
     # Public: Produces a duplicate of this Inifile. The duplicate is independent
     # of the original -- i.e. the duplicate can be modified without changing the
     # original. The tainted state and the frozen state of the original is copied
@@ -363,7 +363,7 @@ module PuppetX
       other.freeze if self.frozen?
       other
     end
-  
+
     # Public: Compare this Inifile to some other Inifile. For two INI files to
     # be equivalent, they must have the same sections with the same parameter /
     # value pairs in each section.
@@ -377,7 +377,7 @@ module PuppetX
       @ini == other.instance_variable_get(:@ini)
     end
     alias :== :eql?
-  
+
     # Escape special characters.
     #
     # value - The String value to escape.
@@ -392,7 +392,7 @@ module PuppetX
       value.gsub!(%r/\0/, '\0')
       value
     end
-  
+
     # Parse the given content and store the information in this Inifile
     # instance. All data will be cleared out and replaced with the information
     # read from the content.
@@ -405,17 +405,17 @@ module PuppetX
       parser.parse(content)
       self
     end
-  
+
     # The Inifile::Parser has the responsibility of reading the contents of an
     # .ini file and storing that information into a ruby Hash. The object being
     # parsed must respond to `each_line` - this includes Strings and any IO
     # object.
     class Parser
-  
+
       attr_writer :section
       attr_accessor :property
       attr_accessor :value
-  
+
       # Create a new Inifile::Parser that can be used to parse the contents of
       # an .ini file.
       #
@@ -427,26 +427,26 @@ module PuppetX
       def initialize( hash, param, comment, default )
         @hash = hash
         @default = default
-  
+
         comment = comment.to_s.empty? ? "\\z" : "\\s*(?:[#{comment}].*)?\\z"
-  
+
         @section_regexp  = %r/\A\s*\[([^\]]+)\]#{comment}/
         @ignore_regexp   = %r/\A#{comment}/
         @property_regexp = %r/\A(.*?)(?<!\\)#{param}(.*)\z/
-  
+
         @open_quote      = %r/\A\s*(".*)\z/
         @close_quote     = %r/\A(.*(?<!\\)")#{comment}/
         @full_quote      = %r/\A\s*(".*(?<!\\)")#{comment}/
         @trailing_slash  = %r/\A(.*)(?<!\\)\\#{comment}/
         @normal_value    = %r/\A(.*?)#{comment}/
       end
-  
+
       # Returns `true` if the current value starts with a leading double quote.
       # Otherwise returns false.
       def leading_quote?
         value && value =~ %r/\A"/
       end
-  
+
       # Given a string, attempt to parse out a value from that string. This
       # value might be continued on the following line. So this method returns
       # `true` if it is expecting more data.
@@ -457,51 +457,51 @@ module PuppetX
       # Returns `fase` if the string contained a complete value.
       def parse_value( string )
         continuation = false
-  
+
         # if our value starts with a double quote, then we are in a
         # line continuation situation
         if leading_quote?
           # check for a closing quote at the end of the string
           if string =~ @close_quote
             value << $1
-  
+
           # otherwise just append the string to the value
           else
             value << string
             continuation = true
           end
-  
+
         # not currently processing a continuation line
         else
           case string
           when @full_quote
             self.value = $1
-  
+
           when @open_quote
             self.value = $1
             continuation = true
-  
+
           when @trailing_slash
             self.value ?  self.value << $1 : self.value = $1
             continuation = true
-  
+
           when @normal_value
             self.value ?  self.value << $1 : self.value = $1
-  
+
           else
             error
           end
         end
-  
+
         if continuation
           self.value << $/ if leading_quote?
         else
           process_property
         end
-  
+
         continuation
       end
-  
+
       # Parse the ini file contents. This will clear any values currently stored
       # in the ini hash.
       #
@@ -509,17 +509,22 @@ module PuppetX
       #
       # Returns nil.
       def parse( content )
+        #debug_txt = ''
         return unless content
-  
+
         continuation = false
-  
+
         @hash.clear
         @line = nil
         self.section = nil
-  
+
         content.each_line do |line|
+          #debug_txt += line
           @line = line.chomp
-  
+
+          #debug_file = File.open('inifile_debug.txt', 'w')
+          #debug_file.write(debug_txt)
+
           if continuation
             continuation = parse_value @line
           else
@@ -531,14 +536,14 @@ module PuppetX
             when @property_regexp
               self.property = $1.strip
               error if property.empty?
-  
+
               continuation = parse_value $2
             else
               error
             end
           end
         end
-  
+
         # check here if we have a dangling value ... usually means we have an
         # unmatched open quote
         if leading_quote?
@@ -548,10 +553,10 @@ module PuppetX
         elsif value
           error
         end
-  
+
         nil
       end
-  
+
       # Store the property/value pair in the currently active section. This
       # method checks for continuation of the value to the next line.
       #
@@ -559,20 +564,20 @@ module PuppetX
       def process_property
         property.strip!
         value.strip!
-  
+
         self.value = $1 if value =~ %r/\A"(.*)(?<!\\)"\z/m
-  
+
         section[property] = typecast(value)
-  
+
         self.property = nil
         self.value = nil
       end
-  
+
       # Returns the current section Hash.
       def section
         @section ||= @hash[@default]
       end
-  
+
       # Raise a parse error using the given message and appending the current line
       # being parsed.
       #
@@ -582,7 +587,7 @@ module PuppetX
       def error( msg = 'Could not parse line' )
         raise Error, "#{msg}: #{@line.inspect}"
       end
-  
+
       # Attempt to typecast the value string. We are looking for boolean values,
       # integers, floats, and empty strings. Below is how each gets cast, but it
       # is pretty logical and straightforward.
@@ -606,7 +611,7 @@ module PuppetX
           unescape_value(value)
         end
       end
-  
+
       # Unescape special characters found in the value string. This will convert
       # escaped null, tab, carriage return, newline, and backslash into their
       # literal equivalents.
@@ -628,7 +633,7 @@ module PuppetX
         value
       end
     end
-  
+
   end # Inifile
   end
-  
+
