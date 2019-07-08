@@ -1,0 +1,3895 @@
+---
+1.1.1:
+  title: "(L1) Ensure 'Enforce password history' is set to '24 or more password(s)'"
+  unique_title: ensure_enforce_password_history_is_set_to_24_or_more_passwords
+  type: ensure_policy_value
+  policy: Enforce password history
+  comparitor: 24
+  operator: ">="
+  and_not_zero: false
+  comparitor_loose: 24 or more password(s)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.1.2:
+  title: "(L1) Ensure 'Maximum password age' is set to '60 or fewer days, but not
+    0'"
+  unique_title: ensure_maximum_password_age_is_set_to_60_or_fewer_days_but_not_0
+  type: ensure_policy_value
+  policy: Maximum password age
+  comparitor: 60
+  operator: "<="
+  and_not_zero: true
+  comparitor_loose: 60 or fewer days, but not 0
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.1.3:
+  title: "(L1) Ensure 'Minimum password age' is set to '1 or more day(s)'"
+  unique_title: ensure_minimum_password_age_is_set_to_1_or_more_days
+  type: ensure_policy_value
+  policy: Minimum password age
+  comparitor: 1
+  operator: ">="
+  and_not_zero: false
+  comparitor_loose: 1 or more day(s)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.1.4:
+  title: "(L1) Ensure 'Minimum password length' is set to '14 or more character(s)'"
+  unique_title: ensure_minimum_password_length_is_set_to_14_or_more_characters
+  type: ensure_policy_value
+  policy: Minimum password length
+  comparitor: 14
+  operator: ">="
+  and_not_zero: false
+  comparitor_loose: 14 or more character(s)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.1.5:
+  title: "(L1) Ensure 'Password must meet complexity requirements' is set to 'Enabled'"
+  unique_title: ensure_password_must_meet_complexity_requirements_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Password must meet complexity requirements
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.1.6:
+  title: "(L1) Ensure 'Store passwords using reversible encryption' is set to 'Disabled'"
+  unique_title: ensure_store_passwords_using_reversible_encryption_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Store passwords using reversible encryption
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.2.1:
+  title: "(L1) Ensure 'Account lockout duration' is set to '15 or more minute(s)'"
+  unique_title: ensure_account_lockout_duration_is_set_to_15_or_more_minutes
+  type: ensure_policy_value
+  policy: Account lockout duration
+  comparitor: 15
+  operator: ">="
+  and_not_zero: false
+  comparitor_loose: 15 or more minute(s)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.2.2:
+  title: "(L1) Ensure 'Account lockout threshold' is set to '10 or fewer invalid logon
+    attempt(s), but not 0'"
+  unique_title: ensure_account_lockout_threshold_is_set_to_10_or_fewer_invalid_logon_attempts_but_not_0
+  type: ensure_policy_value
+  policy: Account lockout threshold
+  comparitor: 10
+  operator: "<="
+  and_not_zero: true
+  comparitor_loose: 10 or fewer invalid logon attempt(s), but not 0
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+1.2.3:
+  title: "(L1) Ensure 'Reset account lockout counter after' is set to '15 or more
+    minute(s)'"
+  unique_title: ensure_reset_account_lockout_counter_after_is_set_to_15_or_more_minutes
+  type: ensure_policy_value
+  policy: Reset account lockout counter after
+  comparitor: 15
+  operator: ">="
+  and_not_zero: false
+  comparitor_loose: 15 or more minute(s)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.1:
+  title: "(L1) Ensure 'Access Credential Manager as a trusted caller' is set to 'No
+    One'"
+  unique_title: ensure_access_credential_manager_as_a_trusted_caller_is_set_to_no_one
+  type: ensure_policy_value
+  policy: Access Credential Manager as a trusted caller
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.2:
+  title: "(L1) Ensure 'Access this computer from the network' is set to 'Administrators,
+    Authenticated Users, ENTERPRISE DOMAIN CONTROLLERS' (DC only)"
+  unique_title: ensure_access_this_computer_from_the_network_is_set_to_administrators_authenticated_users_enterprise_domain_controllers_dc_only
+  type: ensure_policy_value
+  policy: Access this computer from the network
+  comparitor:
+  - Administrators
+  - Authenticated Users
+  - ENTERPRISE DOMAIN CONTROLLERS
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, Authenticated Users, ENTERPRISE DOMAIN CONTROLLERS
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.4:
+  title: "(L1) Ensure 'Act as part of the operating system' is set to 'No One'"
+  unique_title: ensure_act_as_part_of_the_operating_system_is_set_to_no_one
+  type: ensure_policy_value
+  policy: Act as part of the operating system
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.5:
+  title: "(L1) Ensure 'Add workstations to domain' is set to 'Administrators' (DC
+    only)"
+  unique_title: ensure_add_workstations_to_domain_is_set_to_administrators_dc_only
+  type: ensure_policy_value
+  policy: Add workstations to domain
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.6:
+  title: "(L1) Ensure 'Adjust memory quotas for a process' is set to 'Administrators,
+    LOCAL SERVICE, NETWORK SERVICE'"
+  unique_title: ensure_adjust_memory_quotas_for_a_process_is_set_to_administrators_local_service_network_service
+  type: ensure_policy_value
+  policy: Adjust memory quotas for a process
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  - NETWORK SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.7:
+  title: "(L1) Ensure 'Allow log on locally' is set to 'Administrators'"
+  unique_title: ensure_allow_log_on_locally_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Allow log on locally
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.8:
+  title: "(L1) Ensure 'Allow log on through Remote Desktop Services' is set to 'Administrators'
+    (DC only)"
+  unique_title: ensure_allow_log_on_through_remote_desktop_services_is_set_to_administrators_dc_only
+  type: ensure_policy_value
+  policy: Allow log on through Remote Desktop Services
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.10:
+  title: "(L1) Ensure 'Back up files and directories' is set to 'Administrators'"
+  unique_title: ensure_back_up_files_and_directories_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Back up files and directories
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.11:
+  title: "(L1) Ensure 'Change the system time' is set to 'Administrators, LOCAL SERVICE'"
+  unique_title: ensure_change_the_system_time_is_set_to_administrators_local_service
+  type: ensure_policy_value
+  policy: Change the system time
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, LOCAL SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.12:
+  title: "(L1) Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE'"
+  unique_title: ensure_change_the_time_zone_is_set_to_administrators_local_service
+  type: ensure_policy_value
+  policy: Change the time zone
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, LOCAL SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.13:
+  title: "(L1) Ensure 'Create a pagefile' is set to 'Administrators'"
+  unique_title: ensure_create_a_pagefile_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Create a pagefile
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.14:
+  title: "(L1) Ensure 'Create a token object' is set to 'No One'"
+  unique_title: ensure_create_a_token_object_is_set_to_no_one
+  type: ensure_policy_value
+  policy: Create a token object
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.15:
+  title: "(L1) Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE,
+    NETWORK SERVICE, SERVICE'"
+  unique_title: ensure_create_global_objects_is_set_to_administrators_local_service_network_service_service
+  type: ensure_policy_value
+  policy: Create global objects
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  - NETWORK SERVICE
+  - SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.16:
+  title: "(L1) Ensure 'Create permanent shared objects' is set to 'No One'"
+  unique_title: ensure_create_permanent_shared_objects_is_set_to_no_one
+  type: ensure_policy_value
+  policy: Create permanent shared objects
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.17:
+  title: "(L1) Ensure 'Create symbolic links' is set to 'Administrators' (DC only)"
+  unique_title: ensure_create_symbolic_links_is_set_to_administrators_dc_only
+  type: ensure_policy_value
+  policy: Create symbolic links
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.19:
+  title: "(L1) Ensure 'Debug programs' is set to 'Administrators'"
+  unique_title: ensure_debug_programs_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Debug programs
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.20:
+  title: "(L1) Ensure 'Deny access to this computer from the network' is set to 'Guests'
+    (DC only)"
+  unique_title: ensure_deny_access_to_this_computer_from_the_network_is_set_to_guests_dc_only
+  type: ensure_policy_value
+  policy: Deny access to this computer from the network
+  comparitor: Guests
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Guests
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.22:
+  title: "(L1) Ensure 'Deny log on as a batch job' to include 'Guests'"
+  unique_title: ensure_deny_log_on_as_a_batch_job_to_include_guests
+  type: ensure_policy_value_to_include
+  policy: Deny log on as a batch job
+  comparitor: 
+  operator: member
+  and_not_zero: false
+  comparitor_loose: Guests
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.23:
+  title: "(L1) Ensure 'Deny log on as a service' to include 'Guests'"
+  unique_title: ensure_deny_log_on_as_a_service_to_include_guests
+  type: ensure_policy_value_to_include
+  policy: Deny log on as a service
+  comparitor: 
+  operator: member
+  and_not_zero: false
+  comparitor_loose: Guests
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.24:
+  title: "(L1) Ensure 'Deny log on locally' to include 'Guests'"
+  unique_title: ensure_deny_log_on_locally_to_include_guests
+  type: ensure_policy_value_to_include
+  policy: Deny log on locally
+  comparitor: 
+  operator: member
+  and_not_zero: false
+  comparitor_loose: Guests
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.25:
+  title: "(L1) Ensure 'Deny log on through Remote Desktop Services' is set to 'Guests'
+    (DC only)"
+  unique_title: ensure_deny_log_on_through_remote_desktop_services_is_set_to_guests_dc_only
+  type: ensure_policy_value
+  policy: Deny log on through Remote Desktop Services
+  comparitor: Guests
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Guests
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.27:
+  title: "(L1) Ensure 'Enable computer and user accounts to be trusted for delegation'
+    is set to 'Administrators' (DC only)"
+  unique_title: ensure_enable_computer_and_user_accounts_to_be_trusted_for_delegation_is_set_to_administrators_dc_only
+  type: ensure_policy_value
+  policy: Enable computer and user accounts to be trusted for delegation
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.29:
+  title: "(L1) Ensure 'Force shutdown from a remote system' is set to 'Administrators'"
+  unique_title: ensure_force_shutdown_from_a_remote_system_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Force shutdown from a remote system
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.30:
+  title: "(L1) Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK
+    SERVICE'"
+  unique_title: ensure_generate_security_audits_is_set_to_local_service_network_service
+  type: ensure_policy_value
+  policy: Generate security audits
+  comparitor:
+  - LOCAL SERVICE
+  - NETWORK SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: LOCAL SERVICE, NETWORK SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.31:
+  title: "(L1) Ensure 'Impersonate a client after authentication' is set to 'Administrators,
+    LOCAL SERVICE, NETWORK SERVICE, SERVICE' (DC only)"
+  unique_title: ensure_impersonate_a_client_after_authentication_is_set_to_administrators_local_service_network_service_service_dc_only
+  type: ensure_policy_value
+  policy: Impersonate a client after authentication
+  comparitor:
+  - Administrators
+  - LOCAL SERVICE
+  - NETWORK SERVICE
+  - SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.33:
+  title: "(L1) Ensure 'Increase scheduling priority' is set to 'Administrators'"
+  unique_title: ensure_increase_scheduling_priority_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Increase scheduling priority
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.34:
+  title: "(L1) Ensure 'Load and unload device drivers' is set to 'Administrators'"
+  unique_title: ensure_load_and_unload_device_drivers_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Load and unload device drivers
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.35:
+  title: "(L1) Ensure 'Lock pages in memory' is set to 'No One'"
+  unique_title: ensure_lock_pages_in_memory_is_set_to_no_one
+  type: ensure_policy_value
+  policy: Lock pages in memory
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.37:
+  title: "(L1) Ensure 'Manage auditing and security log' is set to 'Administrators`
+    and (when Exchange is running in the environment) `Exchange Servers' (DC only)"
+  unique_title: ensure_manage_auditing_and_security_log_is_set_to_administrators`_and_when_exchange_is_running_in_the_environment_`exchange_servers_dc_only
+  type: ensure_policy_value
+  policy: Manage auditing and security log
+  comparitor: Administrators` and (when Exchange is running in the environment) `Exchange
+    Servers
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators` and (when Exchange is running in the environment)
+    `Exchange Servers
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.39:
+  title: "(L1) Ensure 'Modify an object label' is set to 'No One'"
+  unique_title: ensure_modify_an_object_label_is_set_to_no_one
+  type: ensure_policy_value
+  policy: Modify an object label
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.40:
+  title: "(L1) Ensure 'Modify firmware environment values' is set to 'Administrators'"
+  unique_title: ensure_modify_firmware_environment_values_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Modify firmware environment values
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.41:
+  title: "(L1) Ensure 'Perform volume maintenance tasks' is set to 'Administrators'"
+  unique_title: ensure_perform_volume_maintenance_tasks_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Perform volume maintenance tasks
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.42:
+  title: "(L1) Ensure 'Profile single process' is set to 'Administrators'"
+  unique_title: ensure_profile_single_process_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Profile single process
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.43:
+  title: "(L1) Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\\WdiServiceHost'"
+  unique_title: ensure_profile_system_performance_is_set_to_administrators_nt_service_wdiservicehost
+  type: ensure_policy_value
+  policy: Profile system performance
+  comparitor:
+  - Administrators
+  - NT SERVICE\WdiServiceHost
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators, NT SERVICE\WdiServiceHost
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.44:
+  title: "(L1) Ensure 'Replace a process level token' is set to 'LOCAL SERVICE, NETWORK
+    SERVICE'"
+  unique_title: ensure_replace_a_process_level_token_is_set_to_local_service_network_service
+  type: ensure_policy_value
+  policy: Replace a process level token
+  comparitor:
+  - LOCAL SERVICE
+  - NETWORK SERVICE
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: LOCAL SERVICE, NETWORK SERVICE
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.45:
+  title: "(L1) Ensure 'Restore files and directories' is set to 'Administrators'"
+  unique_title: ensure_restore_files_and_directories_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Restore files and directories
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.46:
+  title: "(L1) Ensure 'Shut down the system' is set to 'Administrators'"
+  unique_title: ensure_shut_down_the_system_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Shut down the system
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.47:
+  title: "(L1) Ensure 'Synchronize directory service data' is set to 'No One' (DC
+    only)"
+  unique_title: ensure_synchronize_directory_service_data_is_set_to_no_one_dc_only
+  type: ensure_policy_value
+  policy: Synchronize directory service data
+  comparitor: No One
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: No One
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.2.48:
+  title: "(L1) Ensure 'Take ownership of files or other objects' is set to 'Administrators'"
+  unique_title: ensure_take_ownership_of_files_or_other_objects_is_set_to_administrators
+  type: ensure_policy_value
+  policy: Take ownership of files or other objects
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.1.2:
+  title: "(L1) Ensure 'Accounts: Block Microsoft accounts' is set to 'Users can't
+    add or log on with Microsoft accounts'"
+  unique_title: ensure_accounts_block_microsoft_accounts_is_set_to_users_cant_add_or_log_on_with_microsoft_accounts
+  type: ensure_policy_value
+  policy: 'Accounts: Block Microsoft accounts'
+  comparitor: Users can't add or log on with Microsoft accounts
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Users can't add or log on with Microsoft accounts
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.1.4:
+  title: "(L1) Ensure 'Accounts: Limit local account use of blank passwords to console
+    logon only' is set to 'Enabled'"
+  unique_title: ensure_accounts_limit_local_account_use_of_blank_passwords_to_console_logon_only_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Accounts: Limit local account use of blank passwords to console logon only'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.1.5:
+  title: "(L1) Configure 'Accounts: Rename administrator account'"
+  unique_title: configure_accounts_rename_administrator_account
+  type: ensure_some_configuration
+  policy: 'Accounts: Rename administrator account'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.1.6:
+  title: "(L1) Configure 'Accounts: Rename guest account'"
+  unique_title: configure_accounts_rename_guest_account
+  type: ensure_some_configuration
+  policy: 'Accounts: Rename guest account'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.2.1:
+  title: "(L1) Ensure 'Audit: Force audit policy subcategory settings (Windows Vista
+    or later) to override audit policy category settings' is set to 'Enabled'"
+  unique_title: ensure_audit_force_audit_policy_subcategory_settings_windows_vista_or_later_to_override_audit_policy_category_settings_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Audit: Force audit policy subcategory settings (Windows Vista or later)
+    to override audit policy category settings'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.2.2:
+  title: "(L1) Ensure 'Audit: Shut down system immediately if unable to log security
+    audits' is set to 'Disabled'"
+  unique_title: ensure_audit_shut_down_system_immediately_if_unable_to_log_security_audits_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Audit: Shut down system immediately if unable to log security audits'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.4.1:
+  title: "(L1) Ensure 'Devices: Allowed to format and eject removable media' is set
+    to 'Administrators'"
+  unique_title: ensure_devices_allowed_to_format_and_eject_removable_media_is_set_to_administrators
+  type: ensure_policy_value
+  policy: 'Devices: Allowed to format and eject removable media'
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.4.2:
+  title: "(L1) Ensure 'Devices: Prevent users from installing printer drivers' is
+    set to 'Enabled'"
+  unique_title: ensure_devices_prevent_users_from_installing_printer_drivers_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Devices: Prevent users from installing printer drivers'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.5.1:
+  title: "(L1) Ensure 'Domain controller: Allow server operators to schedule tasks'
+    is set to 'Disabled' (DC only)"
+  unique_title: ensure_domain_controller_allow_server_operators_to_schedule_tasks_is_set_to_disabled_dc_only
+  type: ensure_policy_value
+  policy: 'Domain controller: Allow server operators to schedule tasks'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.5.2:
+  title: "(L1) Ensure 'Domain controller: LDAP server signing requirements' is set
+    to 'Require signing' (DC only)"
+  unique_title: ensure_domain_controller_ldap_server_signing_requirements_is_set_to_require_signing_dc_only
+  type: ensure_policy_value
+  policy: 'Domain controller: LDAP server signing requirements'
+  comparitor: Require signing
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Require signing
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.5.3:
+  title: "(L1) Ensure 'Domain controller: Refuse machine account password changes'
+    is set to 'Disabled' (DC only)"
+  unique_title: ensure_domain_controller_refuse_machine_account_password_changes_is_set_to_disabled_dc_only
+  type: ensure_policy_value
+  policy: 'Domain controller: Refuse machine account password changes'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.6.1:
+  title: "(L1) Ensure 'Domain member: Digitally encrypt or sign secure channel data
+    (always)' is set to 'Enabled'"
+  unique_title: ensure_domain_member_digitally_encrypt_or_sign_secure_channel_data_always_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Domain member: Digitally encrypt or sign secure channel data (always)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.6.2:
+  title: "(L1) Ensure 'Domain member: Digitally encrypt secure channel data (when
+    possible)' is set to 'Enabled'"
+  unique_title: ensure_domain_member_digitally_encrypt_secure_channel_data_when_possible_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Domain member: Digitally encrypt secure channel data (when possible)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.6.3:
+  title: "(L1) Ensure 'Domain member: Digitally sign secure channel data (when possible)'
+    is set to 'Enabled'"
+  unique_title: ensure_domain_member_digitally_sign_secure_channel_data_when_possible_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Domain member: Digitally sign secure channel data (when possible)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.6.4:
+  title: "(L1) Ensure 'Domain member: Disable machine account password changes' is
+    set to 'Disabled'"
+  unique_title: ensure_domain_member_disable_machine_account_password_changes_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Domain member: Disable machine account password changes'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.6.5:
+  title: "(L1) Ensure 'Domain member: Maximum machine account password age' is set
+    to '30 or fewer days, but not 0'"
+  unique_title: ensure_domain_member_maximum_machine_account_password_age_is_set_to_30_or_fewer_days_but_not_0
+  type: ensure_policy_value
+  policy: 'Domain member: Maximum machine account password age'
+  comparitor: 30
+  operator: "<="
+  and_not_zero: true
+  comparitor_loose: 30 or fewer days, but not 0
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.6.6:
+  title: "(L1) Ensure 'Domain member: Require strong (Windows 2000 or later) session
+    key' is set to 'Enabled'"
+  unique_title: ensure_domain_member_require_strong_windows_2000_or_later_session_key_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Domain member: Require strong (Windows 2000 or later) session key'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.1:
+  title: "(L1) Ensure 'Interactive logon: Do not display last user name' is set to
+    'Enabled'"
+  unique_title: ensure_interactive_logon_do_not_display_last_user_name_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Interactive logon: Do not display last user name'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.2:
+  title: "(L1) Ensure 'Interactive logon: Do not require CTRL+ALT+DEL' is set to 'Disabled'"
+  unique_title: ensure_interactive_logon_do_not_require_ctrlaltdel_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Interactive logon: Do not require CTRL+ALT+DEL'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.3:
+  title: "(L1) Ensure 'Interactive logon: Machine inactivity limit' is set to '900
+    or fewer second(s), but not 0'"
+  unique_title: ensure_interactive_logon_machine_inactivity_limit_is_set_to_900_or_fewer_seconds_but_not_0
+  type: ensure_policy_value
+  policy: 'Interactive logon: Machine inactivity limit'
+  comparitor: 900
+  operator: "<="
+  and_not_zero: true
+  comparitor_loose: 900 or fewer second(s), but not 0
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.4:
+  title: "(L1) Configure 'Interactive logon: Message text for users attempting to
+    log on'"
+  unique_title: configure_interactive_logon_message_text_for_users_attempting_to_log_on
+  type: ensure_some_configuration
+  policy: 'Interactive logon: Message text for users attempting to log on'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.5:
+  title: "(L1) Configure 'Interactive logon: Message title for users attempting to
+    log on'"
+  unique_title: configure_interactive_logon_message_title_for_users_attempting_to_log_on
+  type: ensure_some_configuration
+  policy: 'Interactive logon: Message title for users attempting to log on'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.7:
+  title: "(L1) Ensure 'Interactive logon: Prompt user to change password before expiration'
+    is set to 'between 5 and 14 days'"
+  unique_title: ensure_interactive_logon_prompt_user_to_change_password_before_expiration_is_set_to_between_5_and_14_days
+  type: ensure_policy_value
+  policy: 'Interactive logon: Prompt user to change password before expiration'
+  comparitor: between 5 and 14 days
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: between 5 and 14 days
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.7.9:
+  title: "(L1) Ensure 'Interactive logon: Smart card removal behavior' is set to 'Lock
+    Workstation' or higher"
+  unique_title: ensure_interactive_logon_smart_card_removal_behavior_is_set_to_lock_workstation_or_higher
+  type: ensure_policy_value
+  policy: 'Interactive logon: Smart card removal behavior'
+  comparitor: Lock Workstation
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Lock Workstation
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.8.1:
+  title: "(L1) Ensure 'Microsoft network client: Digitally sign communications (always)'
+    is set to 'Enabled'"
+  unique_title: ensure_microsoft_network_client_digitally_sign_communications_always_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Microsoft network client: Digitally sign communications (always)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.8.2:
+  title: "(L1) Ensure 'Microsoft network client: Digitally sign communications (if
+    server agrees)' is set to 'Enabled'"
+  unique_title: ensure_microsoft_network_client_digitally_sign_communications_if_server_agrees_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Microsoft network client: Digitally sign communications (if server agrees)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.8.3:
+  title: "(L1) Ensure 'Microsoft network client: Send unencrypted password to third-party
+    SMB servers' is set to 'Disabled'"
+  unique_title: ensure_microsoft_network_client_send_unencrypted_password_to_third_party_smb_servers_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Microsoft network client: Send unencrypted password to third-party SMB
+    servers'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.9.1:
+  title: "(L1) Ensure 'Microsoft network server: Amount of idle time required before
+    suspending session' is set to '15 or fewer minute(s), but not 0'"
+  unique_title: ensure_microsoft_network_server_amount_of_idle_time_required_before_suspending_session_is_set_to_15_or_fewer_minutes_but_not_0
+  type: ensure_policy_value
+  policy: 'Microsoft network server: Amount of idle time required before suspending
+    session'
+  comparitor: 15
+  operator: "<="
+  and_not_zero: true
+  comparitor_loose: 15 or fewer minute(s), but not 0
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.9.2:
+  title: "(L1) Ensure 'Microsoft network server: Digitally sign communications (always)'
+    is set to 'Enabled'"
+  unique_title: ensure_microsoft_network_server_digitally_sign_communications_always_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Microsoft network server: Digitally sign communications (always)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.9.3:
+  title: "(L1) Ensure 'Microsoft network server: Digitally sign communications (if
+    client agrees)' is set to 'Enabled'"
+  unique_title: ensure_microsoft_network_server_digitally_sign_communications_if_client_agrees_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Microsoft network server: Digitally sign communications (if client agrees)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.9.4:
+  title: "(L1) Ensure 'Microsoft network server: Disconnect clients when logon hours
+    expire' is set to 'Enabled'"
+  unique_title: ensure_microsoft_network_server_disconnect_clients_when_logon_hours_expire_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Microsoft network server: Disconnect clients when logon hours expire'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.1:
+  title: "(L1) Ensure 'Network access: Allow anonymous SID/Name translation' is set
+    to 'Disabled'"
+  unique_title: ensure_network_access_allow_anonymous_sidname_translation_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Network access: Allow anonymous SID/Name translation'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.5:
+  title: "(L1) Ensure 'Network access: Let Everyone permissions apply to anonymous
+    users' is set to 'Disabled'"
+  unique_title: ensure_network_access_let_everyone_permissions_apply_to_anonymous_users_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Network access: Let Everyone permissions apply to anonymous users'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.6:
+  title: "(L1) Configure 'Network access: Named Pipes that can be accessed anonymously'
+    (DC only)"
+  unique_title: configure_network_access_named_pipes_that_can_be_accessed_anonymously_dc_only
+  type: ensure_some_configuration
+  policy: 'Network access: Named Pipes that can be accessed anonymously'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.8:
+  title: "(L1) Configure 'Network access: Remotely accessible registry paths'"
+  unique_title: configure_network_access_remotely_accessible_registry_paths
+  type: ensure_some_configuration
+  policy: 'Network access: Remotely accessible registry paths'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.9:
+  title: "(L1) Configure 'Network access: Remotely accessible registry paths and sub-paths'"
+  unique_title: configure_network_access_remotely_accessible_registry_paths_and_sub_paths
+  type: ensure_some_configuration
+  policy: 'Network access: Remotely accessible registry paths and sub-paths'
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.10:
+  title: "(L1) Ensure 'Network access: Restrict anonymous access to Named Pipes and
+    Shares' is set to 'Enabled'"
+  unique_title: ensure_network_access_restrict_anonymous_access_to_named_pipes_and_shares_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Network access: Restrict anonymous access to Named Pipes and Shares'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.12:
+  title: "(L1) Ensure 'Network access: Shares that can be accessed anonymously' is
+    set to 'None'"
+  unique_title: ensure_network_access_shares_that_can_be_accessed_anonymously_is_set_to_none
+  type: ensure_policy_value
+  policy: 'Network access: Shares that can be accessed anonymously'
+  comparitor: None
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: None
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.13:
+  title: "(L1) Ensure 'Network access: Sharing and security model for local accounts'
+    is set to 'Classic - local users authenticate as themselves'"
+  unique_title: ensure_network_access_sharing_and_security_model_for_local_accounts_is_set_to_classic_local_users_authenticate_as_themselves
+  type: ensure_policy_value
+  policy: 'Network access: Sharing and security model for local accounts'
+  comparitor: Classic - local users authenticate as themselves
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Classic - local users authenticate as themselves
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.1:
+  title: "(L1) Ensure 'Network security: Allow Local System to use computer identity
+    for NTLM' is set to 'Enabled'"
+  unique_title: ensure_network_security_allow_local_system_to_use_computer_identity_for_ntlm_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Network security: Allow Local System to use computer identity for NTLM'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.2:
+  title: "(L1) Ensure 'Network security: Allow LocalSystem NULL session fallback'
+    is set to 'Disabled'"
+  unique_title: ensure_network_security_allow_localsystem_null_session_fallback_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Network security: Allow LocalSystem NULL session fallback'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.3:
+  title: "(L1) Ensure 'Network Security: Allow PKU2U authentication requests to this
+    computer to use online identities' is set to 'Disabled'"
+  unique_title: ensure_network_security_allow_pku2u_authentication_requests_to_this_computer_to_use_online_identities_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Network Security: Allow PKU2U authentication requests to this computer
+    to use online identities'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.4:
+  title: "(L1) Ensure 'Network security: Configure encryption types allowed for Kerberos'
+    is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types'"
+  unique_title: ensure_network_security_configure_encryption_types_allowed_for_kerberos_is_set_to_aes128_hmac_sha1_aes256_hmac_sha1_future_encryption_types
+  type: ensure_policy_value
+  policy: 'Network security: Configure encryption types allowed for Kerberos'
+  comparitor:
+  - AES128_HMAC_SHA1
+  - AES256_HMAC_SHA1
+  - Future encryption types
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.5:
+  title: "(L1) Ensure 'Network security: Do not store LAN Manager hash value on next
+    password change' is set to 'Enabled'"
+  unique_title: ensure_network_security_do_not_store_lan_manager_hash_value_on_next_password_change_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Network security: Do not store LAN Manager hash value on next password
+    change'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.6:
+  title: "(L1) Ensure 'Network security: Force logoff when logon hours expire' is
+    set to 'Enabled'"
+  unique_title: ensure_network_security_force_logoff_when_logon_hours_expire_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Network security: Force logoff when logon hours expire'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.7:
+  title: "(L1) Ensure 'Network security: LAN Manager authentication level' is set
+    to 'Send NTLMv2 response only. Refuse LM & NTLM'"
+  unique_title: ensure_network_security_lan_manager_authentication_level_is_set_to_send_ntlmv2_response_only_refuse_lm_ntlm
+  type: ensure_policy_value
+  policy: 'Network security: LAN Manager authentication level'
+  comparitor: Send NTLMv2 response only. Refuse LM & NTLM
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Send NTLMv2 response only. Refuse LM & NTLM
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.8:
+  title: "(L1) Ensure 'Network security: LDAP client signing requirements' is set
+    to 'Negotiate signing' or higher"
+  unique_title: ensure_network_security_ldap_client_signing_requirements_is_set_to_negotiate_signing_or_higher
+  type: ensure_policy_value
+  policy: 'Network security: LDAP client signing requirements'
+  comparitor: Negotiate signing
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Negotiate signing
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.9:
+  title: "(L1) Ensure 'Network security: Minimum session security for NTLM SSP based
+    (including secure RPC) clients' is set to 'Require NTLMv2 session security, Require
+    128-bit encryption'"
+  unique_title: ensure_network_security_minimum_session_security_for_ntlm_ssp_based_including_secure_rpc_clients_is_set_to_require_ntlmv2_session_security_require_128_bit_encryption
+  type: ensure_policy_value
+  policy: 'Network security: Minimum session security for NTLM SSP based (including
+    secure RPC) clients'
+  comparitor:
+  - Require NTLMv2 session security
+  - Require 128-bit encryption
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.11.10:
+  title: "(L1) Ensure 'Network security: Minimum session security for NTLM SSP based
+    (including secure RPC) servers' is set to 'Require NTLMv2 session security, Require
+    128-bit encryption'"
+  unique_title: ensure_network_security_minimum_session_security_for_ntlm_ssp_based_including_secure_rpc_servers_is_set_to_require_ntlmv2_session_security_require_128_bit_encryption
+  type: ensure_policy_value
+  policy: 'Network security: Minimum session security for NTLM SSP based (including
+    secure RPC) servers'
+  comparitor:
+  - Require NTLMv2 session security
+  - Require 128-bit encryption
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Require NTLMv2 session security, Require 128-bit encryption
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.13.1:
+  title: "(L1) Ensure 'Shutdown: Allow system to be shut down without having to log
+    on' is set to 'Disabled'"
+  unique_title: ensure_shutdown_allow_system_to_be_shut_down_without_having_to_log_on_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Shutdown: Allow system to be shut down without having to log on'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.15.1:
+  title: "(L1) Ensure 'System objects: Require case insensitivity for non-Windows
+    subsystems' is set to 'Enabled'"
+  unique_title: ensure_system_objects_require_case_insensitivity_for_non_windows_subsystems_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'System objects: Require case insensitivity for non-Windows subsystems'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.15.2:
+  title: "(L1) Ensure 'System objects: Strengthen default permissions of internal
+    system objects (e.g. Symbolic Links)' is set to 'Enabled'"
+  unique_title: ensure_system_objects_strengthen_default_permissions_of_internal_system_objects_eg_symbolic_links_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'System objects: Strengthen default permissions of internal system objects
+    (e.g. Symbolic Links)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.1:
+  title: "(L1) Ensure 'User Account Control: Admin Approval Mode for the Built-in
+    Administrator account' is set to 'Enabled'"
+  unique_title: ensure_user_account_control_admin_approval_mode_for_the_built_in_administrator_account_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Admin Approval Mode for the Built-in Administrator
+    account'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.2:
+  title: "(L1) Ensure 'User Account Control: Allow UIAccess applications to prompt
+    for elevation without using the secure desktop' is set to 'Disabled'"
+  unique_title: ensure_user_account_control_allow_uiaccess_applications_to_prompt_for_elevation_without_using_the_secure_desktop_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Allow UIAccess applications to prompt for elevation
+    without using the secure desktop'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.3:
+  title: "(L1) Ensure 'User Account Control: Behavior of the elevation prompt for
+    administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure
+    desktop'"
+  unique_title: ensure_user_account_control_behavior_of_the_elevation_prompt_for_administrators_in_admin_approval_mode_is_set_to_prompt_for_consent_on_the_secure_desktop
+  type: ensure_policy_value
+  policy: 'User Account Control: Behavior of the elevation prompt for administrators
+    in Admin Approval Mode'
+  comparitor: Prompt for consent on the secure desktop
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Prompt for consent on the secure desktop
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.4:
+  title: "(L1) Ensure 'User Account Control: Behavior of the elevation prompt for
+    standard users' is set to 'Automatically deny elevation requests'"
+  unique_title: ensure_user_account_control_behavior_of_the_elevation_prompt_for_standard_users_is_set_to_automatically_deny_elevation_requests
+  type: ensure_policy_value
+  policy: 'User Account Control: Behavior of the elevation prompt for standard users'
+  comparitor: Automatically deny elevation requests
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Automatically deny elevation requests
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.5:
+  title: "(L1) Ensure 'User Account Control: Detect application installations and
+    prompt for elevation' is set to 'Enabled'"
+  unique_title: ensure_user_account_control_detect_application_installations_and_prompt_for_elevation_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Detect application installations and prompt for elevation'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.6:
+  title: "(L1) Ensure 'User Account Control: Only elevate UIAccess applications that
+    are installed in secure locations' is set to 'Enabled'"
+  unique_title: ensure_user_account_control_only_elevate_uiaccess_applications_that_are_installed_in_secure_locations_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Only elevate UIAccess applications that are installed
+    in secure locations'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.7:
+  title: "(L1) Ensure 'User Account Control: Run all administrators in Admin Approval
+    Mode' is set to 'Enabled'"
+  unique_title: ensure_user_account_control_run_all_administrators_in_admin_approval_mode_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Run all administrators in Admin Approval Mode'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.8:
+  title: "(L1) Ensure 'User Account Control: Switch to the secure desktop when prompting
+    for elevation' is set to 'Enabled'"
+  unique_title: ensure_user_account_control_switch_to_the_secure_desktop_when_prompting_for_elevation_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Switch to the secure desktop when prompting for elevation'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.17.9:
+  title: "(L1) Ensure 'User Account Control: Virtualize file and registry write failures
+    to per-user locations' is set to 'Enabled'"
+  unique_title: ensure_user_account_control_virtualize_file_and_registry_write_failures_to_per_user_locations_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'User Account Control: Virtualize file and registry write failures to per-user
+    locations'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.1:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Firewall state' is set to 'On (recommended)'"
+  unique_title: ensure_windows_firewall_domain_firewall_state_is_set_to_on_recommended
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Firewall state'
+  comparitor: On (recommended)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: On (recommended)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.2:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Inbound connections' is set to 'Block
+    (default)'"
+  unique_title: ensure_windows_firewall_domain_inbound_connections_is_set_to_block_default
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Inbound connections'
+  comparitor: Block (default)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Block (default)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.3:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Outbound connections' is set to 'Allow
+    (default)'"
+  unique_title: ensure_windows_firewall_domain_outbound_connections_is_set_to_allow_default
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Outbound connections'
+  comparitor: Allow (default)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Allow (default)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.4:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Settings: Display a notification'
+    is set to 'No'"
+  unique_title: ensure_windows_firewall_domain_settings_display_a_notification_is_set_to_no
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Settings: Display a notification'
+  comparitor: 'No'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'No'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.5:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Logging: Name' is set to '%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log'"
+  unique_title: ensure_windows_firewall_domain_logging_name_is_set_to_systemroot_system32_logfiles_firewall_domainfwlog
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Logging: Name'
+  comparitor: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log"
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\domainfw.log"
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.6:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Logging: Size limit (KB)' is set
+    to '16,384 KB or greater'"
+  unique_title: ensure_windows_firewall_domain_logging_size_limit_kb_is_set_to_16384_kb_or_greater
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Logging: Size limit (KB)'
+  comparitor:
+  - '16'
+  - 384 KB or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 16,384 KB or greater
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.7:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Logging: Log dropped packets' is
+    set to 'Yes'"
+  unique_title: ensure_windows_firewall_domain_logging_log_dropped_packets_is_set_to_yes
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Logging: Log dropped packets'
+  comparitor: 'Yes'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Yes'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.1.8:
+  title: "(L1) Ensure 'Windows Firewall: Domain: Logging: Log successful connections'
+    is set to 'Yes'"
+  unique_title: ensure_windows_firewall_domain_logging_log_successful_connections_is_set_to_yes
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Domain: Logging: Log successful connections'
+  comparitor: 'Yes'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Yes'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.1:
+  title: "(L1) Ensure 'Windows Firewall: Private: Firewall state' is set to 'On (recommended)'"
+  unique_title: ensure_windows_firewall_private_firewall_state_is_set_to_on_recommended
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Firewall state'
+  comparitor: On (recommended)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: On (recommended)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.2:
+  title: "(L1) Ensure 'Windows Firewall: Private: Inbound connections' is set to 'Block
+    (default)'"
+  unique_title: ensure_windows_firewall_private_inbound_connections_is_set_to_block_default
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Inbound connections'
+  comparitor: Block (default)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Block (default)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.3:
+  title: "(L1) Ensure 'Windows Firewall: Private: Outbound connections' is set to
+    'Allow (default)'"
+  unique_title: ensure_windows_firewall_private_outbound_connections_is_set_to_allow_default
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Outbound connections'
+  comparitor: Allow (default)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Allow (default)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.4:
+  title: "(L1) Ensure 'Windows Firewall: Private: Settings: Display a notification'
+    is set to 'No'"
+  unique_title: ensure_windows_firewall_private_settings_display_a_notification_is_set_to_no
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Settings: Display a notification'
+  comparitor: 'No'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'No'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.5:
+  title: "(L1) Ensure 'Windows Firewall: Private: Logging: Name' is set to '%SYSTEMROOT%\\System32\\logfiles\\firewall\\privatefw.log'"
+  unique_title: ensure_windows_firewall_private_logging_name_is_set_to_systemroot_system32_logfiles_firewall_privatefwlog
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Logging: Name'
+  comparitor: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\privatefw.log"
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\privatefw.log"
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.6:
+  title: "(L1) Ensure 'Windows Firewall: Private: Logging: Size limit (KB)' is set
+    to '16,384 KB or greater'"
+  unique_title: ensure_windows_firewall_private_logging_size_limit_kb_is_set_to_16384_kb_or_greater
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Logging: Size limit (KB)'
+  comparitor:
+  - '16'
+  - 384 KB or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 16,384 KB or greater
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.7:
+  title: "(L1) Ensure 'Windows Firewall: Private: Logging: Log dropped packets' is
+    set to 'Yes'"
+  unique_title: ensure_windows_firewall_private_logging_log_dropped_packets_is_set_to_yes
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Logging: Log dropped packets'
+  comparitor: 'Yes'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Yes'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.2.8:
+  title: "(L1) Ensure 'Windows Firewall: Private: Logging: Log successful connections'
+    is set to 'Yes'"
+  unique_title: ensure_windows_firewall_private_logging_log_successful_connections_is_set_to_yes
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Private: Logging: Log successful connections'
+  comparitor: 'Yes'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Yes'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.1:
+  title: "(L1) Ensure 'Windows Firewall: Public: Firewall state' is set to 'On (recommended)'"
+  unique_title: ensure_windows_firewall_public_firewall_state_is_set_to_on_recommended
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Firewall state'
+  comparitor: On (recommended)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: On (recommended)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.2:
+  title: "(L1) Ensure 'Windows Firewall: Public: Inbound connections' is set to 'Block
+    (default)'"
+  unique_title: ensure_windows_firewall_public_inbound_connections_is_set_to_block_default
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Inbound connections'
+  comparitor: Block (default)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Block (default)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.3:
+  title: "(L1) Ensure 'Windows Firewall: Public: Outbound connections' is set to 'Allow
+    (default)'"
+  unique_title: ensure_windows_firewall_public_outbound_connections_is_set_to_allow_default
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Outbound connections'
+  comparitor: Allow (default)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Allow (default)
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.4:
+  title: "(L1) Ensure 'Windows Firewall: Public: Settings: Display a notification'
+    is set to 'No'"
+  unique_title: ensure_windows_firewall_public_settings_display_a_notification_is_set_to_no
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Settings: Display a notification'
+  comparitor: 'No'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'No'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.5:
+  title: "(L1) Ensure 'Windows Firewall: Public: Settings: Apply local firewall rules'
+    is set to 'No'"
+  unique_title: ensure_windows_firewall_public_settings_apply_local_firewall_rules_is_set_to_no
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Settings: Apply local firewall rules'
+  comparitor: 'No'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'No'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.6:
+  title: "(L1) Ensure 'Windows Firewall: Public: Settings: Apply local connection
+    security rules' is set to 'No'"
+  unique_title: ensure_windows_firewall_public_settings_apply_local_connection_security_rules_is_set_to_no
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Settings: Apply local connection security rules'
+  comparitor: 'No'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'No'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.7:
+  title: "(L1) Ensure 'Windows Firewall: Public: Logging: Name' is set to '%SYSTEMROOT%\\System32\\logfiles\\firewall\\publicfw.log'"
+  unique_title: ensure_windows_firewall_public_logging_name_is_set_to_systemroot_system32_logfiles_firewall_publicfwlog
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Logging: Name'
+  comparitor: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\publicfw.log"
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: "%SYSTEMROOT%\\System32\\logfiles\\firewall\\publicfw.log"
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.8:
+  title: "(L1) Ensure 'Windows Firewall: Public: Logging: Size limit (KB)' is set
+    to '16,384 KB or greater'"
+  unique_title: ensure_windows_firewall_public_logging_size_limit_kb_is_set_to_16384_kb_or_greater
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Logging: Size limit (KB)'
+  comparitor:
+  - '16'
+  - 384 KB or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 16,384 KB or greater
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.9:
+  title: "(L1) Ensure 'Windows Firewall: Public: Logging: Log dropped packets' is
+    set to 'Yes'"
+  unique_title: ensure_windows_firewall_public_logging_log_dropped_packets_is_set_to_yes
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Logging: Log dropped packets'
+  comparitor: 'Yes'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Yes'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+9.3.10:
+  title: "(L1) Ensure 'Windows Firewall: Public: Logging: Log successful connections'
+    is set to 'Yes'"
+  unique_title: ensure_windows_firewall_public_logging_log_successful_connections_is_set_to_yes
+  type: ensure_policy_value
+  policy: 'Windows Firewall: Public: Logging: Log successful connections'
+  comparitor: 'Yes'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Yes'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.1.1:
+  title: "(L1) Ensure 'Audit Credential Validation' is set to 'Success and Failure'"
+  unique_title: ensure_audit_credential_validation_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Credential Validation
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.2.1:
+  title: "(L1) Ensure 'Audit Application Group Management' is set to 'Success and
+    Failure'"
+  unique_title: ensure_audit_application_group_management_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Application Group Management
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.2.2:
+  title: "(L1) Ensure 'Audit Computer Account Management' is set to 'Success and Failure'"
+  unique_title: ensure_audit_computer_account_management_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Computer Account Management
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.2.3:
+  title: "(L1) Ensure 'Audit Distribution Group Management' is set to 'Success and
+    Failure' (DC only)"
+  unique_title: ensure_audit_distribution_group_management_is_set_to_success_and_failure_dc_only
+  type: ensure_policy_value
+  policy: Audit Distribution Group Management
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.2.4:
+  title: "(L1) Ensure 'Audit Other Account Management Events' is set to 'Success and
+    Failure'"
+  unique_title: ensure_audit_other_account_management_events_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Other Account Management Events
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.2.5:
+  title: "(L1) Ensure 'Audit Security Group Management' is set to 'Success and Failure'"
+  unique_title: ensure_audit_security_group_management_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Security Group Management
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.2.6:
+  title: "(L1) Ensure 'Audit User Account Management' is set to 'Success and Failure'"
+  unique_title: ensure_audit_user_account_management_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit User Account Management
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.3.1:
+  title: "(L1) Ensure 'Audit PNP Activity' is set to 'Success'"
+  unique_title: ensure_audit_pnp_activity_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit PNP Activity
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.3.2:
+  title: "(L1) Ensure 'Audit Process Creation' is set to 'Success'"
+  unique_title: ensure_audit_process_creation_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Process Creation
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.4.1:
+  title: "(L1) Ensure 'Audit Directory Service Access' is set to 'Success and Failure'
+    (DC only)"
+  unique_title: ensure_audit_directory_service_access_is_set_to_success_and_failure_dc_only
+  type: ensure_policy_value
+  policy: Audit Directory Service Access
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.4.2:
+  title: "(L1) Ensure 'Audit Directory Service Changes' is set to 'Success and Failure'
+    (DC only)"
+  unique_title: ensure_audit_directory_service_changes_is_set_to_success_and_failure_dc_only
+  type: ensure_policy_value
+  policy: Audit Directory Service Changes
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.5.1:
+  title: "(L1) Ensure 'Audit Account Lockout' is set to 'Success and Failure'"
+  unique_title: ensure_audit_account_lockout_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Account Lockout
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.5.2:
+  title: "(L1) Ensure 'Audit Group Membership' is set to 'Success'"
+  unique_title: ensure_audit_group_membership_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Group Membership
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.5.3:
+  title: "(L1) Ensure 'Audit Logoff' is set to 'Success'"
+  unique_title: ensure_audit_logoff_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Logoff
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.5.4:
+  title: "(L1) Ensure 'Audit Logon' is set to 'Success and Failure'"
+  unique_title: ensure_audit_logon_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Logon
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.5.5:
+  title: "(L1) Ensure 'Audit Other Logon/Logoff Events' is set to 'Success and Failure'"
+  unique_title: ensure_audit_other_logonlogoff_events_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Other Logon/Logoff Events
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.5.6:
+  title: "(L1) Ensure 'Audit Special Logon' is set to 'Success'"
+  unique_title: ensure_audit_special_logon_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Special Logon
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.6.1:
+  title: "(L1) Ensure 'Audit Other Object Access Events' is set to 'Success and Failure'"
+  unique_title: ensure_audit_other_object_access_events_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Other Object Access Events
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.6.2:
+  title: "(L1) Ensure 'Audit Removable Storage' is set to 'Success and Failure'"
+  unique_title: ensure_audit_removable_storage_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Removable Storage
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.7.1:
+  title: "(L1) Ensure 'Audit Audit Policy Change' is set to 'Success and Failure'"
+  unique_title: ensure_audit_audit_policy_change_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Audit Policy Change
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.7.2:
+  title: "(L1) Ensure 'Audit Authentication Policy Change' is set to 'Success'"
+  unique_title: ensure_audit_authentication_policy_change_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Authentication Policy Change
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.7.3:
+  title: "(L1) Ensure 'Audit Authorization Policy Change' is set to 'Success'"
+  unique_title: ensure_audit_authorization_policy_change_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Authorization Policy Change
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.8.1:
+  title: "(L1) Ensure 'Audit Sensitive Privilege Use' is set to 'Success and Failure'"
+  unique_title: ensure_audit_sensitive_privilege_use_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Sensitive Privilege Use
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.9.1:
+  title: "(L1) Ensure 'Audit IPsec Driver' is set to 'Success and Failure'"
+  unique_title: ensure_audit_ipsec_driver_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit IPsec Driver
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.9.2:
+  title: "(L1) Ensure 'Audit Other System Events' is set to 'Success and Failure'"
+  unique_title: ensure_audit_other_system_events_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Other System Events
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.9.3:
+  title: "(L1) Ensure 'Audit Security State Change' is set to 'Success'"
+  unique_title: ensure_audit_security_state_change_is_set_to_success
+  type: ensure_policy_value
+  policy: Audit Security State Change
+  comparitor: Success
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.9.4:
+  title: "(L1) Ensure 'Audit Security System Extension' is set to 'Success and Failure'"
+  unique_title: ensure_audit_security_system_extension_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit Security System Extension
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+17.9.5:
+  title: "(L1) Ensure 'Audit System Integrity' is set to 'Success and Failure'"
+  unique_title: ensure_audit_system_integrity_is_set_to_success_and_failure
+  type: ensure_policy_value
+  policy: Audit System Integrity
+  comparitor: Success and Failure
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Success and Failure
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.1.1.1:
+  title: "(L1) Ensure 'Prevent enabling lock screen camera' is set to 'Enabled'"
+  unique_title: ensure_prevent_enabling_lockeen_camera_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent enabling lock screen camera
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.1.1.2:
+  title: "(L1) Ensure 'Prevent enabling lock screen slide show' is set to 'Enabled'"
+  unique_title: ensure_prevent_enabling_lockeen_slide_show_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent enabling lock screen slide show
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.1.2.2:
+  title: "(L1) Ensure 'Allow input personalization' is set to 'Disabled'"
+  unique_title: ensure_allow_input_personalization_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow input personalization
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.3.2:
+  title: "(L1) Ensure 'Configure SMB v1 client driver' is set to 'Enabled: Disable
+    driver'"
+  unique_title: ensure_configure_smb_v1_client_driver_is_set_to_enabled_disable_driver
+  type: ensure_policy_value
+  policy: Configure SMB v1 client driver
+  comparitor: 'Enabled: Disable driver'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Disable driver'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.3.3:
+  title: "(L1) Ensure 'Configure SMB v1 server' is set to 'Disabled'"
+  unique_title: ensure_configure_smb_v1_server_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Configure SMB v1 server
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.3.4:
+  title: "(L1) Ensure 'Enable Structured Exception Handling Overwrite Protection (SEHOP)'
+    is set to 'Enabled'"
+  unique_title: ensure_enable_structured_exception_handling_overwrite_protection_sehop_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Enable Structured Exception Handling Overwrite Protection (SEHOP)
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.3.5:
+  title: "(L1) Ensure 'Turn on Windows Defender protection against Potentially Unwanted
+    Applications' is set to 'Enabled'"
+  unique_title: ensure_turn_on_windows_defender_protection_against_potentially_unwanted_applications_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn on Windows Defender protection against Potentially Unwanted Applications
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.3.6:
+  title: "(L1) Ensure 'WDigest Authentication' is set to 'Disabled'"
+  unique_title: ensure_wdigest_authentication_is_set_to_disabled
+  type: ensure_policy_value
+  policy: WDigest Authentication
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.1:
+  title: "(L1) Ensure 'MSS: (AutoAdminLogon) Enable Automatic Logon (not recommended)'
+    is set to 'Disabled'"
+  unique_title: ensure_mss_autoadminlogon_enable_automatic_logon_not_recommended_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'MSS: (AutoAdminLogon) Enable Automatic Logon (not recommended)'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.2:
+  title: "(L1) Ensure 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection
+    level (protects against packet spoofing)' is set to 'Enabled: Highest protection,
+    source routing is completely disabled'"
+  unique_title: ensure_mss_disableipsourcerouting_ipv6_ip_source_routing_protection_level_protects_against_packet_spoofing_is_set_to_enabled_highest_protection_source_routing_is_completely_disabled
+  type: ensure_policy_value
+  policy: 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection level (protects
+    against packet spoofing)'
+  comparitor:
+  - 'Enabled: Highest protection'
+  - source routing is completely disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Highest protection, source routing is completely disabled'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.3:
+  title: "(L1) Ensure 'MSS: (DisableIPSourceRouting) IP source routing protection
+    level (protects against packet spoofing)' is set to 'Enabled: Highest protection,
+    source routing is completely disabled'"
+  unique_title: ensure_mss_disableipsourcerouting_ip_source_routing_protection_level_protects_against_packet_spoofing_is_set_to_enabled_highest_protection_source_routing_is_completely_disabled
+  type: ensure_policy_value
+  policy: 'MSS: (DisableIPSourceRouting) IP source routing protection level (protects
+    against packet spoofing)'
+  comparitor:
+  - 'Enabled: Highest protection'
+  - source routing is completely disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Highest protection, source routing is completely disabled'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.4:
+  title: "(L1) Ensure 'MSS: (EnableICMPRedirect) Allow ICMP redirects to override
+    OSPF generated routes' is set to 'Disabled'"
+  unique_title: ensure_mss_enableicmpredirect_allow_icmp_redirects_to_override_ospf_generated_routes_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'MSS: (EnableICMPRedirect) Allow ICMP redirects to override OSPF generated
+    routes'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.6:
+  title: "(L1) Ensure 'MSS: (NoNameReleaseOnDemand) Allow the computer to ignore NetBIOS
+    name release requests except from WINS servers' is set to 'Enabled'"
+  unique_title: ensure_mss_nonamereleaseondemand_allow_the_computer_to_ignore_netbios_name_release_requests_except_from_wins_servers_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'MSS: (NoNameReleaseOnDemand) Allow the computer to ignore NetBIOS name
+    release requests except from WINS servers'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.8:
+  title: "(L1) Ensure 'MSS: (SafeDllSearchMode) Enable Safe DLL search mode (recommended)'
+    is set to 'Enabled'"
+  unique_title: ensure_mss_safedllsearchmode_enable_safe_dll_search_mode_recommended_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'MSS: (SafeDllSearchMode) Enable Safe DLL search mode (recommended)'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.9:
+  title: "(L1) Ensure 'MSS: (ScreenSaverGracePeriod) The time in seconds before the
+    screen saver grace period expires (0 recommended)' is set to 'Enabled: 5 or fewer
+    seconds'"
+  unique_title: ensure_mss_screensavergraceperiod_the_time_in_seconds_before_theeen_saver_grace_period_expires_0_recommended_is_set_to_enabled_5_or_fewer_seconds
+  type: ensure_policy_value
+  policy: 'MSS: (ScreenSaverGracePeriod) The time in seconds before the screen saver
+    grace period expires (0 recommended)'
+  comparitor: 'Enabled: 5 or fewer seconds'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 5 or fewer seconds'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.12:
+  title: "(L1) Ensure 'MSS: (WarningLevel) Percentage threshold for the security event
+    log at which the system will generate a warning' is set to 'Enabled: 90% or less'"
+  unique_title: ensure_mss_warninglevel_percentage_threshold_for_the_security_event_log_at_which_the_system_will_generate_a_warning_is_set_to_enabled_90_or_less
+  type: ensure_policy_value
+  policy: 'MSS: (WarningLevel) Percentage threshold for the security event log at
+    which the system will generate a warning'
+  comparitor: 'Enabled: 90% or less'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 90% or less'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.8.1:
+  title: "(L1) Ensure 'Enable insecure guest logons' is set to 'Disabled'"
+  unique_title: ensure_enable_insecure_guest_logons_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Enable insecure guest logons
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.11.2:
+  title: "(L1) Ensure 'Prohibit installation and configuration of Network Bridge on
+    your DNS domain network' is set to 'Enabled'"
+  unique_title: ensure_prohibit_installation_and_configuration_of_network_bridge_on_your_dns_domain_network_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prohibit installation and configuration of Network Bridge on your DNS domain
+    network
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.11.3:
+  title: "(L1) Ensure 'Prohibit use of Internet Connection Sharing on your DNS domain
+    network' is set to 'Enabled'"
+  unique_title: ensure_prohibit_use_of_internet_connection_sharing_on_your_dns_domain_network_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prohibit use of Internet Connection Sharing on your DNS domain network
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.11.4:
+  title: "(L1) Ensure 'Require domain users to elevate when setting a network's location'
+    is set to 'Enabled'"
+  unique_title: ensure_require_domain_users_to_elevate_when_setting_a_networks_location_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Require domain users to elevate when setting a network's location
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.14.1:
+  title: (L1) Ensure 'Hardened UNC Paths' is set to 'Enabled, with "Require Mutual
+    Authentication" and "Require Integrity" set for all NETLOGON and SYSVOL shares'
+  unique_title: ensure_hardened_unc_paths_is_set_to_enabled_with_require_mutual_authentication_and_require_integrity_set_for_all_netlogon_and_sysvol_shares
+  type: ensure_policy_value
+  policy: Hardened UNC Paths
+  comparitor:
+  - Enabled
+  - with "Require Mutual Authentication" and "Require Integrity" set for all NETLOGON
+    and SYSVOL shares
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled, with "Require Mutual Authentication" and "Require Integrity"
+    set for all NETLOGON and SYSVOL shares
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.21.1:
+  title: "(L1) Ensure 'Minimize the number of simultaneous connections to the Internet
+    or a Windows Domain' is set to 'Enabled'"
+  unique_title: ensure_minimize_the_number_of_simultaneous_connections_to_the_internet_or_a_windows_domain_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Minimize the number of simultaneous connections to the Internet or a Windows
+    Domain
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.3.1:
+  title: "(L1) Ensure 'Include command line in process creation events' is set to
+    'Disabled'"
+  unique_title: ensure_include_command_line_in_process_creation_events_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Include command line in process creation events
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.4.1:
+  title: "(L1) Ensure 'Remote host allows delegation of non-exportable credentials'
+    is set to 'Enabled'"
+  unique_title: ensure_remote_host_allows_delegation_of_non_exportable_credentials_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Remote host allows delegation of non-exportable credentials
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.14.1:
+  title: "(L1) Ensure 'Boot-Start Driver Initialization Policy' is set to 'Enabled:
+    Good, unknown and bad but critical'"
+  unique_title: ensure_boot_start_driver_initialization_policy_is_set_to_enabled_good_unknown_and_bad_but_critical
+  type: ensure_policy_value
+  policy: Boot-Start Driver Initialization Policy
+  comparitor:
+  - 'Enabled: Good'
+  - unknown and bad but critical
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Good, unknown and bad but critical'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.21.2:
+  title: "(L1) Ensure 'Configure registry policy processing: Do not apply during periodic
+    background processing' is set to 'Enabled: FALSE'"
+  unique_title: ensure_configure_registry_policy_processing_do_not_apply_during_periodic_background_processing_is_set_to_enabled_false
+  type: ensure_policy_value
+  policy: 'Configure registry policy processing: Do not apply during periodic background
+    processing'
+  comparitor: 'Enabled: FALSE'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: FALSE'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.21.3:
+  title: "(L1) Ensure 'Configure registry policy processing: Process even if the Group
+    Policy objects have not changed' is set to 'Enabled: TRUE'"
+  unique_title: ensure_configure_registry_policy_processing_process_even_if_the_group_policy_objects_have_not_changed_is_set_to_enabled_true
+  type: ensure_policy_value
+  policy: 'Configure registry policy processing: Process even if the Group Policy
+    objects have not changed'
+  comparitor: 'Enabled: TRUE'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: TRUE'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.21.4:
+  title: "(L1) Ensure 'Continue experiences on this device' is set to 'Disabled'"
+  unique_title: ensure_continue_experiences_on_this_device_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Continue experiences on this device
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.21.5:
+  title: "(L1) Ensure 'Turn off background refresh of Group Policy' is set to 'Disabled'"
+  unique_title: ensure_turn_off_background_refresh_of_group_policy_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn off background refresh of Group Policy
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.1:
+  title: "(L1) Ensure 'Turn off downloading of print drivers over HTTP' is set to
+    'Enabled'"
+  unique_title: ensure_turn_off_downloading_of_print_drivers_over_http_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off downloading of print drivers over HTTP
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.5:
+  title: "(L1) Ensure 'Turn off Internet download for Web publishing and online ordering
+    wizards' is set to 'Enabled'"
+  unique_title: ensure_turn_off_internet_download_for_web_publishing_and_online_ordering_wizards_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Internet download for Web publishing and online ordering wizards
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.6:
+  title: "(L1) Ensure 'Turn off printing over HTTP' is set to 'Enabled'"
+  unique_title: ensure_turn_off_printing_over_http_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off printing over HTTP
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.27.1:
+  title: "(L1) Ensure 'Block user from showing account details on sign-in' is set
+    to 'Enabled'"
+  unique_title: ensure_block_user_from_showing_account_details_on_sign_in_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Block user from showing account details on sign-in
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.27.2:
+  title: "(L1) Ensure 'Do not display network selection UI' is set to 'Enabled'"
+  unique_title: ensure_do_not_display_network_selection_ui_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not display network selection UI
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.27.3:
+  title: "(L1) Ensure 'Do not enumerate connected users on domain-joined computers'
+    is set to 'Enabled'"
+  unique_title: ensure_do_not_enumerate_connected_users_on_domain_joined_computers_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not enumerate connected users on domain-joined computers
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.27.5:
+  title: "(L1) Ensure 'Turn off app notifications on the lock screen' is set to 'Enabled'"
+  unique_title: ensure_turn_off_app_notifications_on_the_lockeen_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off app notifications on the lock screen
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.27.6:
+  title: "(L1) Ensure 'Turn off picture password sign-in' is set to 'Enabled'"
+  unique_title: ensure_turn_off_picture_password_sign_in_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off picture password sign-in
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.27.7:
+  title: "(L1) Ensure 'Turn on convenience PIN sign-in' is set to 'Disabled'"
+  unique_title: ensure_turn_on_convenience_pin_sign_in_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn on convenience PIN sign-in
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.28.1:
+  title: "(L1) Ensure 'Untrusted Font Blocking' is set to 'Enabled: Block untrusted
+    fonts and log events'"
+  unique_title: ensure_untrusted_font_blocking_is_set_to_enabled_block_untrusted_fonts_and_log_events
+  type: ensure_policy_value
+  policy: Untrusted Font Blocking
+  comparitor: 'Enabled: Block untrusted fonts and log events'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Block untrusted fonts and log events'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.33.6.3:
+  title: "(L1) Ensure 'Require a password when a computer wakes (on battery)' is set
+    to 'Enabled'"
+  unique_title: ensure_require_a_password_when_a_computer_wakes_on_battery_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Require a password when a computer wakes (on battery)
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.33.6.4:
+  title: "(L1) Ensure 'Require a password when a computer wakes (plugged in)' is set
+    to 'Enabled'"
+  unique_title: ensure_require_a_password_when_a_computer_wakes_plugged_in_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Require a password when a computer wakes (plugged in)
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.35.1:
+  title: "(L1) Ensure 'Configure Offer Remote Assistance' is set to 'Disabled'"
+  unique_title: ensure_configure_offer_remote_assistance_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Configure Offer Remote Assistance
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.35.2:
+  title: "(L1) Ensure 'Configure Solicited Remote Assistance' is set to 'Disabled'"
+  unique_title: ensure_configure_solicited_remote_assistance_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Configure Solicited Remote Assistance
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.6.1:
+  title: "(L1) Ensure 'Allow Microsoft accounts to be optional' is set to 'Enabled'"
+  unique_title: ensure_allow_microsoft_accounts_to_be_optional_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Allow Microsoft accounts to be optional
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.8.1:
+  title: "(L1) Ensure 'Disallow Autoplay for non-volume devices' is set to 'Enabled'"
+  unique_title: ensure_disallow_autoplay_for_non_volume_devices_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Disallow Autoplay for non-volume devices
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.8.2:
+  title: "(L1) Ensure 'Set the default behavior for AutoRun' is set to 'Enabled: Do
+    not execute any autorun commands'"
+  unique_title: ensure_set_the_default_behavior_for_autorun_is_set_to_enabled_do_not_execute_any_autorun_commands
+  type: ensure_policy_value
+  policy: Set the default behavior for AutoRun
+  comparitor: 'Enabled: Do not execute any autorun commands'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Do not execute any autorun commands'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.8.3:
+  title: "(L1) Ensure 'Turn off Autoplay' is set to 'Enabled: All drives'"
+  unique_title: ensure_turn_off_autoplay_is_set_to_enabled_all_drives
+  type: ensure_policy_value
+  policy: Turn off Autoplay
+  comparitor: 'Enabled: All drives'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: All drives'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.10.1.1:
+  title: "(L1) Ensure 'Configure enhanced anti-spoofing' is set to 'Enabled'"
+  unique_title: ensure_configure_enhanced_anti_spoofing_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Configure enhanced anti-spoofing
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.13.1:
+  title: "(L1) Ensure 'Turn off Microsoft consumer experiences' is set to 'Enabled'"
+  unique_title: ensure_turn_off_microsoft_consumer_experiences_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Microsoft consumer experiences
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.14.1:
+  title: "(L1) Ensure 'Require pin for pairing' is set to 'Enabled'"
+  unique_title: ensure_require_pin_for_pairing_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Require pin for pairing
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.15.1:
+  title: "(L1) Ensure 'Do not display the password reveal button' is set to 'Enabled'"
+  unique_title: ensure_do_not_display_the_password_reveal_button_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not display the password reveal button
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.15.2:
+  title: "(L1) Ensure 'Enumerate administrator accounts on elevation' is set to 'Disabled'"
+  unique_title: ensure_enumerate_administrator_accounts_on_elevation_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Enumerate administrator accounts on elevation
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.16.1:
+  title: "(L1) Ensure 'Allow Telemetry' is set to 'Enabled: 0 - Security [Enterprise
+    Only]' or 'Enabled: 1 - Basic'"
+  unique_title: ensure_allow_telemetry_is_set_to_enabled_0_security_enterprise_only_or_enabled_1_basic
+  type: ensure_policy_value
+  policy: Allow Telemetry
+  comparitor: 'Enabled: 0 - Security [Enterprise Only]'' or ''Enabled: 1 - Basic'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 0 - Security [Enterprise Only]'' or ''Enabled: 1 - Basic'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.16.3:
+  title: "(L1) Ensure 'Disable pre-release features or settings' is set to 'Disabled'"
+  unique_title: ensure_disable_pre_release_features_or_settings_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Disable pre-release features or settings
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.16.4:
+  title: "(L1) Ensure 'Do not show feedback notifications' is set to 'Enabled'"
+  unique_title: ensure_do_not_show_feedback_notifications_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not show feedback notifications
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.16.5:
+  title: "(L1) Ensure 'Toggle user control over Insider builds' is set to 'Disabled'"
+  unique_title: ensure_toggle_user_control_over_insider_builds_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Toggle user control over Insider builds
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.1.1:
+  title: "(L1) Ensure 'Application: Control Event Log behavior when the log file reaches
+    its maximum size' is set to 'Disabled'"
+  unique_title: ensure_application_control_event_log_behavior_when_the_log_file_reaches_its_maximum_size_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Application: Control Event Log behavior when the log file reaches its maximum
+    size'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.1.2:
+  title: "(L1) Ensure 'Application: Specify the maximum log file size (KB)' is set
+    to 'Enabled: 32,768 or greater'"
+  unique_title: ensure_application_specify_the_maximum_log_file_size_kb_is_set_to_enabled_32768_or_greater
+  type: ensure_policy_value
+  policy: 'Application: Specify the maximum log file size (KB)'
+  comparitor:
+  - 'Enabled: 32'
+  - 768 or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 32,768 or greater'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.2.1:
+  title: "(L1) Ensure 'Security: Control Event Log behavior when the log file reaches
+    its maximum size' is set to 'Disabled'"
+  unique_title: ensure_security_control_event_log_behavior_when_the_log_file_reaches_its_maximum_size_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Security: Control Event Log behavior when the log file reaches its maximum
+    size'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.2.2:
+  title: "(L1) Ensure 'Security: Specify the maximum log file size (KB)' is set to
+    'Enabled: 196,608 or greater'"
+  unique_title: ensure_security_specify_the_maximum_log_file_size_kb_is_set_to_enabled_196608_or_greater
+  type: ensure_policy_value
+  policy: 'Security: Specify the maximum log file size (KB)'
+  comparitor:
+  - 'Enabled: 196'
+  - 608 or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 196,608 or greater'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.3.1:
+  title: "(L1) Ensure 'Setup: Control Event Log behavior when the log file reaches
+    its maximum size' is set to 'Disabled'"
+  unique_title: ensure_setup_control_event_log_behavior_when_the_log_file_reaches_its_maximum_size_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Setup: Control Event Log behavior when the log file reaches its maximum
+    size'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.3.2:
+  title: "(L1) Ensure 'Setup: Specify the maximum log file size (KB)' is set to 'Enabled:
+    32,768 or greater'"
+  unique_title: ensure_setup_specify_the_maximum_log_file_size_kb_is_set_to_enabled_32768_or_greater
+  type: ensure_policy_value
+  policy: 'Setup: Specify the maximum log file size (KB)'
+  comparitor:
+  - 'Enabled: 32'
+  - 768 or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 32,768 or greater'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.4.1:
+  title: "(L1) Ensure 'System: Control Event Log behavior when the log file reaches
+    its maximum size' is set to 'Disabled'"
+  unique_title: ensure_system_control_event_log_behavior_when_the_log_file_reaches_its_maximum_size_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'System: Control Event Log behavior when the log file reaches its maximum
+    size'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.26.4.2:
+  title: "(L1) Ensure 'System: Specify the maximum log file size (KB)' is set to 'Enabled:
+    32,768 or greater'"
+  unique_title: ensure_system_specify_the_maximum_log_file_size_kb_is_set_to_enabled_32768_or_greater
+  type: ensure_policy_value
+  policy: 'System: Specify the maximum log file size (KB)'
+  comparitor:
+  - 'Enabled: 32'
+  - 768 or greater
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 32,768 or greater'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.30.2:
+  title: "(L1) Ensure 'Turn off Data Execution Prevention for Explorer' is set to
+    'Disabled'"
+  unique_title: ensure_turn_off_data_execution_prevention_for_explorer_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn off Data Execution Prevention for Explorer
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.30.3:
+  title: "(L1) Ensure 'Turn off heap termination on corruption' is set to 'Disabled'"
+  unique_title: ensure_turn_off_heap_termination_on_corruption_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn off heap termination on corruption
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.30.4:
+  title: "(L1) Ensure 'Turn off shell protocol protected mode' is set to 'Disabled'"
+  unique_title: ensure_turn_off_shell_protocol_protected_mode_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn off shell protocol protected mode
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.44.1:
+  title: "(L1) Ensure 'Block all consumer Microsoft account user authentication' is
+    set to 'Enabled'"
+  unique_title: ensure_block_all_consumer_microsoft_account_user_authentication_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Block all consumer Microsoft account user authentication
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.52.1:
+  title: "(L1) Ensure 'Prevent the usage of OneDrive for file storage' is set to 'Enabled'"
+  unique_title: ensure_prevent_the_usage_of_onedrive_for_file_storage_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent the usage of OneDrive for file storage
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.2.2:
+  title: "(L1) Ensure 'Do not allow passwords to be saved' is set to 'Enabled'"
+  unique_title: ensure_do_not_allow_passwords_to_be_saved_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not allow passwords to be saved
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.3.2:
+  title: "(L1) Ensure 'Do not allow drive redirection' is set to 'Enabled'"
+  unique_title: ensure_do_not_allow_drive_redirection_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not allow drive redirection
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.9.1:
+  title: "(L1) Ensure 'Always prompt for password upon connection' is set to 'Enabled'"
+  unique_title: ensure_always_prompt_for_password_upon_connection_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Always prompt for password upon connection
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.9.2:
+  title: "(L1) Ensure 'Require secure RPC communication' is set to 'Enabled'"
+  unique_title: ensure_require_secure_rpc_communication_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Require secure RPC communication
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.9.3:
+  title: "(L1) Ensure 'Set client connection encryption level' is set to 'Enabled:
+    High Level'"
+  unique_title: ensure_set_client_connection_encryption_level_is_set_to_enabled_high_level
+  type: ensure_policy_value
+  policy: Set client connection encryption level
+  comparitor: 'Enabled: High Level'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: High Level'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.11.1:
+  title: "(L1) Ensure 'Do not delete temp folders upon exit' is set to 'Disabled'"
+  unique_title: ensure_do_not_delete_temp_folders_upon_exit_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Do not delete temp folders upon exit
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.11.2:
+  title: "(L1) Ensure 'Do not use temporary folders per session' is set to 'Disabled'"
+  unique_title: ensure_do_not_use_temporary_folders_per_session_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Do not use temporary folders per session
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.59.1:
+  title: "(L1) Ensure 'Prevent downloading of enclosures' is set to 'Enabled'"
+  unique_title: ensure_prevent_downloading_of_enclosures_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent downloading of enclosures
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.60.3:
+  title: "(L1) Ensure 'Allow indexing of encrypted files' is set to 'Disabled'"
+  unique_title: ensure_allow_indexing_of_encrypted_files_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow indexing of encrypted files
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.14:
+  title: "(L1) Ensure 'Turn off Windows Defender AntiVirus' is set to 'Disabled'"
+  unique_title: ensure_turn_off_windows_defender_antivirus_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn off Windows Defender AntiVirus
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.3.1:
+  title: "(L1) Ensure 'Configure local setting override for reporting to Microsoft
+    MAPS' is set to 'Disabled'"
+  unique_title: ensure_configure_local_setting_override_for_reporting_to_microsoft_maps_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Configure local setting override for reporting to Microsoft MAPS
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.7.1:
+  title: "(L1) Ensure 'Turn on behavior monitoring' is set to 'Enabled'"
+  unique_title: ensure_turn_on_behavior_monitoring_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn on behavior monitoring
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.10.1:
+  title: "(L1) Ensure 'Scan removable drives' is set to 'Enabled'"
+  unique_title: ensure_scan_removable_drives_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Scan removable drives
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.10.2:
+  title: "(L1) Ensure 'Turn on e-mail scanning' is set to 'Enabled'"
+  unique_title: ensure_turn_on_e_mail_scanning_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn on e-mail scanning
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.13.1.1:
+  title: "(L1) Ensure 'Configure Attack Surface Reduction rules' is set to 'Enabled'"
+  unique_title: ensure_configure_attack_surface_reduction_rules_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Configure Attack Surface Reduction rules
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.13.1.2:
+  title: "(L1) Ensure 'Configure Attack Surface Reduction rules: Set the state for
+    each ASR rule' is 'configured'"
+  unique_title: ensure_configure_attack_surface_reduction_rules_set_the_state_for_each_asr_rule_is_configured
+  type: snowflake
+  policy: 
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.13.3.1:
+  title: "(L1) Ensure 'Prevent users and apps from accessing dangerous websites' is
+    set to 'Enabled: Block'"
+  unique_title: ensure_prevent_users_and_apps_from_accessing_dangerous_websites_is_set_to_enabled_block
+  type: ensure_policy_value
+  policy: Prevent users and apps from accessing dangerous websites
+  comparitor: 'Enabled: Block'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Block'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.79.1.1:
+  title: "(L1) Ensure 'Prevent users from modifying settings' is set to 'Enabled'"
+  unique_title: ensure_prevent_users_from_modifying_settings_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent users from modifying settings
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.80.1.1:
+  title: "(L1) Ensure 'Configure Windows Defender SmartScreen' is set to 'Enabled:
+    Warn and prevent bypass'"
+  unique_title: ensure_configure_windows_defender_smartscreen_is_set_to_enabled_warn_and_prevent_bypass
+  type: ensure_policy_value
+  policy: Configure Windows Defender SmartScreen
+  comparitor: 'Enabled: Warn and prevent bypass'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Warn and prevent bypass'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.84.2:
+  title: "(L1) Ensure 'Allow Windows Ink Workspace' is set to 'Enabled: On, but disallow
+    access above lock' OR 'Disabled' but not 'Enabled: On'"
+  unique_title: ensure_allow_windows_ink_workspace_is_set_to_enabled_on_but_disallow_access_above_lock_or_disabled_but_not_enabled_on
+  type: ensure_policy_value
+  policy: Allow Windows Ink Workspace
+  comparitor:
+  - 'Enabled: On'
+  - 'but disallow access above lock'' OR ''Disabled'' but not ''Enabled: On'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: On, but disallow access above lock'' OR ''Disabled''
+    but not ''Enabled: On'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.85.1:
+  title: "(L1) Ensure 'Allow user control over installs' is set to 'Disabled'"
+  unique_title: ensure_allow_user_control_over_installs_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow user control over installs
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.85.2:
+  title: "(L1) Ensure 'Always install with elevated privileges' is set to 'Disabled'"
+  unique_title: ensure_always_install_with_elevated_privileges_is_set_to_disabled_computer
+  type: ensure_policy_value
+  policy: Always install with elevated privileges
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.86.1:
+  title: "(L1) Ensure 'Sign-in last interactive user automatically after a system-initiated
+    restart' is set to 'Disabled'"
+  unique_title: ensure_sign_in_last_interactive_user_automatically_after_a_system_initiated_restart_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Sign-in last interactive user automatically after a system-initiated restart
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.95.1:
+  title: "(L1) Ensure 'Turn on PowerShell Script Block Logging' is set to 'Disabled'"
+  unique_title: ensure_turn_on_powershell_script_block_logging_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn on PowerShell Script Block Logging
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.95.2:
+  title: "(L1) Ensure 'Turn on PowerShell Transcription' is set to 'Disabled'"
+  unique_title: ensure_turn_on_powershell_traiption_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn on PowerShell Transcription
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.1.1:
+  title: "(L1) Ensure 'Allow Basic authentication' is set to 'Disabled'"
+  unique_title: ensure_allow_basic_authentication_is_set_to_disabled_winrm_client
+  type: ensure_policy_value
+  policy: Allow Basic authentication
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.1.2:
+  title: "(L1) Ensure 'Allow unencrypted traffic' is set to 'Disabled'"
+  unique_title: ensure_allow_unencrypted_traffic_is_set_to_disabled_winrm_client
+  type: ensure_policy_value
+  policy: Allow unencrypted traffic
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.1.3:
+  title: "(L1) Ensure 'Disallow Digest authentication' is set to 'Enabled'"
+  unique_title: ensure_disallow_digest_authentication_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Disallow Digest authentication
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.2.1:
+  title: "(L1) Ensure 'Allow Basic authentication' is set to 'Disabled'"
+  unique_title: ensure_allow_basic_authentication_is_set_to_disabled_winrm_service
+  type: ensure_policy_value
+  policy: Allow Basic authentication
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.2.3:
+  title: "(L1) Ensure 'Allow unencrypted traffic' is set to 'Disabled'"
+  unique_title: ensure_allow_unencrypted_traffic_is_set_to_disabled_winrm_service
+  type: ensure_policy_value
+  policy: Allow unencrypted traffic
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.2.4:
+  title: "(L1) Ensure 'Disallow WinRM from storing RunAs credentials' is set to 'Enabled'"
+  unique_title: ensure_disallow_winrm_from_storing_runas_credentials_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Disallow WinRM from storing RunAs credentials
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.101.2:
+  title: "(L1) Ensure 'Configure Automatic Updates' is set to 'Enabled'"
+  unique_title: ensure_configure_automatic_updates_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Configure Automatic Updates
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.101.3:
+  title: "(L1) Ensure 'Configure Automatic Updates: Scheduled install day' is set
+    to '0 - Every day'"
+  unique_title: ensure_configure_automatic_updates_scheduled_install_day_is_set_to_0_every_day
+  type: ensure_policy_value
+  policy: 'Configure Automatic Updates: Scheduled install day'
+  comparitor: 0 - Every day
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 0 - Every day
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.101.4:
+  title: "(L1) Ensure 'No auto-restart with logged on users for scheduled automatic
+    updates installations' is set to 'Disabled'"
+  unique_title: ensure_no_auto_restart_with_logged_on_users_for_scheduled_automatic_updates_installations_is_set_to_disabled
+  type: ensure_policy_value
+  policy: No auto-restart with logged on users for scheduled automatic updates installations
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.101.1.1:
+  title: "(L1) Ensure 'Manage preview builds' is set to 'Enabled: Disable preview
+    builds'"
+  unique_title: ensure_manage_preview_builds_is_set_to_enabled_disable_preview_builds
+  type: ensure_policy_value
+  policy: Manage preview builds
+  comparitor: 'Enabled: Disable preview builds'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Disable preview builds'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.101.1.2:
+  title: "(L1) Ensure 'Select when Preview Builds and Feature Updates are received'
+    is set to 'Enabled: Semi-Annual Channel, 180 or more days'"
+  unique_title: ensure_select_when_preview_builds_and_feature_updates_are_received_is_set_to_enabled_semi_annual_channel_180_or_more_days
+  type: ensure_policy_value
+  policy: Select when Preview Builds and Feature Updates are received
+  comparitor:
+  - 'Enabled: Semi-Annual Channel'
+  - 180 or more days
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Semi-Annual Channel, 180 or more days'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.101.1.3:
+  title: "(L1) Ensure 'Select when Quality Updates are received' is set to 'Enabled:
+    0 days'"
+  unique_title: ensure_select_when_quality_updates_are_received_is_set_to_enabled_0_days
+  type: ensure_policy_value
+  policy: Select when Quality Updates are received
+  comparitor: 'Enabled: 0 days'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 0 days'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.1.3.1:
+  title: "(L1) Ensure 'Enable screen saver' is set to 'Enabled'"
+  unique_title: ensure_enableeen_saver_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Enable screen saver
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.1.3.2:
+  title: "(L1) Ensure 'Force specific screen saver: Screen saver executable name'
+    is set to 'Enabled: scrnsave.scr'"
+  unique_title: ensure_force_specificeen_saver_screen_saver_executable_name_is_set_to_enablednsav
+  type: ensure_policy_value
+  policy: 'Force specific screen saver: Screen saver executable name'
+  comparitor: 'Enabled: scrnsave.scr'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: scrnsave.scr'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.1.3.3:
+  title: "(L1) Ensure 'Password protect the screen saver' is set to 'Enabled'"
+  unique_title: ensure_password_protect_theeen_saver_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Password protect the screen saver
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.1.3.4:
+  title: "(L1) Ensure 'Screen saver timeout' is set to 'Enabled: 900 seconds or fewer,
+    but not 0'"
+  unique_title: ensure_screen_saver_timeout_is_set_to_enabled_900_seconds_or_fewer_but_not_0
+  type: ensure_policy_value
+  policy: Screen saver timeout
+  comparitor:
+  - 'Enabled: 900 seconds or fewer'
+  - but not 0
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 900 seconds or fewer, but not 0'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.5.1.1:
+  title: "(L1) Ensure 'Turn off toast notifications on the lock screen' is set to
+    'Enabled'"
+  unique_title: ensure_turn_off_toast_notifications_on_the_lockeen_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off toast notifications on the lock screen
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.4.1:
+  title: "(L1) Ensure 'Do not preserve zone information in file attachments' is set
+    to 'Disabled'"
+  unique_title: ensure_do_not_preserve_zone_information_in_file_attachments_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Do not preserve zone information in file attachments
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.4.2:
+  title: "(L1) Ensure 'Notify antivirus programs when opening attachments' is set
+    to 'Enabled'"
+  unique_title: ensure_notify_antivirus_programs_when_opening_attachments_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Notify antivirus programs when opening attachments
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.7.1:
+  title: "(L1) Ensure 'Configure Windows spotlight on lock screen' is set to Disabled'"
+  unique_title: ensure_configure_windows_spotlight_on_lockeen_is_set_to_disabled
+  type: snowflake
+  policy: 
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.7.2:
+  title: "(L1) Ensure 'Do not suggest third-party content in Windows spotlight' is
+    set to 'Enabled'"
+  unique_title: ensure_do_not_suggest_third_party_content_in_windows_spotlight_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not suggest third-party content in Windows spotlight
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.26.1:
+  title: "(L1) Ensure 'Prevent users from sharing files within their profile.' is
+    set to 'Enabled'"
+  unique_title: ensure_prevent_users_from_sharing_files_within_their_profile_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent users from sharing files within their profile.
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.40.1:
+  title: "(L1) Ensure 'Always install with elevated privileges' is set to 'Disabled'"
+  unique_title: ensure_always_install_with_elevated_privileges_is_set_to_disabled_user
+  type: ensure_policy_value
+  policy: Always install with elevated privileges
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false

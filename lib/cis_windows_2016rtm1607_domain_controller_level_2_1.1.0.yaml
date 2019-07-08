@@ -1,0 +1,755 @@
+---
+2.2.36:
+  title: "(L2) Ensure 'Log on as a batch job' is set to 'Administrators' (DC Only)"
+  unique_title: ensure_log_on_as_a_batch_job_is_set_to_administrators_dc_only
+  type: ensure_policy_value
+  policy: Log on as a batch job
+  comparitor: Administrators
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Administrators
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+2.3.10.4:
+  title: "(L2) Ensure 'Network access: Do not allow storage of passwords and credentials
+    for network authentication' is set to 'Enabled'"
+  unique_title: ensure_network_access_do_not_allow_storage_of_passwords_and_credentials_for_network_authentication_is_set_to_enabled
+  type: ensure_policy_value
+  policy: 'Network access: Do not allow storage of passwords and credentials for network
+    authentication'
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.1.3:
+  title: "(L2) Ensure 'Allow Online Tips' is set to 'Disabled'"
+  unique_title: ensure_allow_online_tips_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow Online Tips
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.5:
+  title: "(L2) Ensure 'MSS: (KeepAliveTime) How often keep-alive packets are sent
+    in milliseconds' is set to 'Enabled: 300,000 or 5 minutes (recommended)'"
+  unique_title: ensure_mss_keepalivetime_how_often_keep_alive_packets_are_sent_in_milliseconds_is_set_to_enabled_300000_or_5_minutes_recommended
+  type: ensure_policy_value
+  policy: 'MSS: (KeepAliveTime) How often keep-alive packets are sent in milliseconds'
+  comparitor:
+  - 'Enabled: 300'
+  - 000 or 5 minutes (recommended)
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 300,000 or 5 minutes (recommended)'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.7:
+  title: "(L2) Ensure 'MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure
+    Default Gateway addresses (could lead to DoS)' is set to 'Disabled'"
+  unique_title: ensure_mss_performrouterdiscovery_allow_irdp_to_detect_and_configure_default_gateway_addresses_could_lead_to_dos_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure Default
+    Gateway addresses (could lead to DoS)'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.10:
+  title: "(L2) Ensure 'MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged
+    data is retransmitted' is set to 'Enabled: 3'"
+  unique_title: ensure_mss_tcpmaxdataretransmissions_ipv6_how_many_times_unacknowledged_data_is_retransmitted_is_set_to_enabled_3
+  type: ensure_policy_value
+  policy: 'MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data
+    is retransmitted'
+  comparitor: 'Enabled: 3'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 3'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.4.11:
+  title: "(L2) Ensure 'MSS: (TcpMaxDataRetransmissions) How many times unacknowledged
+    data is retransmitted' is set to 'Enabled: 3'"
+  unique_title: ensure_mss_tcpmaxdataretransmissions_how_many_times_unacknowledged_data_is_retransmitted_is_set_to_enabled_3
+  type: ensure_policy_value
+  policy: 'MSS: (TcpMaxDataRetransmissions) How many times unacknowledged data is
+    retransmitted'
+  comparitor: 'Enabled: 3'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 3'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.5.1:
+  title: "(L2) Ensure 'Enable Font Providers' is set to 'Disabled'"
+  unique_title: ensure_enable_font_providers_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Enable Font Providers
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.9.1:
+  title: "(L2) Ensure 'Turn on Mapper I/O (LLTDIO) driver' is set to 'Disabled'"
+  unique_title: ensure_turn_on_mapper_io_lltdio_driver_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn on Mapper I/O (LLTDIO) driver
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.9.2:
+  title: "(L2) Ensure 'Turn on Responder (RSPNDR) driver' is set to 'Disabled'"
+  unique_title: ensure_turn_on_responder_rspndr_driver_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Turn on Responder (RSPNDR) driver
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.10.2:
+  title: "(L2) Ensure 'Turn off Microsoft Peer-to-Peer Networking Services' is set
+    to 'Enabled'"
+  unique_title: ensure_turn_off_microsoft_peer_to_peer_networking_services_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Microsoft Peer-to-Peer Networking Services
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.19.2.1:
+  title: "(L2) Disable IPv6 (Ensure TCPIP6 Parameter 'DisabledComponents' is set to
+    '0xff (255)')"
+  unique_title: disable_ipv6_ensure_tcpip6_parameter_disabledcomponents_is_set_to_0xff_255
+  type: snowflake
+  policy: 
+  comparitor: 
+  operator: 
+  and_not_zero: false
+  comparitor_loose: 
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.20.1:
+  title: "(L2) Ensure 'Configuration of wireless settings using Windows Connect Now'
+    is set to 'Disabled'"
+  unique_title: ensure_configuration_of_wireless_settings_using_windows_connect_now_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Configuration of wireless settings using Windows Connect Now
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.5.20.2:
+  title: "(L2) Ensure 'Prohibit access of the Windows Connect Now wizards' is set
+    to 'Enabled'"
+  unique_title: ensure_prohibit_access_of_the_windows_connect_now_wizards_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prohibit access of the Windows Connect Now wizards
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.2:
+  title: "(L2) Ensure 'Turn off handwriting personalization data sharing' is set to
+    'Enabled'"
+  unique_title: ensure_turn_off_handwriting_personalization_data_sharing_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off handwriting personalization data sharing
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.3:
+  title: "(L2) Ensure 'Turn off handwriting recognition error reporting' is set to
+    'Enabled'"
+  unique_title: ensure_turn_off_handwriting_recognition_error_reporting_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off handwriting recognition error reporting
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.4:
+  title: "(L2) Ensure 'Turn off Internet Connection Wizard if URL connection is referring
+    to Microsoft.com' is set to 'Enabled'"
+  unique_title: ensure_turn_off_internet_connection_wizard_if_url_connection_is_referring_to_microsoftcom_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Internet Connection Wizard if URL connection is referring to Microsoft.com
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.7:
+  title: "(L2) Ensure 'Turn off Registration if URL connection is referring to Microsoft.com'
+    is set to 'Enabled'"
+  unique_title: ensure_turn_off_registration_if_url_connection_is_referring_to_microsoftcom_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Registration if URL connection is referring to Microsoft.com
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.8:
+  title: "(L2) Ensure 'Turn off Search Companion content file updates' is set to 'Enabled'"
+  unique_title: ensure_turn_off_search_companion_content_file_updates_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Search Companion content file updates
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.9:
+  title: (L2) Ensure 'Turn off the "Order Prints" picture task' is set to 'Enabled'
+  unique_title: ensure_turn_off_the_order_prints_picture_task_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off the "Order Prints" picture task
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.10:
+  title: (L2) Ensure 'Turn off the "Publish to Web" task for files and folders' is
+    set to 'Enabled'
+  unique_title: ensure_turn_off_the_publish_to_web_task_for_files_and_folders_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off the "Publish to Web" task for files and folders
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.11:
+  title: "(L2) Ensure 'Turn off the Windows Messenger Customer Experience Improvement
+    Program' is set to 'Enabled'"
+  unique_title: ensure_turn_off_the_windows_messenger_customer_experience_improvement_program_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off the Windows Messenger Customer Experience Improvement Program
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.12:
+  title: "(L2) Ensure 'Turn off Windows Customer Experience Improvement Program' is
+    set to 'Enabled'"
+  unique_title: ensure_turn_off_windows_customer_experience_improvement_program_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Windows Customer Experience Improvement Program
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.22.1.13:
+  title: "(L2) Ensure 'Turn off Windows Error Reporting' is set to 'Enabled'"
+  unique_title: ensure_turn_off_windows_error_reporting_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Windows Error Reporting
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.25.1:
+  title: "(L2) Ensure 'Support device authentication using certificate' is set to
+    'Enabled: Automatic'"
+  unique_title: ensure_support_device_authentication_using_certificate_is_set_to_enabled_automatic
+  type: ensure_policy_value
+  policy: Support device authentication using certificate
+  comparitor: 'Enabled: Automatic'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Automatic'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.26.1:
+  title: "(L2) Ensure 'Disallow copying of user input methods to the system account
+    for sign-in' is set to 'Enabled'"
+  unique_title: ensure_disallow_copying_of_user_input_methods_to_the_system_account_for_sign_in_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Disallow copying of user input methods to the system account for sign-in
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.33.6.1:
+  title: "(L2) Ensure 'Allow network connectivity during connected-standby (on battery)'
+    is set to 'Disabled'"
+  unique_title: ensure_allow_network_connectivity_during_connected_standby_on_battery_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow network connectivity during connected-standby (on battery)
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.33.6.2:
+  title: "(L2) Ensure 'Allow network connectivity during connected-standby (plugged
+    in)' is set to 'Disabled'"
+  unique_title: ensure_allow_network_connectivity_during_connected_standby_plugged_in_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow network connectivity during connected-standby (plugged in)
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.44.5.1:
+  title: "(L2) Ensure 'Microsoft Support Diagnostic Tool: Turn on MSDT interactive
+    communication with support provider' is set to 'Disabled'"
+  unique_title: ensure_microsoft_support_diagnostic_tool_turn_on_msdt_interactive_communication_with_support_provider_is_set_to_disabled
+  type: ensure_policy_value
+  policy: 'Microsoft Support Diagnostic Tool: Turn on MSDT interactive communication
+    with support provider'
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.44.11.1:
+  title: "(L2) Ensure 'Enable/Disable PerfTrack' is set to 'Disabled'"
+  unique_title: ensure_enabledisable_perftrack_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Enable/Disable PerfTrack
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.46.1:
+  title: "(L2) Ensure 'Turn off the advertising ID' is set to 'Enabled'"
+  unique_title: ensure_turn_off_the_advertising_id_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off the advertising ID
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.8.49.1.1:
+  title: "(L2) Ensure 'Enable Windows NTP Client' is set to 'Enabled'"
+  unique_title: ensure_enable_windows_ntp_client_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Enable Windows NTP Client
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.4.1:
+  title: "(L2) Ensure 'Allow a Windows app to share application data between users'
+    is set to 'Disabled'"
+  unique_title: ensure_allow_a_windows_app_to_share_application_data_between_users_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow a Windows app to share application data between users
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.12.1:
+  title: "(L2) Ensure 'Allow Use of Camera' is set to 'Disabled'"
+  unique_title: ensure_allow_use_of_camera_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow Use of Camera
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.16.2:
+  title: "(L2) Ensure 'Configure Authenticated Proxy usage for the Connected User
+    Experience and Telemetry service' is set to 'Enabled: Disable Authenticated Proxy
+    usage'"
+  unique_title: ensure_configure_authenticated_proxy_usage_for_the_connected_user_experience_and_telemetry_service_is_set_to_enabled_disable_authenticated_proxy_usage
+  type: ensure_policy_value
+  policy: Configure Authenticated Proxy usage for the Connected User Experience and
+    Telemetry service
+  comparitor: 'Enabled: Disable Authenticated Proxy usage'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Disable Authenticated Proxy usage'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.39.2:
+  title: "(L2) Ensure 'Turn off location' is set to 'Enabled'"
+  unique_title: ensure_turn_off_location_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off location
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.43.1:
+  title: "(L2) Ensure 'Allow Message Service Cloud Sync' is set to 'Disabled'"
+  unique_title: ensure_allow_message_service_cloud_sync_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow Message Service Cloud Sync
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.2.1:
+  title: "(L2) Ensure 'Restrict Remote Desktop Services users to a single Remote Desktop
+    Services session' is set to 'Enabled'"
+  unique_title: ensure_restrict_remote_desktop_services_users_to_a_single_remote_desktop_services_session_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Restrict Remote Desktop Services users to a single Remote Desktop Services
+    session
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.3.1:
+  title: "(L2) Ensure 'Do not allow COM port redirection' is set to 'Enabled'"
+  unique_title: ensure_do_not_allow_com_port_redirection_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not allow COM port redirection
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.3.3:
+  title: "(L2) Ensure 'Do not allow LPT port redirection' is set to 'Enabled'"
+  unique_title: ensure_do_not_allow_lpt_port_redirection_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not allow LPT port redirection
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.3.4:
+  title: "(L2) Ensure 'Do not allow supported Plug and Play device redirection' is
+    set to 'Enabled'"
+  unique_title: ensure_do_not_allow_supported_plug_and_play_device_redirection_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not allow supported Plug and Play device redirection
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.10.1:
+  title: "(L2) Ensure 'Set time limit for active but idle Remote Desktop Services
+    sessions' is set to 'Enabled: 15 minutes or less'"
+  unique_title: ensure_set_time_limit_for_active_but_idle_remote_desktop_services_sessions_is_set_to_enabled_15_minutes_or_less
+  type: ensure_policy_value
+  policy: Set time limit for active but idle Remote Desktop Services sessions
+  comparitor: 'Enabled: 15 minutes or less'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 15 minutes or less'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.58.3.10.2:
+  title: "(L2) Ensure 'Set time limit for disconnected sessions' is set to 'Enabled:
+    1 minute'"
+  unique_title: ensure_set_time_limit_for_disconnected_sessions_is_set_to_enabled_1_minute
+  type: ensure_policy_value
+  policy: Set time limit for disconnected sessions
+  comparitor: 'Enabled: 1 minute'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: 1 minute'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.60.2:
+  title: "(L2) Ensure 'Allow Cloud Search' is set to 'Enabled: Disable Cloud Search'"
+  unique_title: ensure_allow_cloud_search_is_set_to_enabled_disable_cloud_search
+  type: ensure_policy_value
+  policy: Allow Cloud Search
+  comparitor: 'Enabled: Disable Cloud Search'
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: 'Enabled: Disable Cloud Search'
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.65.1:
+  title: "(L2) Ensure 'Turn off KMS Client Online AVS Validation' is set to 'Enabled'"
+  unique_title: ensure_turn_off_kms_client_online_avs_validation_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off KMS Client Online AVS Validation
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.3.2:
+  title: "(L2) Ensure 'Join Microsoft MAPS' is set to 'Disabled'"
+  unique_title: ensure_join_microsoft_maps_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Join Microsoft MAPS
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.76.9.1:
+  title: "(L2) Ensure 'Configure Watson events' is set to 'Disabled'"
+  unique_title: ensure_configure_watson_events_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Configure Watson events
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.84.1:
+  title: "(L2) Ensure 'Allow suggested apps in Windows Ink Workspace' is set to 'Disabled'"
+  unique_title: ensure_allow_suggested_apps_in_windows_ink_workspace_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow suggested apps in Windows Ink Workspace
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.85.3:
+  title: "(L2) Ensure 'Prevent Internet Explorer security prompt for Windows Installer
+    scripts' is set to 'Disabled'"
+  unique_title: ensure_prevent_internet_explorer_security_prompt_for_windows_installeripts_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Prevent Internet Explorer security prompt for Windows Installer scripts
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.97.2.2:
+  title: "(L2) Ensure 'Allow remote server management through WinRM' is set to 'Disabled'"
+  unique_title: ensure_allow_remote_server_management_through_winrm_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow remote server management through WinRM
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+18.9.98.1:
+  title: "(L2) Ensure 'Allow Remote Shell Access' is set to 'Disabled'"
+  unique_title: ensure_allow_remote_shell_access_is_set_to_disabled
+  type: ensure_policy_value
+  policy: Allow Remote Shell Access
+  comparitor: Disabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Disabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.6.5.1.1:
+  title: "(L2) Ensure 'Turn off Help Experience Improvement Program' is set to 'Enabled'"
+  unique_title: ensure_turn_off_help_experience_improvement_program_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off Help Experience Improvement Program
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.7.3:
+  title: "(L2) Ensure 'Do not use diagnostic data for tailored experiences' is set
+    to 'Enabled'"
+  unique_title: ensure_do_not_use_diagnostic_data_for_tailored_experiences_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Do not use diagnostic data for tailored experiences
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.7.4:
+  title: "(L2) Ensure 'Turn off all Windows spotlight features' is set to 'Enabled'"
+  unique_title: ensure_turn_off_all_windows_spotlight_features_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Turn off all Windows spotlight features
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
+19.7.44.2.1:
+  title: "(L2) Ensure 'Prevent Codec Download' is set to 'Enabled'"
+  unique_title: ensure_prevent_codec_download_is_set_to_enabled
+  type: ensure_policy_value
+  policy: Prevent Codec Download
+  comparitor: Enabled
+  operator: "=="
+  and_not_zero: false
+  comparitor_loose: Enabled
+  deep_operator: 
+  deep_comparitor: 
+  monitor: false
+  enforce: false
