@@ -35,7 +35,6 @@ require 'yaml'
 mydir = File.expand_path(File.dirname(__FILE__))
 benchmark_dir = File.join(mydir, '..')
 
-
 module Windows_compliance
   def self.evaluate_benchmark(benchmark_identifier, benchmark_dir, options)
 
@@ -91,10 +90,11 @@ module Windows_compliance
   end
 end
 
+# TODO: allow the following to be configurable by examining a config file
 options = {
-  :show_details => false, # if true then the name and state and other details of each control will be include in the fact output
-  :show_summary => true, # if true then the name and state and other details of each control will be include in the fact output
-  :debug => false,       # if true, and the above details is true, then further debug info will be included for each control
+  :show_details => true, # if true then the name and state and other details of each control will be include in the fact output
+  :show_summary => true,  # if true then summary arrays showing which control names are in each category
+  :debug        => false,  # if true, and the above details is true, then further debug info will be included for each control
 }
 
 Facter.add('os_compliance') do
