@@ -19,8 +19,39 @@ Relevant pieces of the puzzle:
 Example fact output (snipped for brevity):
 
 ```yaml
-
+os_compliance:
+  cis_level_1:
+    version: cis_windows_2016rtm1607_member_server_1.1.0
+    percent_compliant: 20.3448275862069
+    percent_implemented: 34.48275862068966
+    counts_by_state:
+      noncompliant: 41
+      compliant: 59
+      unimplemented: 190
+    number_controls: 290
+    controls:
+      noncompliant:
+        1_1_1:
+          compliancy: noncompliant
+          state: 0
+          title: (L1) Ensure 'Enforce password history' is set to '24 or more password(s)'
+        1_1_3:
+          compliancy: noncompliant
+          state: 0
+          title: (L1) Ensure 'Minimum password age' is set to '1 or more day(s)'
+    controls_summary:
+      - noncompliant:
+          - 1_1_1
+          - 1_1_3
+      - compliant:
+          - 1_1_2
+          - 1_1_5
+      - unimplemented:
+          - 2_2_3
+          - 2_2_22
 ```
+
+See complete examples under the `example_fact_output` folder.
 
 ## Using bolt to test fact execution
 
