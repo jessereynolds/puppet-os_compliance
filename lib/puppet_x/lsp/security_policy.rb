@@ -218,10 +218,10 @@ class SecurityPolicy
         end
     end
 
-    # returns the key and hash value given the policy name
+    # returns the description and mapping hash given the policy name
     def self.find_mapping_from_policy_name(name)
-        key, value = lsp_mapping.find do |key,hash|
-            hash[:name] == name
+        key, value = lsp_mapping.find do |key, hash|
+            hash[:name].downcase == name.downcase
         end
         unless key && value
             raise KeyError, "#{name} is not a valid policy"
@@ -229,7 +229,7 @@ class SecurityPolicy
         return key, value
     end
 
-    # returns the key and hash value given the policy desc
+    # returns the mapping hash given the policy desc
     def self.find_mapping_from_policy_desc(desc)
         name = desc.downcase
         value = nil
@@ -247,6 +247,7 @@ class SecurityPolicy
     end
 
     def self.convert_registry_value(name, value)
+        #return "1,\"====== #{value} ======\""
         value = value.to_s
         return value if value.split(',').count > 1
         policy_hash = find_mapping_from_policy_desc(name)
@@ -871,6 +872,11 @@ class SecurityPolicy
                 :reg_type => '4',
                 :policy_type => 'Registry Values',
             },
+            'Network access: Restrict clients allowed to make remote calls to SAM' => {
+                :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\RestrictRemoteSAM',
+                :reg_type => '1',
+                :policy_type => 'Registry Values',
+            },
             'Network access: Remotely accessible registry paths and sub-paths' => {
                 :name => 'MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedPaths\Machine',
                 :reg_type => '7',
@@ -891,6 +897,12 @@ class SecurityPolicy
                 :reg_type => '4',
                 :policy_type => 'Registry Values',
             },
+            #Control\Lsa\MSV1_0:AllowNullSessionFallback
+            'Network security: Allow LocalSystem NULL session fallback' => {
+                :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\AllowNullSessionFallback',
+                :reg_type => '4',
+                :policy_type => 'Registry Values',
+            },
             'Network security: Minimum session security for NTLM SSP based (including secure RPC) clients' => {
                 :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\NTLMMinClientSec',
                 :reg_type => '4',
@@ -900,6 +912,20 @@ class SecurityPolicy
                 :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\NTLMMinServerSec',
                 :reg_type => '4',
                 :policy_type => 'Registry Values',
+            },
+            # 2_3_11_3
+            'Network Security: Allow PKU2U authentication requests to this computer to use online identities' => {
+                :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\pku2u\AllowOnlineID',
+                :reg_type => "4",
+                :policy_type => "Registry Values",
+            },
+            #     \Policies\System\Kerberos\Parameters:SupportedEncryptionTypes
+            # Network security: Configure encryption types allowed for Kerberos
+            # MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes
+            'Network security: Configure encryption types allowed for Kerberos' => {
+                :name => 'MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes',
+                :reg_type => "4",
+                :policy_type => "Registry Values",
             },
             'Network security: LDAP client signing requirements' => {
                 :name => 'MACHINE\System\CurrentControlSet\Services\LDAP\LDAPClientIntegrity',
@@ -911,7 +937,7 @@ class SecurityPolicy
                 :policy_type => "Registry Values",
                 :reg_type => "4"
             },
-            'System objects: Strengthen default permissions of internal system objects (e.g., Symbolic Links)' => {
+            'System objects: Strengthen default permissions of internal system objects (e.g. Symbolic Links)' => {
                 :name => 'MACHINE\System\CurrentControlSet\Control\Session Manager\ProtectionMode',
                 :policy_type => "Registry Values",
                 :reg_type => "4"
