@@ -5,9 +5,14 @@ This module implements CIS benchmarks as a Puppet custom fact for reporting, and
 
 # Custom Fact - os_compliance
 
-This works by consuming a YAML file that represents the particular benchmark for the current OS version where a bunch of the interpretation of each control's recommendations has been codified and checking each one off against the output of secedit. The `tools/cis_injest_benchmark_csv.rb` script does the generation of this YAML benchmark description file.
+This works by consuming a YAML file that represents the particular benchmark for the current OS version
+where a bunch of the interpretation of each control's recommendations has been codified.
+It then checks each one off against the output of `secedit`.
+The `tools/cis_injest_benchmark_csv.rb` script does the generation of this YAML benchmark description file.
 
-There's still a fair way to go with this and at some point I will probably have to start writing ruby methods for individual controls rather than having a general approach all of the L1 controls. As at 19 April 2019 33% of the CIS L1 Member Server controls for Windows 2012 R2 are implemented.
+There's still a fair way to go with this and at some point we may have to start writing ruby methods for
+individual controls rather than having a general approach all of the L1 controls.
+As at 1 July 2019 35% of the CIS L1 Member Server controls for Windows 2012 R2 are implemented and 34% for 2016.
 
 Relevant pieces of the puzzle:
 
@@ -99,13 +104,6 @@ groups:
         password: xxxxxxxx
         connect-timeout: 10
         ssl: false
-
-nodes:
-  - name: jessewins.puppetdebug.vlan
-    config:
-      winrm:
-        user: vagrant
-        password: vagrant
 ```
 
 ## Acknowledgements
@@ -120,4 +118,4 @@ And others who've made various inroads on CIS benchmark implementations with Pup
 
 ## Limitations
 
-This module is in active development and is incomplete. Initial development is being performed on Windows 2012 R2.
+This module is in active development and is incomplete. Initial development is being performed on Windows Server 2012 R2 and Windows Server 2016.
