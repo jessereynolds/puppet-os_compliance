@@ -552,3 +552,276 @@ Fixed. Now we have 2.2.7 and probably others
             deep_comparitor: "`Administrators, Remote Desktop Users`"
 ```
 
+2019-06-21
+
+There are 180 controls that are unimplemented because of "invalid_policy". Here's the first one: 
+
+```
+        2_3_10_11:
+          compliancy: unimplemented
+          state: ~
+          title: "(L1) Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow' (MS only)"
+          unimplemented_reason: "invalid_policy:Network access: Restrict clients allowed to make remote calls to SAM"
+          message: "No policy named 'Network access: Restrict clients allowed to make remote calls to SAM' in SecurityPolicy - perhaps not a security policy?"
+          debug_data:
+            params:
+              title: "(L1) Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow' (MS only)"
+              unique_title: ensure_network_access_restrict_clients_allowed_to_make_remote_calls_to_sam_is_set_to_administrators_remote_access_allow_ms_only
+              type: ensure_policy_value
+              policy: "Network access: Restrict clients allowed to make remote calls to SAM"
+              comparitor: "Administrators: Remote Access: Allow"
+              operator: ==
+              and_not_zero: false
+              comparitor_loose: "Administrators: Remote Access: Allow"
+              deep_operator: ~
+              deep_comparitor: ~
+              monitor: true
+              enforce: false
+```
+
+Ok so the above is 2016 only. It is registry key lookup, the devsec inspec implements it as follows:
+
+```ruby
+  only_if('Only for Windows Server 2016, 2019 and if attribute(\'ms_or_dc\') is set to MS') do
+    (((os[:name].include? '2016') || (os[:name].include? '2019')) && attribute('ms_or_dc') == 'MS')
+  end
+  describe registry_key('HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa') do
+    it { should have_property 'restrictremotesam' }
+    its('restrictremotesam') { should eq 'O:BAG:BAD:(A;;RC;;;BA)' }
+  end
+```
+
+https://github.com/dev-sec/windows-baseline/blob/master/controls/local_policies.rb
+
+
+Current 
+https://gist.github.com/jessereynolds/c0bb0e617052f930b677bd10d810e41d
+
+How best to read this value? Is it in security manager or group policy or some such or should it be just a registry key read? 
+
+Here's the whole detail from the CIS benchmark yaml: 
+
+```yaml
+2.3.10.11:
+  'section #': 2.3.10
+  'recommendation #': 2.3.10.11
+  title: "(L1) Ensure 'Network access: Restrict clients allowed to make remote calls
+    to SAM' is set to 'Administrators: Remote Access: Allow' (MS only)"
+  status: published
+  scoring status: full
+  description: |-
+    This policy setting allows you to restrict remote RPC connections to SAM.
+
+    The recommended state for this setting is: `Administrators: Remote Access: Allow`.
+
+    **Note:** A Windows 10 R1607, Server 2016 or newer OS is required to access and set this value in Group Policy.
+  rationale statement: To ensure that an unauthorized user cannot anonymously list
+    local account names or groups and use the information to attempt to guess passwords
+    or perform social engineering attacks. (Social engineering attacks try to deceive
+    users in some way to obtain passwords or some form of security information.)
+  remediation procedure: |-
+    To establish the recommended configuration via GP, set the following UI path to `Administrators: Remote Access: Allow`:
+
+     ```
+    Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Network access: Restrict clients allowed to make remote calls to SAM
+    ```
+  audit procedure: |-
+    Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location:
+
+     ```
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa:restrictremotesam
+    ```
+  impact statement: None - this is the default behavior.
+  notes: 
+  CIS controls: TITLE:Minimize And Sparingly Use Administrative Privileges CONTROL:5.1
+    DESCRIPTION:Minimize administrative privileges and only use administrative accounts
+    when they are required. Implement focused auditing on the use of administrative
+    privileged functions and monitor for anomalous behavior.;TITLE:Limit Open Ports,
+    Protocols, and Services CONTROL:9.1 DESCRIPTION:Ensure that only ports, protocols,
+    and services with validated business needs are running on each system.;TITLE:Ensure
+    Only Approved Ports, Protocols and Services Are Running CONTROL:9.2 DESCRIPTION:Ensure
+    that only network ports, protocols, and services listening on a system with validated
+    business needs, are running on each system.;
+  CCE-ID: 
+  references: 
+```
+
+Glenn: "Also note that secedit can do file and registry security and auditing settings, while GP can't. it's a venn diagram"
+
+MS doc on the above control: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-restrict-clients-allowed-to-make-remote-sam-calls
+
+So by default this policy is not set, and therefore you do not see it in the output of secedit. Once it is set as prescribed you get the following line:
+
+```
+#secedit output:
+MACHINE\System\CurrentControlSet\Control\Lsa\RestrictRemoteSAM=1,"O:BAG:BAD:(A;;RC;;;BA)"
+
+#registry key and value:
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa:restrictremotesam
+
+#use reg command over bolt to read registry key value
+$ bolt command run 'reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v RestrictRemoteSAM' -n win2016
+Started on windows2016cis.puppetdebug.vlan...
+Finished on windows2016cis.puppetdebug.vlan:
+  STDOUT:
+
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa
+        RestrictRemoteSAM    REG_SZ    O:BAG:BAD:(A;;RC;;;BA)
+```
+
+So `O:BAG:BAD:(A;;RC;;;BA)` is an SDDL - Security Descriptor of the Security Descriptor Definition Language - SDDL - https://en.wikipedia.org/wiki/Security_descriptor
+
+`REG_SZ` is a registry value symbolic type name. It means a string value, normally stored and exposed in UTF-16LE.
+
+https://en.wikipedia.org/wiki/Windows_Registry#Keys_and_values
+
+
+I added the policy to security_policy.rb as follows:
+
+```
+            'Network access: Restrict clients allowed to make remote calls to SAM' => {
+                :name => 'MACHINE\System\CurrentControlSet\Control\Lsa\RestrictRemoteSAM',
+                :reg_type => '1',
+                :policy_type => 'Registry Values',
+            },
+```
+
+however this is now coming up as noncompliant due to a mismatch:
+
+```
+            2_3_10_11:
+              compliancy: noncompliant
+              state: "1,\"O:BAG:BAD:(A"
+              message: comparitor is a String but actual value is not (it's a String), or the downcased strings do not match
+              title: "(L1) Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow' (MS only)"
+              debug_data:
+                params:
+                  title: "(L1) Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow' (MS only)"
+                  unique_title: ensure_network_access_restrict_clients_allowed_to_make_remote_calls_to_sam_is_set_to_administrators_remote_access_allow_ms_only
+                  type: ensure_policy_value
+                  policy: "Network access: Restrict clients allowed to make remote calls to SAM"
+                  comparitor: "Administrators: Remote Access: Allow"
+                  operator: ==
+                  and_not_zero: false
+                  comparitor_loose: "Administrators: Remote Access: Allow"
+                  deep_operator: ~
+                  deep_comparitor: ~
+                  monitor: true
+                  enforce: false
+                comparitor: "Administrators: Remote Access: Allow"
+                comparitor_typed: "Administrators: Remote Access: Allow"
+                actual_policy_value: "1,\"O:BAG:BAD:(A"
+                actual_policy_value_typed: "1,\"O:BAG:BAD:(A"
+```
+
+Added handling in ensure_policy_value.rb to recognise a value like "1,somestring" which hasn't helped much:
+
+```
+                actual_policy_value: "1,\"O:BAG:BAD:(A"
+                actual_policy_value_typed: "\"O:BAG:BAD:(A"
+```
+
+need to remove the escaping of the quotes and stuff. Hrm. 
+
+Gave up and put in a dodgy regex to match this one, it is a one-off I think. 
+
+OK, here's the next invalid policy one:
+
+```
+            2_3_11_2:
+              compliancy: unimplemented
+              state: ~
+              title: "(L1) Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'"
+              unimplemented_reason: "invalid_policy:Network security: Allow LocalSystem NULL session fallback"
+              message: "No policy named 'Network security: Allow LocalSystem NULL session fallback' in SecurityPolicy - perhaps not a security policy?"
+              debug_data:
+                params:
+                  title: "(L1) Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'"
+                  unique_title: ensure_network_security_allow_localsystem_null_session_fallback_is_set_to_disabled
+                  type: ensure_policy_value
+                  policy: "Network security: Allow LocalSystem NULL session fallback"
+                  comparitor: Disabled
+                  operator: ==
+                  and_not_zero: false
+                  comparitor_loose: Disabled
+                  deep_operator: ~
+                  deep_comparitor: ~
+                  monitor: true
+                  enforce: false
+```
+
+https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-allow-localsystem-null-session-fallback
+
+Location
+Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0:AllowNullSessionFallback
+
+```
+os_compliance $ bolt command run 'reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0" /v allownullsessionfallback' -n win2016
+Started on windows2016cis.puppetdebug.vlan...
+Finished on windows2016cis.puppetdebug.vlan:
+  STDOUT:
+
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
+        allownullsessionfallback    REG_DWORD    0x1
+```
+
+Fixed by adding the policy to to security_policy.rb
+
+
+Next one that's invalid:
+
+```
+            2_3_11_3:
+              compliancy: unimplemented
+              state: ~
+              title: "(L1) Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled'"
+              unimplemented_reason: "invalid_policy:Network Security: Allow PKU2U authentication requests to this computer to use online identities"
+              message: "No policy named 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' in SecurityPolicy - perhaps not a security policy?"
+              debug_data:
+                params:
+                  title: "(L1) Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled'"
+                  unique_title: ensure_network_security_allow_pku2u_authentication_requests_to_this_computer_to_use_online_identities_is_set_to_disabled
+                  type: ensure_policy_value
+                  policy: "Network Security: Allow PKU2U authentication requests to this computer to use online identities"
+                  comparitor: Disabled
+                  operator: ==
+                  and_not_zero: false
+                  comparitor_loose: Disabled
+                  deep_operator: ~
+                  deep_comparitor: ~
+                  monitor: true
+                  enforce: false
+```
+
+Location
+Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options
+
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\pku2u:AllowOnlineID
+
+
+
+os_compliance $ bolt command run 'reg query " HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters" /v SupportedEncryptionTypes' -n win2016
+Started on windows2016cis.puppetdebug.vlan...
+Finished on windows2016cis.puppetdebug.vlan:
+  STDOUT:
+
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters
+        SupportedEncryptionTypes    REG_DWORD    0x4
+
+
+os_compliance $ bolt command run 'secedit /export /cfg secedit_dump.txt' -n win2016
+Started on windows2016cis.puppetdebug.vlan...
+Finished on windows2016cis.puppetdebug.vlan:
+  STDOUT:
+
+    The task has completed successfully.
+    See log %windir%\security\logs\scesrv.log for detail info.
+Successful on 1 node: windows2016cis.puppetdebug.vlan
+Ran on 1 node in 0.85 seconds
+os_compliance $ bolt command run 'cat secedit_dump.txt' -n win2016 | grep -i kerberos
+    MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes=4,2147483640
+
+wow. that's with the correct setting 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types' - one huge number. 
+
