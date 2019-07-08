@@ -1,0 +1,39 @@
+---
+os_compliance:
+  cis_level_1:
+    version: cis_sle_12_server_2.1.0
+    percent_compliant: 94.7
+    counts_by_state:
+      compliant: 178
+      noncompliant: 10
+    number_controls: 188
+    controls:
+      noncompliant:
+        1_1_1_1:
+          compliancy: noncompliant
+          title: Ensure mounting of cramfs filesystems is disabled (Scored)
+        1_1_1_3:
+          compliancy: noncompliant
+          title: Ensure mounting of jffs2 filesystems is disabled (Scored)
+        ...
+      compliant:
+        1_1_1_2:
+          compliancy: compliant
+          title: Ensure mounting of freevxfs filesystems is disabled (Scored)
+        1_1_1_4:
+          compliancy: compliant
+          title: Ensure mounting of hfs filesystems is disabled (Scored)
+        ...
+    controls_summary:
+      - noncompliant:
+          - 1_1_1_1
+          - 1_1_1_3
+          - ...
+      - compliant:
+          - 1_1_1_2
+          - 1_1_1_4
+          - ...
+  cis_level_2:
+    version: cis_sle_12_server_2.1.0
+    ...
+    
